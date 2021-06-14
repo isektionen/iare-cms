@@ -10,10 +10,10 @@ It's fully built with javascript and is 100% customizable, meaning that we can e
 ## Roadmap
 
 - [ ] Build an Event Managing plugin
-  - [ ] Design event collections
+  - [x] Design event collections
   - [ ] Design information-flow
   - [ ] Restrict access to events under RBAC
-  - [ ] Design UI for administrator
+  - [x] Design UI for administrator
 - [ ] Explain key concepts of Strapi
   - [ ] Quick-start guide (on top of the provided one)
   - [ ] API
@@ -41,3 +41,4 @@ It's fully built with javascript and is 100% customizable, meaning that we can e
 
 - Recoil.js - A dependency graph state management library for React
 - React-icons - An extensive library for icons
+- Echarts - An extensive SVG chart library
