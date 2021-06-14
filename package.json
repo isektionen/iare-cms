@@ -1,0 +1,51 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1",
+    "child_process": "^1.0.2",
+    "echarts": "^5.1.1",
+    "fs": "0.0.1-security",
+    "knex": "0.21.18",
+    "net": "^1.0.2",
+    "react-icons": "^4.2.0",
+    "recoil": "^0.3.1",
+    "sqlite3": "5.0.0",
+    "strapi": "3.6.2",
+    "strapi-admin": "3.6.2",
+    "strapi-connector-bookshelf": "3.6.2",
+    "strapi-plugin-content-manager": "3.6.2",
+    "strapi-plugin-content-type-builder": "3.6.2",
+    "strapi-plugin-documentation": "^3.6.2",
+    "strapi-plugin-email": "3.6.2",
+    "strapi-plugin-graphql": "3.6.2",
+    "strapi-plugin-i18n": "3.6.2",
+    "strapi-plugin-upload": "3.6.2",
+    "strapi-plugin-users-permissions": "3.6.2",
+    "strapi-utils": "3.6.2",
+    "tls": "0.0.1"
+  },
+  "resolutions": {
+    "match-sorter": "4.x.x"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "478de7fe-db1c-477a-acfe-a4e30a3b6ffc"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "license": "MIT"
+}

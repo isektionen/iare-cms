@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "token": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "event": {
+      "via": "orders",
+      "model": "event"
+    },
+    "diets": {
+      "via": "orders",
+      "collection": "diet"
+    },
+    "allergies": {
+      "via": "orders",
+      "collection": "allergy"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  },
+  "exclude": ["build", ".cache", "dist"]
+}

@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "event-manager.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me",
+      "handler": "event-manager.hydrate",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

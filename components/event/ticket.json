@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_event_tickets",
+  "info": {
+    "name": "ticket",
+    "icon": "ticket-alt"
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ALCOHOL",
+        "NO_ALCOHOL"
+      ],
+      "required": true
+    }
+  }
+}
