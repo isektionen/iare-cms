@@ -1,3 +1,3 @@
-# Strapi application
+# iare-cms
 
-A quick description of your strapi application
+CMS &amp; backend API for content delivering
