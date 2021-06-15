@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_form_checkboxes",
+  "info": {
+    "name": "checkbox",
+    "icon": "check-square",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "checkBox": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form-internals.checkbox-option"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_servings",
+  "info": {
+    "name": "serving",
+    "icon": "apple-alt"
+  },
+  "options": {},
+  "attributes": {
+    "servingFood": {
+      "type": "boolean",
+      "required": true
+    },
+    "servingAlcohol": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

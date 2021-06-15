@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_inputs",
+  "info": {
+    "name": "input",
+    "icon": "coins"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "regex": {
+      "type": "string"
+    }
+  }
+}

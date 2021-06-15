@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_internal_tickets",
+  "info": {
+    "name": "ticket",
+    "icon": "tag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

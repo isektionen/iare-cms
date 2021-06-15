@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_internals_checkbox_options",
+  "info": {
+    "name": "checkboxOption",
+    "icon": "check-circle"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "boolean"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

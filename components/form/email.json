@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_form_emails",
+  "info": {
+    "name": "email",
+    "icon": "at",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "email"
+    }
+  }
+}

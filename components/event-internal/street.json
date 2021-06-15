@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_internal_streets",
+  "info": {
+    "name": "detailedStreetInfo",
+    "icon": "road",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "streetName": {
+      "type": "string",
+      "required": true
+    },
+    "streetPostalCode": {
+      "type": "integer"
+    }
+  }
+}

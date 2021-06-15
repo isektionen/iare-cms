@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_event_places",
+  "info": {
+    "name": "place",
+    "icon": "map-marked-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "detailedStreetInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event-internal.street"
+    },
+    "showMap": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_students",
+  "info": {
+    "name": "student",
+    "icon": "graduation-cap"
+  },
+  "options": {},
+  "attributes": {
+    "checkStudentYear": {
+      "type": "boolean",
+      "required": true
+    },
+    "checkProgramOrientation": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

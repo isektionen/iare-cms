@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_event_tickets",
+  "info": {
+    "name": "Tickets",
+    "icon": "receipt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Tickets": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event-internal.ticket",
+      "required": false
+    },
+    "allowMultiple": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

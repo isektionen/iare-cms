@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_internals_options",
+  "info": {
+    "name": "option",
+    "icon": "asterisk"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

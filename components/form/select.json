@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_form_selects",
+  "info": {
+    "name": "select",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "allowMultiple": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form-internals.option",
+      "required": true
+    }
+  }
+}
