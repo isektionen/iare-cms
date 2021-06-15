@@ -545,9 +545,6 @@
                 "token": {
                   "type": "string"
                 },
-                "event": {
-                  "type": "string"
-                },
                 "diets": {
                   "type": "array",
                   "items": {
@@ -555,6 +552,12 @@
                   }
                 },
                 "allergies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "event": {
                   "type": "array",
                   "items": {
                     "type": "string"

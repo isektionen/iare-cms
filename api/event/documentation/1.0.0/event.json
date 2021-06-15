@@ -517,7 +517,12 @@
       "Event": {
         "required": [
           "id",
-          "title"
+          "title",
+          "startTime",
+          "endTime",
+          "deadline",
+          "description",
+          "place"
         ],
         "properties": {
           "id": {
@@ -585,7 +590,7 @@
               }
             }
           },
-          "event_category": {
+          "category": {
             "required": [
               "id",
               "name"
@@ -637,9 +642,6 @@
                 "token": {
                   "type": "string"
                 },
-                "event": {
-                  "type": "string"
-                },
                 "diets": {
                   "type": "array",
                   "items": {
@@ -647,6 +649,12 @@
                   }
                 },
                 "allergies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "event": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -661,12 +669,158 @@
               }
             }
           },
+          "tickets": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Tickets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number",
+                      "default": 0
+                    }
+                  }
+                }
+              },
+              "allowMultiple": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "servingOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "servingFood",
+              "servingAlcohol"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "servingFood": {
+                "type": "boolean"
+              },
+              "servingAlcohol": {
+                "type": "boolean"
+              }
+            }
+          },
+          "studentOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "checkStudentYear",
+              "checkProgramOrientation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "checkStudentYear": {
+                "type": "boolean"
+              },
+              "checkProgramOrientation": {
+                "type": "boolean"
+              }
+            }
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "place": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "showMap"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "detailedStreetInfo": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "streetName"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "streetName": {
+                    "type": "string"
+                  },
+                  "streetPostalCode": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "showMap": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "passwordProtected": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "title"
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
               ],
               "properties": {
                 "id": {
@@ -681,7 +835,7 @@
                 "committee": {
                   "type": "string"
                 },
-                "event_category": {
+                "category": {
                   "type": "string"
                 },
                 "orders": {
@@ -689,6 +843,33 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -722,7 +903,12 @@
       },
       "NewEvent": {
         "required": [
-          "title"
+          "title",
+          "startTime",
+          "endTime",
+          "deadline",
+          "description",
+          "place"
         ],
         "properties": {
           "title": {
@@ -734,13 +920,154 @@
           "committee": {
             "type": "string"
           },
-          "event_category": {
+          "category": {
             "type": "string"
           },
           "orders": {
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "tickets": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Tickets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number",
+                      "default": 0
+                    }
+                  }
+                }
+              },
+              "allowMultiple": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "servingOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "servingFood",
+              "servingAlcohol"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "servingFood": {
+                "type": "boolean"
+              },
+              "servingAlcohol": {
+                "type": "boolean"
+              }
+            }
+          },
+          "studentOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "checkStudentYear",
+              "checkProgramOrientation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "checkStudentYear": {
+                "type": "boolean"
+              },
+              "checkProgramOrientation": {
+                "type": "boolean"
+              }
+            }
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "place": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "showMap"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "detailedStreetInfo": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "streetName"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "streetName": {
+                    "type": "string"
+                  },
+                  "streetPostalCode": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "showMap": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "passwordProtected": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
             }
           },
           "localizations": {

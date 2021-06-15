@@ -544,7 +544,12 @@
             "items": {
               "required": [
                 "id",
-                "title"
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
               ],
               "properties": {
                 "id": {
@@ -559,7 +564,7 @@
                 "committee": {
                   "type": "string"
                 },
-                "event_category": {
+                "category": {
                   "type": "string"
                 },
                 "orders": {
@@ -567,6 +572,33 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",

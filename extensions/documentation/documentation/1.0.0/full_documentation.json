@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "06/06/2021 10:45:08 PM"
+    "x-generation-date": "06/15/2021 7:56:16 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3109,530 +3109,6 @@
         "summary": "",
         "tags": [
           "Event"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/order-forms": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
-        ],
-        "parameters": [
-          {
-            "name": "_limit",
-            "in": "query",
-            "required": false,
-            "description": "Maximum number of results possible",
-            "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_sort",
-            "in": "query",
-            "required": false,
-            "description": "Sort according to a specific field.",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_start",
-            "in": "query",
-            "required": false,
-            "description": "Skip a specific number of entries (especially useful for pagination)",
-            "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "=",
-            "in": "query",
-            "required": false,
-            "description": "Get entries that matches exactly your input",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_ne",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are not equals to something",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lt",
-            "in": "query",
-            "required": false,
-            "description": "Get record that are lower than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are lower than or equal to a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gt",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than  or equal a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_contains",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_containss",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains (case sensitive) a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_in",
-            "in": "query",
-            "required": false,
-            "description": "Get records that matches any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_nin",
-            "in": "query",
-            "required": false,
-            "description": "Get records that doesn't match any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          }
-        ]
-      },
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewOrder-form"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/order-forms/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
-        ],
-        "parameters": []
-      }
-    },
-    "/order-forms/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewOrder-form"
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "delete": {
-        "deprecated": false,
-        "description": "Delete a record",
-        "responses": {
-          "200": {
-            "description": "deletes a single record based on the ID supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-form"
         ],
         "parameters": [
           {
@@ -6930,9 +6406,6 @@
                 "token": {
                   "type": "string"
                 },
-                "event": {
-                  "type": "string"
-                },
                 "diets": {
                   "type": "array",
                   "items": {
@@ -6940,6 +6413,12 @@
                   }
                 },
                 "allergies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "event": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -7315,7 +6794,12 @@
             "items": {
               "required": [
                 "id",
-                "title"
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
               ],
               "properties": {
                 "id": {
@@ -7330,7 +6814,7 @@
                 "committee": {
                   "type": "string"
                 },
-                "event_category": {
+                "category": {
                   "type": "string"
                 },
                 "orders": {
@@ -7338,6 +6822,33 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -7566,9 +7077,6 @@
                 "token": {
                   "type": "string"
                 },
-                "event": {
-                  "type": "string"
-                },
                 "diets": {
                   "type": "array",
                   "items": {
@@ -7576,6 +7084,12 @@
                   }
                 },
                 "allergies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "event": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -7701,7 +7215,12 @@
             "items": {
               "required": [
                 "id",
-                "title"
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
               ],
               "properties": {
                 "id": {
@@ -7716,7 +7235,7 @@
                 "committee": {
                   "type": "string"
                 },
-                "event_category": {
+                "category": {
                   "type": "string"
                 },
                 "orders": {
@@ -7724,6 +7243,33 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -7834,7 +7380,12 @@
       "Event": {
         "required": [
           "id",
-          "title"
+          "title",
+          "startTime",
+          "endTime",
+          "deadline",
+          "description",
+          "place"
         ],
         "properties": {
           "id": {
@@ -7902,7 +7453,7 @@
               }
             }
           },
-          "event_category": {
+          "category": {
             "required": [
               "id",
               "name"
@@ -7954,9 +7505,6 @@
                 "token": {
                   "type": "string"
                 },
-                "event": {
-                  "type": "string"
-                },
                 "diets": {
                   "type": "array",
                   "items": {
@@ -7964,6 +7512,12 @@
                   }
                 },
                 "allergies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "event": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -7978,12 +7532,158 @@
               }
             }
           },
+          "tickets": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Tickets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number",
+                      "default": 0
+                    }
+                  }
+                }
+              },
+              "allowMultiple": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "servingOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "servingFood",
+              "servingAlcohol"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "servingFood": {
+                "type": "boolean"
+              },
+              "servingAlcohol": {
+                "type": "boolean"
+              }
+            }
+          },
+          "studentOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "checkStudentYear",
+              "checkProgramOrientation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "checkStudentYear": {
+                "type": "boolean"
+              },
+              "checkProgramOrientation": {
+                "type": "boolean"
+              }
+            }
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "place": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "showMap"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "detailedStreetInfo": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "streetName"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "streetName": {
+                    "type": "string"
+                  },
+                  "streetPostalCode": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "showMap": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "passwordProtected": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "title"
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
               ],
               "properties": {
                 "id": {
@@ -7998,7 +7698,7 @@
                 "committee": {
                   "type": "string"
                 },
-                "event_category": {
+                "category": {
                   "type": "string"
                 },
                 "orders": {
@@ -8006,6 +7706,33 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -8039,7 +7766,12 @@
       },
       "NewEvent": {
         "required": [
-          "title"
+          "title",
+          "startTime",
+          "endTime",
+          "deadline",
+          "description",
+          "place"
         ],
         "properties": {
           "title": {
@@ -8051,13 +7783,154 @@
           "committee": {
             "type": "string"
           },
-          "event_category": {
+          "category": {
             "type": "string"
           },
           "orders": {
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "tickets": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Tickets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number",
+                      "default": 0
+                    }
+                  }
+                }
+              },
+              "allowMultiple": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "servingOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "servingFood",
+              "servingAlcohol"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "servingFood": {
+                "type": "boolean"
+              },
+              "servingAlcohol": {
+                "type": "boolean"
+              }
+            }
+          },
+          "studentOptions": {
+            "type": "object",
+            "required": [
+              "id",
+              "checkStudentYear",
+              "checkProgramOrientation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "checkStudentYear": {
+                "type": "boolean"
+              },
+              "checkProgramOrientation": {
+                "type": "boolean"
+              }
+            }
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string"
+          },
+          "place": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "showMap"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "detailedStreetInfo": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "streetName"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "streetName": {
+                    "type": "string"
+                  },
+                  "streetPostalCode": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "showMap": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "passwordProtected": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
             }
           },
           "localizations": {
@@ -8068,254 +7941,6 @@
           },
           "locale": {
             "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
-          }
-        }
-      },
-      "Order-form": {
-        "required": [
-          "id",
-          "form"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "events": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "committee": {
-                  "type": "string"
-                },
-                "event_category": {
-                  "type": "string"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "token"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "token": {
-                  "type": "string"
-                },
-                "event": {
-                  "type": "string"
-                },
-                "diets": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "allergies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "form": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "form.user-input",
-                        "form.event-password"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "firstName": {
-                      "type": "string"
-                    },
-                    "lastName": {
-                      "type": "string"
-                    },
-                    "KTHEmail": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "firstName",
-                    "lastName",
-                    "KTHEmail"
-                  ]
-                },
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "form.user-input",
-                        "form.event-password"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string",
-                      "format": "password"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "password"
-                  ]
-                }
-              ]
-            }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "NewOrder-form": {
-        "required": [
-          "form"
-        ],
-        "properties": {
-          "events": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "form": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "form.user-input",
-                        "form.event-password"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "firstName": {
-                      "type": "string"
-                    },
-                    "lastName": {
-                      "type": "string"
-                    },
-                    "KTHEmail": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "firstName",
-                    "lastName",
-                    "KTHEmail"
-                  ]
-                },
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "form.user-input",
-                        "form.event-password"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string",
-                      "format": "password"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "password"
-                  ]
-                }
-              ]
-            }
           },
           "published_at": {
             "type": "string",
@@ -8340,53 +7965,6 @@
           },
           "token": {
             "type": "string"
-          },
-          "event": {
-            "required": [
-              "id",
-              "title"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "uid"
-              },
-              "committee": {
-                "type": "string"
-              },
-              "event_category": {
-                "type": "string"
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "localizations": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "locale": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           },
           "diets": {
             "type": "array",
@@ -8456,6 +8034,88 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "event": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "committee": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -8488,9 +8148,6 @@
           "token": {
             "type": "string"
           },
-          "event": {
-            "type": "string"
-          },
           "diets": {
             "type": "array",
             "items": {
@@ -8498,6 +8155,12 @@
             }
           },
           "allergies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "event": {
             "type": "array",
             "items": {
               "type": "string"

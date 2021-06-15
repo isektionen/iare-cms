@@ -526,53 +526,6 @@
           "token": {
             "type": "string"
           },
-          "event": {
-            "required": [
-              "id",
-              "title"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "uid"
-              },
-              "committee": {
-                "type": "string"
-              },
-              "event_category": {
-                "type": "string"
-              },
-              "orders": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "localizations": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "locale": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "diets": {
             "type": "array",
             "items": {
@@ -641,6 +594,88 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "event": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "startTime",
+                "endTime",
+                "deadline",
+                "description",
+                "place"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "committee": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tickets": {
+                  "type": "component"
+                },
+                "servingOptions": {
+                  "type": "component"
+                },
+                "studentOptions": {
+                  "type": "component"
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "deadline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "place": {
+                  "type": "component"
+                },
+                "passwordProtected": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -673,9 +708,6 @@
           "token": {
             "type": "string"
           },
-          "event": {
-            "type": "string"
-          },
           "diets": {
             "type": "array",
             "items": {
@@ -683,6 +715,12 @@
             }
           },
           "allergies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "event": {
             "type": "array",
             "items": {
               "type": "string"

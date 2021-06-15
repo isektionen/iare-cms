@@ -17,10 +17,6 @@
       "required": true,
       "unique": true
     },
-    "event": {
-      "via": "orders",
-      "model": "event"
-    },
     "diets": {
       "via": "orders",
       "collection": "diet"
@@ -28,6 +24,11 @@
     "allergies": {
       "via": "orders",
       "collection": "allergy"
+    },
+    "event": {
+      "via": "orders",
+      "collection": "event",
+      "dominant": true
     }
   }
 }

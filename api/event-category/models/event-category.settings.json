@@ -26,7 +26,7 @@
       }
     },
     "events": {
-      "via": "event_category",
+      "via": "category",
       "collection": "event"
     }
   }
