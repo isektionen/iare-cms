@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/events/:id/password",
+      "handler": "event.validatePassword",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/events/:id",
       "handler": "event.update",
