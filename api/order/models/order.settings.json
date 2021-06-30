@@ -12,23 +12,51 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "token": {
+    "paymentId": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
-    "diets": {
-      "via": "orders",
-      "collection": "diet"
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "failed",
+        "success",
+        "visited"
+      ]
     },
-    "allergies": {
-      "via": "orders",
-      "collection": "allergy"
+    "consumer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event.recipient"
     },
     "event": {
-      "via": "orders",
-      "collection": "event",
-      "dominant": true
+      "model": "event",
+      "via": "orders"
+    },
+    "ticketReference": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event.ticket-reference"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "paymentType": {
+      "type": "string"
+    },
+    "paymentMethod": {
+      "type": "string"
     }
   }
 }

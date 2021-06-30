@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_event_ticket_references",
+  "info": {
+    "name": "ticketReference",
+    "icon": "anchor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "reference": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

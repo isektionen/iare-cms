@@ -567,12 +567,6 @@
                 "category": {
                   "type": "string"
                 },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "tickets": {
                   "type": "component"
                 },
@@ -599,6 +593,12 @@
                 },
                 "passwordProtected": {
                   "type": "component"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",

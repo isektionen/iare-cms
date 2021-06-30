@@ -699,47 +699,6 @@
               }
             }
           },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "token"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "token": {
-                  "type": "string"
-                },
-                "diets": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "allergies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "tickets": {
             "type": "object",
             "required": [
@@ -881,6 +840,64 @@
               }
             }
           },
+          "orders": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "paymentId": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "failed",
+                    "success",
+                    "visited"
+                  ]
+                },
+                "consumer": {
+                  "type": "component"
+                },
+                "event": {
+                  "type": "string"
+                },
+                "ticketReference": {
+                  "type": "component"
+                },
+                "ip": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "timestamp": {
+                  "type": "string"
+                },
+                "paymentType": {
+                  "type": "string"
+                },
+                "paymentMethod": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -909,12 +926,6 @@
                 "category": {
                   "type": "string"
                 },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "tickets": {
                   "type": "component"
                 },
@@ -941,6 +952,12 @@
                 },
                 "passwordProtected": {
                   "type": "component"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -994,12 +1011,6 @@
           "category": {
             "type": "string"
           },
-          "orders": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "tickets": {
             "type": "object",
             "required": [
@@ -1139,6 +1150,12 @@
               "password": {
                 "type": "string"
               }
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "localizations": {
