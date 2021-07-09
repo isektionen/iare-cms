@@ -34,4 +34,27 @@ module.exports = {
     const entity = await strapi.services.order.delete(sanitizeId(id));
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
+
+  async findTickets(ctx) {
+    const { id } = ctx.params;
+
+    const entity = await strapi.services.order.findOne({ paymentId: id });
+    return {
+      paymentId: entity.paymentId,
+      status: entity.status,
+      tickets: entity.ticketReference,
+    };
+  },
+
+  async updateDiets(ctx) {
+    const { id } = ctx.params;
+    const body = { consumer: {} };
+
+    if (ctx.request.body.hasOwnProperty("diets"))
+      body.consumer["diets"] = ctx.request.body.diets;
+    if (ctx.request.body.hasOwnProperty("allergens"))
+      body.consumer["allergens"] = ctx.request.body.allergens;
+    const entity = await strapi.services.order.update({ paymentId: id }, body);
+    return sanitizeEntity(entity, { model: strapi.models.order });
+  },
 };

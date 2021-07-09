@@ -29,7 +29,6 @@ module.exports = {
     ctx.response.status = 400;
   },
   async findOneBySlug(ctx) {
-    console.log("WORK!!!");
     const { _slug } = ctx.params;
     const event = await strapi.query("event").findOne({ slug: _slug });
     return event;

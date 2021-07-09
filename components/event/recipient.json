@@ -18,6 +18,12 @@
     },
     "phoneNumber": {
       "type": "string"
+    },
+    "allergens": {
+      "collection": "allergy"
+    },
+    "diets": {
+      "collection": "diet"
     }
   }
 }
