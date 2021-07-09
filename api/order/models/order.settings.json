@@ -57,6 +57,10 @@
     },
     "paymentMethod": {
       "type": "string"
+    },
+    "intentionId": {
+      "type": "string",
+      "unique": true
     }
   }
 }

@@ -889,6 +889,9 @@
                 "paymentMethod": {
                   "type": "string"
                 },
+                "intentionId": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

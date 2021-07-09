@@ -26,8 +26,8 @@
     },
     {
       "method": "GET",
-      "path": "/orders/:id/tickets",
-      "handler": "order.findTickets",
+      "path": "/orders/:id/details",
+      "handler": "order.details",
       "config": {
         "policies": []
       }

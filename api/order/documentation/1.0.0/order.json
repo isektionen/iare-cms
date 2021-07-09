@@ -511,7 +511,7 @@
         ]
       }
     },
-    "/orders/{id}/tickets": {
+    "/orders/{id}/details": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -881,6 +881,9 @@
                 },
                 "price": {
                   "type": "number"
+                },
+                "uid": {
+                  "type": "string"
                 }
               }
             }
@@ -901,6 +904,9 @@
             "type": "string"
           },
           "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
             "type": "string"
           }
         }
@@ -1039,6 +1045,9 @@
                 },
                 "price": {
                   "type": "number"
+                },
+                "uid": {
+                  "type": "string"
                 }
               }
             }
@@ -1059,6 +1068,9 @@
             "type": "string"
           },
           "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
             "type": "string"
           },
           "created_by": {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/09/2021 2:42:50 PM"
+    "x-generation-date": "07/09/2021 7:48:43 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3706,7 +3706,7 @@
         ]
       }
     },
-    "/orders/{id}/tickets": {
+    "/orders/{id}/details": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -7797,6 +7797,9 @@
                 "paymentMethod": {
                   "type": "string"
                 },
+                "intentionId": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -8303,6 +8306,9 @@
                 },
                 "price": {
                   "type": "number"
+                },
+                "uid": {
+                  "type": "string"
                 }
               }
             }
@@ -8323,6 +8329,9 @@
             "type": "string"
           },
           "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
             "type": "string"
           }
         }
@@ -8461,6 +8470,9 @@
                 },
                 "price": {
                   "type": "number"
+                },
+                "uid": {
+                  "type": "string"
                 }
               }
             }
@@ -8481,6 +8493,9 @@
             "type": "string"
           },
           "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
             "type": "string"
           },
           "created_by": {

@@ -6,7 +6,7 @@
  */
 const sanitizeId = (value) => {
   if (/^-?\d+$/.test(value)) return { id: value };
-  return { paymentId: value };
+  return { intentionId: value };
 };
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
@@ -35,14 +35,13 @@ module.exports = {
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
 
-  async findTickets(ctx) {
+  async details(ctx) {
     const { id } = ctx.params;
 
-    const entity = await strapi.services.order.findOne({ paymentId: id });
+    const entity = await strapi.services.order.findOne({ intentionId: id });
     return {
-      paymentId: entity.paymentId,
-      status: entity.status,
       tickets: entity.ticketReference,
+      paymentId: entity.paymentId,
     };
   },
 
@@ -54,7 +53,10 @@ module.exports = {
       body.consumer["diets"] = ctx.request.body.diets;
     if (ctx.request.body.hasOwnProperty("allergens"))
       body.consumer["allergens"] = ctx.request.body.allergens;
-    const entity = await strapi.services.order.update({ paymentId: id }, body);
+    const entity = await strapi.services.order.update(
+      { intentionId: id },
+      body
+    );
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
 };

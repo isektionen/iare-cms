@@ -12,6 +12,9 @@
     },
     "price": {
       "type": "decimal"
+    },
+    "uid": {
+      "type": "string"
     }
   }
 }
