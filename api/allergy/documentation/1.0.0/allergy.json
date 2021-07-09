@@ -531,47 +531,6 @@
             "type": "integer",
             "default": 0
           },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "token"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "token": {
-                  "type": "string"
-                },
-                "diets": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "allergies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {
@@ -589,12 +548,6 @@
                 },
                 "count": {
                   "type": "integer"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -638,12 +591,6 @@
           "count": {
             "type": "integer",
             "default": 0
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "localizations": {
             "type": "array",

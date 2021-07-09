@@ -42,10 +42,6 @@
       "model": "event-category",
       "via": "events"
     },
-    "orders": {
-      "via": "event",
-      "collection": "order"
-    },
     "tickets": {
       "type": "component",
       "repeatable": false,
@@ -132,6 +128,10 @@
         }
       },
       "component": "event.password-protect"
+    },
+    "orders": {
+      "via": "event",
+      "collection": "order"
     }
   }
 }

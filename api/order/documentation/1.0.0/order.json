@@ -510,221 +510,568 @@
           }
         ]
       }
+    },
+    "/orders/{id}/details": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/orders/{id}/diets": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Order"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
       "Order": {
         "required": [
-          "id",
-          "token"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "token": {
+          "paymentId": {
             "type": "string"
           },
-          "diets": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "count"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "count": {
-                  "type": "integer"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "failed",
+              "success",
+              "visited"
+            ]
           },
-          "allergies": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "count"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "count": {
-                  "type": "integer"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
+          "consumer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "allergens": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "name",
+                    "count"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
                   }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
+                }
+              },
+              "diets": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "name",
+                    "count"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
                   }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
                 }
               }
             }
           },
           "event": {
+            "required": [
+              "id",
+              "title",
+              "startTime",
+              "endTime",
+              "deadline",
+              "description",
+              "place"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "committee": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "tickets": {
+                "type": "component"
+              },
+              "servingOptions": {
+                "type": "component"
+              },
+              "studentOptions": {
+                "type": "component"
+              },
+              "startTime": {
+                "type": "string"
+              },
+              "endTime": {
+                "type": "string"
+              },
+              "deadline": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "place": {
+                "type": "component"
+              },
+              "passwordProtected": {
+                "type": "component"
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "ticketReference": {
             "type": "array",
             "items": {
+              "type": "object",
               "required": [
-                "id",
-                "title",
-                "startTime",
-                "endTime",
-                "deadline",
-                "description",
-                "place"
+                "id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "reference": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "uid"
+                "price": {
+                  "type": "number"
                 },
-                "committee": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "orders": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "tickets": {
-                  "type": "component"
-                },
-                "servingOptions": {
-                  "type": "component"
-                },
-                "studentOptions": {
-                  "type": "component"
-                },
-                "startTime": {
-                  "type": "string"
-                },
-                "endTime": {
-                  "type": "string"
-                },
-                "deadline": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "place": {
-                  "type": "component"
-                },
-                "passwordProtected": {
-                  "type": "component"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+                "uid": {
                   "type": "string"
                 }
               }
             }
+          },
+          "ip": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
+            "type": "string"
           }
         }
       },
       "NewOrder": {
-        "required": [
-          "token"
-        ],
         "properties": {
-          "token": {
+          "paymentId": {
             "type": "string"
           },
-          "diets": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "failed",
+              "success",
+              "visited"
+            ]
           },
-          "allergies": {
-            "type": "array",
-            "items": {
-              "type": "string"
+          "consumer": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "allergens": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "name",
+                    "count"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "diets": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "name",
+                    "count"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           "event": {
+            "type": "string"
+          },
+          "ticketReference": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "uid": {
+                  "type": "string"
+                }
+              }
             }
+          },
+          "ip": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "string"
+          },
+          "intentionId": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

@@ -35,11 +35,6 @@
       "type": "integer",
       "default": 0,
       "required": true
-    },
-    "orders": {
-      "collection": "order",
-      "via": "allergies",
-      "dominant": true
     }
   }
 }

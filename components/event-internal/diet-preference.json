@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_event_internal_diet_preferences",
+  "info": {
+    "name": "dietPreference",
+    "icon": "hamburger"
+  },
+  "options": {},
+  "attributes": {
+    "diets": {
+      "collection": "diet"
+    }
+  }
+}
