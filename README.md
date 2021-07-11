@@ -5,7 +5,7 @@ CMS &amp; backend API for content delivering
 
 iare-cms is built on top of the popular headless CMS [strapi.js](https://strapi.io), which allows us to create API & GraphQL endpoints very quickly for a fast and agile development enviroment.
 
-It's fully built with javascript and is 100% customizable, meaning that we can extend it with in-house built plugins for future endeavours.
+It's fully built with javascript and is 100% customizable, meaning that we can extend it with in-house built plugins for future endeavours..
 
 ## Roadmap
 
