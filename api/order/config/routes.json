@@ -34,6 +34,22 @@
     },
     {
       "method": "POST",
+      "path": "/orders/:id/ticket",
+      "handler": "order.ticket",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/orders/:id/valid",
+      "handler": "order.validIntention",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
       "path": "/orders",
       "handler": "order.create",
       "config": {

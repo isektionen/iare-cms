@@ -21,7 +21,6 @@ module.exports = {
       if (event.passwordProtected) {
         const { password } = event.passwordProtected;
         return {
-          id,
           valid: password === maybePassword,
         };
       }

@@ -45,6 +45,13 @@ module.exports = {
     };
   },
 
+  async validIntention(ctx) {
+    const { id } = ctx.params;
+
+    const entity = await strapi.services.order.findOne({ intentionId: id });
+    return entity ? { valid: true } : { valid: false };
+  },
+
   async updateDiets(ctx) {
     const { id } = ctx.params;
     const body = { consumer: {} };
@@ -58,5 +65,9 @@ module.exports = {
       body
     );
     return sanitizeEntity(entity, { model: strapi.models.order });
+  },
+
+  async ticket(ctx) {
+    return {};
   },
 };
