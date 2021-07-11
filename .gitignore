@@ -112,3 +112,7 @@ exports
 *.cache
 .strapi-updater.json
 package-lock.json
+yarn.lock
+
+# Local Netlify folder
+.netlify
