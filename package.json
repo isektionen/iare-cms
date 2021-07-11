@@ -18,6 +18,7 @@
     "knex": "0.21.18",
     "net": "^1.0.2",
     "pg": "^8.6.0",
+    "pg-connection-string": "^2.5.0",
     "react-icons": "^4.2.0",
     "recoil": "^0.3.1",
     "sqlite3": "5.0.0",
