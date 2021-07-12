@@ -70,4 +70,12 @@ module.exports = {
   async ticket(ctx) {
     return {};
   },
+  async webhook(ctx) {
+    const { paymentId } = ctx.params;
+    const entity = await strapi.services.order.update(
+      { paymentId },
+      ctx.request.body
+    );
+    return sanitizeEntity(entity, { model: strapi.models.order });
+  },
 };

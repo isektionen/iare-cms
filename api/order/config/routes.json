@@ -73,6 +73,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/orders/:paymentId/webhook",
+      "handler": "order.webhook",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/orders/:id",
       "handler": "order.delete",
