@@ -840,67 +840,6 @@
               }
             }
           },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "paymentId": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "pending",
-                    "failed",
-                    "success",
-                    "visited"
-                  ]
-                },
-                "consumer": {
-                  "type": "component"
-                },
-                "event": {
-                  "type": "string"
-                },
-                "ticketReference": {
-                  "type": "component"
-                },
-                "ip": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "string"
-                },
-                "amount": {
-                  "type": "number"
-                },
-                "timestamp": {
-                  "type": "string"
-                },
-                "paymentType": {
-                  "type": "string"
-                },
-                "paymentMethod": {
-                  "type": "string"
-                },
-                "intentionId": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "localizations": {
             "type": "array",
             "items": {

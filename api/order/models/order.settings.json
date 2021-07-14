@@ -32,8 +32,8 @@
       "component": "event.recipient"
     },
     "event": {
-      "model": "event",
-      "via": "orders"
+      "via": "orders",
+      "model": "event"
     },
     "ticketReference": {
       "type": "component",

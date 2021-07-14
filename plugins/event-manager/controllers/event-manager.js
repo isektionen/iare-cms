@@ -26,32 +26,32 @@ const getCommittees = async (ctx) => {
     const users = await strapi.services.committee.deepRelation({
       "users.id": id,
     });
-
-    return [...adminUsers, ...users];
+    const entity = [...adminUsers, ...users];
+    return entity;
   }
 };
 
 module.exports = {
-  /**
-   * Default action.
-   *
-   * @return {Object}
-   */
-
-  index: async (ctx) => {
-    // Add your own logic here.
-    ctx.send({
-      message: "ok",
-    });
-  },
-  hydrate: async (ctx) => {
+  me: async (ctx) => {
     /*
     if (isSuperAdmin(ctx)) {
       const committees = strapi.query("committee").find({})
     }
     */
     const committees = await getCommittees(ctx);
-    console.debug(committees);
     ctx.send(committees);
+  },
+  orders: async (ctx) => {
+    const { slug } = ctx.params;
+    if (slug) {
+      const event = await strapi.query("event").findOne({ slug });
+      if (event) {
+        const orders = await strapi
+          .query("order")
+          .find({ event: event.id, _limit: -1 });
+        return ctx.send(orders);
+      }
+    }
+    ctx.send([]);
   },
 };

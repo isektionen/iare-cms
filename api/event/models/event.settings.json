@@ -130,6 +130,7 @@
       "component": "event.password-protect"
     },
     "orders": {
+      "private": true,
       "via": "event",
       "collection": "order"
     }

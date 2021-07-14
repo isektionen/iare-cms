@@ -5,28 +5,67 @@
  * to customize this controller
  */
 const sanitizeId = (value) => {
-  if (/^-?\d+$/.test(value)) return { id: value };
+  if (isNumeric(value)) return { id: value };
   return { intentionId: value };
 };
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
+}
+
+const groupDiet = (dietList) =>
+  dietList.reduce(
+    (acc, it) => {
+      if (isNumeric(it.id)) {
+        return { ...acc, old: [...acc.old, { ...it, id: parseInt(it.id) }] };
+      }
+      return { ...acc, new: [...acc.new, it] };
+    },
+    { new: [], old: [] }
+  );
+
+const createDiets = async (dietType, { consumer }) => {
+  if (!consumer.hasOwnProperty(dietType)) return [];
+
+  const singularType = dietType === "allergens" ? "allergy" : "diet";
+  const diets = groupDiet(consumer[dietType]);
+  const newDiets = await strapi.services[singularType].bulkCreate({
+    [dietType]: diets.new.map((diet) => ({ name: diet.name })),
+  });
+  return [
+    ...diets.old.map((diet) => diet.id),
+    ...newDiets.map((diet) => diet.id),
+  ];
+};
+
+const addAttribute = (body, dietType, dietList) => {
+  if (dietList.length > 0) {
+    body[dietType] = dietList;
+  }
+};
+
+const parseDiets = async (body) => {
+  const diets = await createDiets("diets", body);
+  const allergens = await createDiets("allergens", body);
+  const returnBody = {};
+  addAttribute(returnBody, "diets", diets);
+  addAttribute(returnBody, "allergens", allergens);
+  return returnBody;
+};
+
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   async update(ctx) {
     const { id } = ctx.params;
+    const body = { ...ctx.request.body };
 
+    const parsedDiets = await parseDiets(ctx.request.body);
+    body.consumer = {
+      ...body.consumer,
+      ...parsedDiets,
+    };
     let entity;
-    if (ctx.is("multipart")) {
-      const { data, files } = parseMultipartData(ctx);
-
-      entity = await strapi.services.order.update(sanitizeId(id), data, {
-        files,
-      });
-    } else {
-      entity = await strapi.services.order.update(
-        sanitizeId(id),
-        ctx.request.body
-      );
-    }
+    entity = await strapi.services.order.update(sanitizeId(id), body);
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
   async delete(ctx) {
@@ -56,10 +95,10 @@ module.exports = {
     const { id } = ctx.params;
     const body = { consumer: {} };
 
-    if (ctx.request.body.hasOwnProperty("diets"))
-      body.consumer["diets"] = ctx.request.body.diets;
-    if (ctx.request.body.hasOwnProperty("allergens"))
-      body.consumer["allergens"] = ctx.request.body.allergens;
+    // Check if new diets have been added
+
+    body.consumer = parseDiets(ctx.request.body);
+
     const entity = await strapi.services.order.update(
       { intentionId: id },
       body

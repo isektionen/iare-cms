@@ -6,15 +6,10 @@
  */
 
 // Components
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 // State
-import {
-  RecoilRoot,
-  useRecoilCallback,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
 import { NotFound } from "strapi-helper-plugin";
 import styled from "styled-components";
 // Utils
@@ -22,12 +17,7 @@ import pluginId from "../../pluginId";
 import Event from "../Event";
 // Containers
 import HomePage from "../HomePage";
-import {
-  committeesState,
-  currentCommittee,
-  currentCommitteeIDState,
-  tokenState,
-} from "../state/user";
+import { currentCommittee, tokenState } from "../state/user";
 
 const Flex = styled.div`
   position: relative;
@@ -45,27 +35,6 @@ const Container = styled.div`
 `;
 
 const AppContent = () => {
-  const [token, setToken] = useRecoilState(tokenState);
-  const committee = useRecoilValue(currentCommittee);
-
-  const hydrateApp = useRecoilCallback(({ set, snapshot }) => async () => {
-    const [{ id }, ...rest] = await snapshot.getPromise(committeesState);
-    if (id) {
-      set(currentCommitteeIDState, id);
-    }
-  });
-
-  useEffect(() => {
-    if (localStorage["jwtToken"]) {
-      setToken(JSON.parse(localStorage.getItem("jwtToken")));
-    } else if (sessionStorage["jwtToken"]) {
-      setToken(JSON.parse(sessionStorage.getItem("jwtToken")));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (token) hydrateApp();
-  }, [token]);
   return (
     <Flex>
       <Container>

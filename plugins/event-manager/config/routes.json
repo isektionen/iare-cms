@@ -2,16 +2,16 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/",
-      "handler": "event-manager.index",
+      "path": "/me",
+      "handler": "event-manager.me",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/me",
-      "handler": "event-manager.hydrate",
+      "path": "/orders/:slug",
+      "handler": "event-manager.orders",
       "config": {
         "policies": []
       }

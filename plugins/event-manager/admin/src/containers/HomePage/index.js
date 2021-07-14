@@ -3,45 +3,21 @@ import { Header } from "@buffetjs/custom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { memo, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useQueryParams } from "strapi-helper-plugin";
 import pluginPkg from "../../../../package.json";
 import Search from "../../components/Search";
 import Table from "../../components/Table";
 import pluginId from "../../pluginId";
-import {
-  committeesState,
-  currentCommittee,
-  currentCommitteeIDState,
-} from "../state/user";
-
-const HeaderButton = () => {
-  const history = useHistory();
-  return (
-    <Button
-      color={"primary"}
-      icon={<FontAwesomeIcon icon={faPlus} />}
-      label={"Add New Events"}
-      onClick={() =>
-        history.push(
-          "/plugins/content-manager/collectionType/application::event.event/create?plugins[i18n][locale]=sv-SE"
-        )
-      }
-    />
-  );
-};
+import { useManager } from "../hooks/use-manager";
 
 const HeaderSelect = () => {
-  const committee = useRecoilValue(currentCommittee);
-  const committees = useRecoilValue(committeesState);
-  const setNextCommitteeID = useSetRecoilState(currentCommitteeIDState);
+  const { setId, committees, committee } = useManager();
 
   const handleChange = ({ target: { value } }) => {
-    const [nextCommittee] = committees.filter((c) => c.name === value);
-    if (nextCommittee) {
-      setNextCommitteeID(nextCommittee.id);
-    }
+    const { id } = committees.find((c) => c.name === value);
+    setId(id);
   };
 
   return (
@@ -55,9 +31,9 @@ const HeaderSelect = () => {
 };
 
 const HomePage = () => {
-  const committee = useRecoilValue(currentCommittee);
+  const { committee, events, id, entries, loaded, committeeExists } =
+    useManager();
   const [{ query }, setQuery] = useQueryParams();
-  const [events, setEvents] = useState(committee?.events ?? []);
 
   const headers = [
     {
@@ -101,10 +77,11 @@ const HomePage = () => {
     }) ?? [];
 
   const history = useHistory();
-  const numEntries = committee?.events.length;
-  const _q = query?._q || "";
+  const _q = query?._q ?? "";
 
+  // TODO: reimplement this into useManager
   useEffect(() => {
+    /*
     if (!committee || !committee.events) return;
 
     // Global filtration on all attributes for a row. Even hidden ones.
@@ -112,8 +89,25 @@ const HomePage = () => {
       Object.values(event).some((e) => String(e).includes(_q))
     );
     setEvents(filteredEvents);
+    console.log(_q);
+    */
   }, [_q, committee]);
 
+  useEffect(() => {
+    const { state } = history.location;
+    const previousErrors = state?.previousErrors ?? false;
+    if (loaded && !committeeExists && !previousErrors) {
+      strapi.notification.toggle({
+        type: "warning",
+        message: `You have no access to committee with id of ${id}`,
+        title: "Event manager",
+        timeout: 5000,
+      });
+      history.push("/plugins/event-manager", {
+        state: {},
+      });
+    }
+  }, [committeeExists, loaded]);
   return (
     <>
       <Search
@@ -127,9 +121,9 @@ const HomePage = () => {
         title={{
           label: pluginPkg.strapi.name,
         }}
-        content={`${numEntries} ${
-          numEntries === 1 ? "entry" : "entries"
-        } found for ${committee?.name}`}
+        content={`${entries} ${entries === 1 ? "entry" : "entries"} found for ${
+          committee?.name ?? "-"
+        }`}
         actions={[
           {
             label: "Add New Event",
@@ -151,7 +145,7 @@ const HomePage = () => {
       <Table
         headers={headers}
         onClickRow={(e, { slug }) =>
-          history.push(`/plugins/${pluginId}/${slug}`)
+          history.push(`/plugins/${pluginId}/${slug}?cid=${id}`)
         }
         onConfirm={() => console.log("DELETED")}
         rows={rows}

@@ -16,6 +16,7 @@ import {
   currentEvent,
   forceEventUpdate,
 } from "../state/user";
+import { useEvent } from "../hooks/use-manager";
 
 const StatCard = styled.div`
   position: relative;
@@ -127,21 +128,21 @@ const DietChart = () => {
 };
 
 const Event = () => {
-  const { slug } = useParams();
   const [{ query }, setQuery] = useQueryParams();
 
-  const committee = useRecoilValue(currentCommittee);
-  const token = useRecoilValue(bearerToken);
-  const event = useRecoilValue(currentEvent(slug));
+  const {
+    event,
+    eventExists,
+    loaded,
+    orders,
+    revenue,
+    ticketsSold,
+    daysTillClosing,
+    entries,
+  } = useEvent();
 
-  const updateData = useSetRecoilState(forceEventUpdate);
-
-  const eventName = event?.title;
   const history = useHistory();
-  const numEntries = event?.orders.length;
-  const _q = query?._q || "";
-
-  const [orders, setOrders] = useState(event?.orders ?? []);
+  const _q = query?._q ?? "";
 
   const changeDraftState = () => {
     axios.put(
@@ -155,6 +156,7 @@ const Event = () => {
   };
 
   useEffect(() => {
+    /*
     if (!event || !event.orders) return;
 
     // Global filtration on all attributes for a row. Even hidden ones.
@@ -162,8 +164,23 @@ const Event = () => {
       Object.values(order).some((e) => String(e).includes(_q))
     );
     setOrders(filteredOrders);
+    */
   }, [_q, event]);
 
+  useEffect(() => {
+    if (loaded && !eventExists) {
+      const { search } = history.location;
+      strapi.notification.toggle({
+        type: "warning",
+        message: `No event found`,
+        title: "Event manager",
+        timeout: 5000,
+      });
+      history.push("/plugins/event-manager" + search, {
+        previousErrors: true,
+      });
+    }
+  }, [eventExists, loaded]);
   return (
     <>
       <Search
@@ -175,15 +192,16 @@ const Event = () => {
       />
       <Header
         title={{
-          label: eventName,
+          label: event.title,
         }}
-        content={`${numEntries} ${
-          numEntries === 1 ? "entry" : "entries"
-        } found`}
+        content={`${entries} ${entries === 1 ? "entry" : "entries"} found`}
         actions={[
           {
             label: "Back",
-            onClick: () => history.push("/plugins/event-manager"),
+            onClick: () => {
+              const { search } = history.location;
+              history.push("/plugins/event-manager" + search);
+            },
             type: "button",
             color: "secondary",
             icon: <FontAwesomeIcon icon={faChevronLeft} />,
@@ -211,39 +229,60 @@ const Event = () => {
         <StatCard>
           <StatContent>
             <StatLabel>Revenue</StatLabel>
-            <StatNumber>150 kr</StatNumber>
+            <StatNumber>{revenue}</StatNumber>
           </StatContent>
         </StatCard>
         <StatCard>
           <StatContent>
             <StatLabel>Tickets sold</StatLabel>
-            <StatNumber>36 / 149</StatNumber>
+            <StatNumber>{ticketsSold}</StatNumber>
           </StatContent>
         </StatCard>
         <StatCard>
           <StatContent>
-            <StatLabel>Days left</StatLabel>
-            <StatNumber>6</StatNumber>
+            <StatLabel>Deadline due</StatLabel>
+            <StatNumber>{daysTillClosing}</StatNumber>
           </StatContent>
         </StatCard>
-        <StatCard>
+        {/*<StatCard>
           <StatContent>
             <StatLabel>Diet Analysis</StatLabel>
             <DietChart />
           </StatContent>
         </StatCard>
+        */}
       </Statistics>
 
       <Table
         headers={[
           {
-            name: "Id",
-            value: "id",
+            name: "Status",
+            value: "status",
             isSortEnabled: true,
           },
           {
-            name: "Token",
-            value: "token",
+            name: "Firstname",
+            value: "firstName",
+            isSortEnabled: true,
+          },
+          {
+            name: "Lastname",
+            value: "lastName",
+            isSortEnabled: true,
+          },
+          {
+            name: "Diets",
+            value: "diets",
+            isSortEnabled: true,
+          },
+          {
+            name: "Allergens",
+            value: "allergens",
+            isSortEnabled: true,
+          },
+          {
+            name: "Reference",
+            value: "reference",
             isSortEnabled: true,
           },
         ]}

@@ -7,6 +7,12 @@
 
 module.exports = {
   deepRelation(params) {
-    return strapi.query("committee").find(params, ["events", "events.orders"]);
+    return strapi
+      .query("committee")
+      .find(params, [
+        "events",
+        "events.orders",
+        "events.orders.ticketReference",
+      ]);
   },
 };

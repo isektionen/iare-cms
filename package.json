@@ -9,7 +9,10 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "child_process": "^1.0.2",

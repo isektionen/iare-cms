@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/10/2021 3:13:01 PM"
+    "x-generation-date": "07/14/2021 12:23:51 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3996,6 +3996,89 @@
         ]
       }
     },
+    "/orders/{paymentId}/webhook": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Order"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/posts": {
       "get": {
         "deprecated": false,
@@ -7884,67 +7967,6 @@
               },
               "password": {
                 "type": "string"
-              }
-            }
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "paymentId": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "pending",
-                    "failed",
-                    "success",
-                    "visited"
-                  ]
-                },
-                "consumer": {
-                  "type": "component"
-                },
-                "event": {
-                  "type": "string"
-                },
-                "ticketReference": {
-                  "type": "component"
-                },
-                "ip": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "string"
-                },
-                "amount": {
-                  "type": "number"
-                },
-                "timestamp": {
-                  "type": "string"
-                },
-                "paymentType": {
-                  "type": "string"
-                },
-                "paymentMethod": {
-                  "type": "string"
-                },
-                "intentionId": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
               }
             }
           },
