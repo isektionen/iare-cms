@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_footer_socials",
+  "info": {
+    "name": "social",
+    "icon": "code-branch"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "FACEBOOK",
+        "INSTAGRAM",
+        "LINKEDIN",
+        "DISCORD"
+      ],
+      "required": true
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}
