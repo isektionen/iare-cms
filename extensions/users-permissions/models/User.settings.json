@@ -62,6 +62,19 @@
     "committees": {
       "via": "users",
       "collection": "committee"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "chapter_year": {
+      "via": "user",
+      "model": "chapter-year"
     }
   }
 }

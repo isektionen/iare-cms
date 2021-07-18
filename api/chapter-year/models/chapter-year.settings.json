@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chapter_years",
+  "info": {
+    "name": "chapter Year",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "via": "chapter_year",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

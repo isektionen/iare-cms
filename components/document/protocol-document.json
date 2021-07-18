@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_document_protocol_documents",
+  "info": {
+    "name": "protocolDocument",
+    "icon": "pen",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "documentContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "document.document"
+    },
+    "authors": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

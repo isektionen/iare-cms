@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_document_financial_report_documents",
+  "info": {
+    "name": "financialReportDocument",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "documentContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "document.document"
+    }
+  }
+}

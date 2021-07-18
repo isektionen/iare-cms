@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_document_form_documents",
+  "info": {
+    "name": "formDocument",
+    "icon": "clipboard-list"
+  },
+  "options": {},
+  "attributes": {
+    "documentContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "document.document"
+    }
+  }
+}

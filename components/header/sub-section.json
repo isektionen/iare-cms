@@ -18,6 +18,43 @@
     },
     "description": {
       "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "gavel",
+        "group",
+        "atlas",
+        "colorlens",
+        "car",
+        "question",
+        "university",
+        "microphone",
+        "beer",
+        "work",
+        "workshop"
+      ],
+      "default": "question",
+      "required": true
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white",
+        "gray",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "teal",
+        "blue",
+        "cyan",
+        "purple",
+        "pink"
+      ],
+      "required": true,
+      "default": "gray"
     }
   }
 }

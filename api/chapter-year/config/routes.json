@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/chapter-years",
+      "handler": "chapter-year.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/chapter-years/count",
+      "handler": "chapter-year.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/chapter-years/:id",
+      "handler": "chapter-year.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/chapter-years",
+      "handler": "chapter-year.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/chapter-years/:id",
+      "handler": "chapter-year.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/chapter-years/:id",
+      "handler": "chapter-year.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

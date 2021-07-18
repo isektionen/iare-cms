@@ -349,7 +349,9 @@
                     "required": [
                       "id",
                       "label",
-                      "href"
+                      "href",
+                      "icon",
+                      "color"
                     ],
                     "properties": {
                       "id": {
@@ -364,6 +366,41 @@
                       },
                       "description": {
                         "type": "string"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "default": "question",
+                        "enum": [
+                          "gavel",
+                          "group",
+                          "atlas",
+                          "colorlens",
+                          "car",
+                          "question",
+                          "university",
+                          "microphone",
+                          "beer",
+                          "work",
+                          "workshop"
+                        ]
+                      },
+                      "color": {
+                        "type": "string",
+                        "default": "gray",
+                        "enum": [
+                          "black",
+                          "white",
+                          "gray",
+                          "red",
+                          "orange",
+                          "yellow",
+                          "green",
+                          "teal",
+                          "blue",
+                          "cyan",
+                          "purple",
+                          "pink"
+                        ]
                       }
                     }
                   }
@@ -566,7 +603,9 @@
                     "required": [
                       "id",
                       "label",
-                      "href"
+                      "href",
+                      "icon",
+                      "color"
                     ],
                     "properties": {
                       "id": {
@@ -581,6 +620,41 @@
                       },
                       "description": {
                         "type": "string"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "default": "question",
+                        "enum": [
+                          "gavel",
+                          "group",
+                          "atlas",
+                          "colorlens",
+                          "car",
+                          "question",
+                          "university",
+                          "microphone",
+                          "beer",
+                          "work",
+                          "workshop"
+                        ]
+                      },
+                      "color": {
+                        "type": "string",
+                        "default": "gray",
+                        "enum": [
+                          "black",
+                          "white",
+                          "gray",
+                          "red",
+                          "orange",
+                          "yellow",
+                          "green",
+                          "teal",
+                          "blue",
+                          "cyan",
+                          "purple",
+                          "pink"
+                        ]
                       }
                     }
                   }
