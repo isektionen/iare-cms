@@ -2,13 +2,14 @@
   "collectionName": "components_document_form_documents",
   "info": {
     "name": "formDocument",
-    "icon": "clipboard-list"
+    "icon": "clipboard-list",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "documentContent": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "document.document"
     }
   }
