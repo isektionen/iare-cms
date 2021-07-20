@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_job_abouts",
+  "info": {
+    "name": "about",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Om oss",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

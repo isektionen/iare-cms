@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_job_descriptions",
+  "info": {
+    "name": "description",
+    "icon": "info-circle"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

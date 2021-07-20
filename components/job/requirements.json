@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_job_requirements",
+  "info": {
+    "name": "requirements",
+    "icon": "user-cog",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Kompetenskrav"
+    },
+    "requirements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "job.task-item",
+      "required": true
+    }
+  }
+}

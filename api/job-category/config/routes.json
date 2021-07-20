@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/job-categories",
+      "handler": "job-category.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/job-categories/count",
+      "handler": "job-category.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/job-categories/:id",
+      "handler": "job-category.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/job-categories",
+      "handler": "job-category.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/job-categories/:id",
+      "handler": "job-category.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/job-categories/:id",
+      "handler": "job-category.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

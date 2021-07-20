@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_job_images",
+  "info": {
+    "name": "image",
+    "icon": "images"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

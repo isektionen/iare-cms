@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_job_task_items",
+  "info": {
+    "name": "Item",
+    "icon": "list-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {}
+}

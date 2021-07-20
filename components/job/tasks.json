@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_job_tasks",
+  "info": {
+    "name": "tasks",
+    "icon": "tasks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Arbetsuppgifter"
+    },
+    "taskItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "job.task-item"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

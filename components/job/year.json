@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_job_years",
+  "info": {
+    "name": "year",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "enumeration",
+      "enum": [
+        "YEAR_ONE",
+        "YEAR_TWO",
+        "YEAR_THREE",
+        "YEAR_FOUR",
+        "YEAR_FIVE"
+      ],
+      "required": true
+    }
+  }
+}
