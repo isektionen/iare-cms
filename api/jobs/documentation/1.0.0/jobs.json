@@ -596,6 +596,9 @@
                   "type": "string"
                 }
               },
+              "website": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -666,7 +669,8 @@
                   "enum": [
                     "email",
                     "website",
-                    "phone"
+                    "phone",
+                    "cta"
                   ]
                 },
                 "href": {
@@ -832,7 +836,8 @@
                   "enum": [
                     "email",
                     "website",
-                    "phone"
+                    "phone",
+                    "cta"
                   ]
                 },
                 "href": {

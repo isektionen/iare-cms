@@ -55,8 +55,8 @@
       "via": "jobs"
     },
     "company": {
-      "model": "company",
-      "via": "jobs"
+      "via": "jobs",
+      "model": "company"
     },
     "year": {
       "type": "component",

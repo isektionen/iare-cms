@@ -659,6 +659,9 @@
               }
             }
           },
+          "website": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -681,6 +684,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "website": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -725,6 +731,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "website": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
