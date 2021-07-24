@@ -40,8 +40,8 @@
       "collection": "event"
     },
     "posts": {
-      "collection": "post",
-      "via": "committee"
+      "via": "committee",
+      "collection": "post"
     }
   }
 }
