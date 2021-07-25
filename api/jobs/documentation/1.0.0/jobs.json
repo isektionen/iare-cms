@@ -599,6 +599,17 @@
               "website": {
                 "type": "string"
               },
+              "backgroundColor": {
+                "type": "string",
+                "enum": [
+                  "black",
+                  "white",
+                  "porterbrun"
+                ]
+              },
+              "sponsor": {
+                "type": "boolean"
+              },
               "localizations": {
                 "type": "array",
                 "items": {

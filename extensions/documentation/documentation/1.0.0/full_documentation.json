@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/24/2021 6:34:17 PM"
+    "x-generation-date": "07/24/2021 9:07:38 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -10707,6 +10707,19 @@
           "website": {
             "type": "string"
           },
+          "backgroundColor": {
+            "type": "string",
+            "default": "white",
+            "enum": [
+              "black",
+              "white",
+              "porterbrun"
+            ]
+          },
+          "sponsor": {
+            "type": "boolean",
+            "default": false
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -10732,6 +10745,17 @@
                 },
                 "website": {
                   "type": "string"
+                },
+                "backgroundColor": {
+                  "type": "string",
+                  "enum": [
+                    "black",
+                    "white",
+                    "porterbrun"
+                  ]
+                },
+                "sponsor": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -10779,6 +10803,19 @@
           },
           "website": {
             "type": "string"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "default": "white",
+            "enum": [
+              "black",
+              "white",
+              "porterbrun"
+            ]
+          },
+          "sponsor": {
+            "type": "boolean",
+            "default": false
           },
           "localizations": {
             "type": "array",
@@ -14900,6 +14937,17 @@
               },
               "website": {
                 "type": "string"
+              },
+              "backgroundColor": {
+                "type": "string",
+                "enum": [
+                  "black",
+                  "white",
+                  "porterbrun"
+                ]
+              },
+              "sponsor": {
+                "type": "boolean"
               },
               "localizations": {
                 "type": "array",

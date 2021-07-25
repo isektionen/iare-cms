@@ -662,6 +662,19 @@
           "website": {
             "type": "string"
           },
+          "backgroundColor": {
+            "type": "string",
+            "default": "white",
+            "enum": [
+              "black",
+              "white",
+              "porterbrun"
+            ]
+          },
+          "sponsor": {
+            "type": "boolean",
+            "default": false
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -687,6 +700,17 @@
                 },
                 "website": {
                   "type": "string"
+                },
+                "backgroundColor": {
+                  "type": "string",
+                  "enum": [
+                    "black",
+                    "white",
+                    "porterbrun"
+                  ]
+                },
+                "sponsor": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -734,6 +758,19 @@
           },
           "website": {
             "type": "string"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "default": "white",
+            "enum": [
+              "black",
+              "white",
+              "porterbrun"
+            ]
+          },
+          "sponsor": {
+            "type": "boolean",
+            "default": false
           },
           "localizations": {
             "type": "array",

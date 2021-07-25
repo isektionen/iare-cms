@@ -51,6 +51,29 @@
       },
       "type": "string",
       "required": false
+    },
+    "backgroundColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white",
+        "porterbrun"
+      ],
+      "default": "white"
+    },
+    "sponsor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }
