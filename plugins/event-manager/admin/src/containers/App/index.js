@@ -10,13 +10,15 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 // State
 import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
-import { NotFound } from "strapi-helper-plugin";
+import { NotFound, CheckPagePermissions } from "strapi-helper-plugin";
 import styled from "styled-components";
 // Utils
 import pluginId from "../../pluginId";
 import Event from "../Event";
 // Containers
 import HomePage from "../HomePage";
+import pluginPermissions from "../../permissions";
+
 import { currentCommittee, tokenState } from "../state/user";
 
 const Flex = styled.div`
@@ -36,16 +38,22 @@ const Container = styled.div`
 
 const AppContent = () => {
   return (
-    <Flex>
-      <Container>
-        <Switch>
-          <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
-          <Route path={`/plugins/${pluginId}/:slug`} component={Event} exact />
+    <CheckPagePermissions permissions={pluginPermissions.main}>
+      <Flex>
+        <Container>
+          <Switch>
+            <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
+            <Route
+              path={`/plugins/${pluginId}/:slug`}
+              component={Event}
+              exact
+            />
 
-          <Route component={NotFound} />
-        </Switch>
-      </Container>
-    </Flex>
+            <Route component={NotFound} />
+          </Switch>
+        </Container>
+      </Flex>
+    </CheckPagePermissions>
   );
 };
 
