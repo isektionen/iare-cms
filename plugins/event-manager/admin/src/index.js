@@ -1,3 +1,4 @@
+import pluginPermissions from "./permissions";
 import pluginPkg from "../../package.json";
 import pluginId from "./pluginId";
 import App from "./containers/App";
@@ -37,13 +38,7 @@ export default (strapi) => {
             defaultMessage: name,
           },
           name,
-          permissions: [
-            // Uncomment to set the permissions of the plugin here
-            // {
-            //   action: '', // the action name should be plugins::plugin-name.actionType
-            //   subject: null,
-            // },
-          ],
+          permissions: pluginPermissions.main,
         },
       ],
     },
