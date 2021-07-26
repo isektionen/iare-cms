@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   host: "0.0.0.0",
   url: env("BACKEND_URL"),
-  port: 443,
+  port: env.int("PORT", 1337),
   admin: {
     autoOpen: env.bool("ADMIN_AUTO_OPEN", false),
     auth: {
