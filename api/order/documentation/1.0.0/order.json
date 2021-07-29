@@ -1012,6 +1012,7 @@
             "required": [
               "id",
               "title",
+              "tickets",
               "startTime",
               "endTime",
               "deadline",
@@ -1068,6 +1069,9 @@
                 }
               },
               "banner": {
+                "type": "string"
+              },
+              "fullfillmentUID": {
                 "type": "string"
               },
               "localizations": {
@@ -1132,6 +1136,9 @@
             "type": "string"
           },
           "intentionId": {
+            "type": "string"
+          },
+          "fullfillmentUID": {
             "type": "string"
           }
         }
@@ -1296,6 +1303,9 @@
             "type": "string"
           },
           "intentionId": {
+            "type": "string"
+          },
+          "fullfillmentUID": {
             "type": "string"
           },
           "created_by": {

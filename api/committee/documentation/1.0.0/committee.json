@@ -648,6 +648,7 @@
               "required": [
                 "id",
                 "title",
+                "tickets",
                 "startTime",
                 "endTime",
                 "deadline",
@@ -704,6 +705,9 @@
                   }
                 },
                 "banner": {
+                  "type": "string"
+                },
+                "fullfillmentUID": {
                   "type": "string"
                 },
                 "localizations": {

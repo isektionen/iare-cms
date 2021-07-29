@@ -24,7 +24,7 @@ const groupDiet = (dietList) =>
   );
 
 const createDiets = async (dietType, { consumer }) => {
-  if (!consumer.hasOwnProperty(dietType)) return [];
+  if (!consumer || (consumer && !consumer.hasOwnProperty(dietType))) return [];
 
   const singularType = dietType === "allergens" ? "allergy" : "diet";
   const diets = groupDiet(consumer[dietType]);
@@ -58,7 +58,7 @@ module.exports = {
   async update(ctx) {
     const { id } = ctx.params;
     const body = { ...ctx.request.body };
-
+    console.log("body", body);
     const parsedDiets = await parseDiets(ctx.request.body);
     body.consumer = {
       ...body.consumer,

@@ -8,7 +8,31 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 const sanitizeId = (value) => {
   if (/^-?\d+$/.test(value)) return { id: value };
+  const v4 = new RegExp(
+    /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+  );
+  if (v4.test(value)) return { fullfillmentUID: value };
   return { slug: value };
+};
+
+const isAdmin = async (ctx) => {
+  if (ctx && ctx.request && ctx.request.header) {
+    if (ctx.request.header.authorization) {
+      const authorization = ctx.request.header.authorization;
+      const parts = authorization.split(" ");
+      if (parts.length === 2) {
+        const scheme = parts[0];
+        const credentials = parts[1];
+        if (/^Bearer$/i.test(scheme)) {
+          const { isValid } = await strapi.admin.services.token.decodeJwtToken(
+            credentials
+          );
+          return isValid;
+        }
+      }
+    }
+  }
+  return false;
 };
 
 module.exports = {
@@ -45,9 +69,9 @@ module.exports = {
   },
   async findOne(ctx) {
     const { id } = ctx.params;
-
+    //const admin = await isAdmin(ctx);
     const entity = await strapi.services.event.findOne(sanitizeId(id));
-
+    //if (!admin) delete entity.tickets;
     return sanitizeEntity(entity, { model: strapi.models.event });
   },
 };

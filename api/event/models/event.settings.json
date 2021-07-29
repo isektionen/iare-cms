@@ -45,12 +45,14 @@
     "tickets": {
       "type": "component",
       "repeatable": false,
+      "private": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "event.tickets"
+      "component": "event.tickets",
+      "required": true
     },
     "servingOptions": {
       "type": "component",
@@ -130,8 +132,8 @@
       "component": "event.password-protect"
     },
     "orders": {
-      "private": true,
       "via": "event",
+      "private": true,
       "collection": "order"
     },
     "banner": {
@@ -147,6 +149,15 @@
           "localized": false
         }
       }
+    },
+    "fullfillmentUID": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": false
     }
   }
 }

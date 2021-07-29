@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/24/2021 9:07:38 PM"
+    "x-generation-date": "07/29/2021 4:47:36 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -10299,6 +10299,7 @@
               "required": [
                 "id",
                 "title",
+                "tickets",
                 "startTime",
                 "endTime",
                 "deadline",
@@ -10355,6 +10356,9 @@
                   }
                 },
                 "banner": {
+                  "type": "string"
+                },
+                "fullfillmentUID": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13340,6 +13344,7 @@
               "required": [
                 "id",
                 "title",
+                "tickets",
                 "startTime",
                 "endTime",
                 "deadline",
@@ -13396,6 +13401,9 @@
                   }
                 },
                 "banner": {
+                  "type": "string"
+                },
+                "fullfillmentUID": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13508,6 +13516,7 @@
         "required": [
           "id",
           "title",
+          "tickets",
           "startTime",
           "endTime",
           "deadline",
@@ -13644,6 +13653,9 @@
                     "price": {
                       "type": "number",
                       "default": 0
+                    },
+                    "ticketUID": {
+                      "type": "string"
                     }
                   }
                 }
@@ -13826,12 +13838,16 @@
               }
             }
           },
+          "fullfillmentUID": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "title",
+                "tickets",
                 "startTime",
                 "endTime",
                 "deadline",
@@ -13890,6 +13906,9 @@
                 "banner": {
                   "type": "string"
                 },
+                "fullfillmentUID": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -13923,6 +13942,7 @@
       "NewEvent": {
         "required": [
           "title",
+          "tickets",
           "startTime",
           "endTime",
           "deadline",
@@ -13968,6 +13988,9 @@
                     "price": {
                       "type": "number",
                       "default": 0
+                    },
+                    "ticketUID": {
+                      "type": "string"
                     }
                   }
                 }
@@ -14088,6 +14111,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "fullfillmentUID": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -15348,6 +15374,7 @@
             "required": [
               "id",
               "title",
+              "tickets",
               "startTime",
               "endTime",
               "deadline",
@@ -15404,6 +15431,9 @@
                 }
               },
               "banner": {
+                "type": "string"
+              },
+              "fullfillmentUID": {
                 "type": "string"
               },
               "localizations": {
@@ -15468,6 +15498,9 @@
             "type": "string"
           },
           "intentionId": {
+            "type": "string"
+          },
+          "fullfillmentUID": {
             "type": "string"
           }
         }
@@ -15632,6 +15665,9 @@
             "type": "string"
           },
           "intentionId": {
+            "type": "string"
+          },
+          "fullfillmentUID": {
             "type": "string"
           },
           "created_by": {

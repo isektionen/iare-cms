@@ -13,6 +13,9 @@
     "price": {
       "type": "decimal",
       "default": 0
+    },
+    "ticketUID": {
+      "type": "string"
     }
   }
 }

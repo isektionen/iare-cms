@@ -38,7 +38,8 @@
     "strapi-plugin-users-permissions": "3.6.2",
     "strapi-provider-upload-aws-s3": "^3.6.5",
     "strapi-utils": "3.6.2",
-    "tls": "0.0.1"
+    "tls": "0.0.1",
+    "uuid": "^8.3.2"
   },
   "resolutions": {
     "match-sorter": "4.x.x"

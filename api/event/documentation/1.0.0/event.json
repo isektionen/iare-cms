@@ -589,6 +589,7 @@
         "required": [
           "id",
           "title",
+          "tickets",
           "startTime",
           "endTime",
           "deadline",
@@ -725,6 +726,9 @@
                     "price": {
                       "type": "number",
                       "default": 0
+                    },
+                    "ticketUID": {
+                      "type": "string"
                     }
                   }
                 }
@@ -907,12 +911,16 @@
               }
             }
           },
+          "fullfillmentUID": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "title",
+                "tickets",
                 "startTime",
                 "endTime",
                 "deadline",
@@ -971,6 +979,9 @@
                 "banner": {
                   "type": "string"
                 },
+                "fullfillmentUID": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -1004,6 +1015,7 @@
       "NewEvent": {
         "required": [
           "title",
+          "tickets",
           "startTime",
           "endTime",
           "deadline",
@@ -1049,6 +1061,9 @@
                     "price": {
                       "type": "number",
                       "default": 0
+                    },
+                    "ticketUID": {
+                      "type": "string"
                     }
                   }
                 }
@@ -1169,6 +1184,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "fullfillmentUID": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
