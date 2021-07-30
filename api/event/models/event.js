@@ -45,46 +45,16 @@ module.exports = {
           );
         }
       }
-
-      // only working with two locales
-      if (data.localizations.length === 1) {
-        const id = data.localizations[0];
-        const otherLocale = await strapi.query("event").findOne({ id });
-        // sync locales ticketUIDs
-        const tickets = _.zip(
-          otherLocale.tickets.Tickets,
-          data.tickets.Tickets
-        );
-        const syncedTickets = tickets.reduce(
-          (acc, [otherLocale, thisLocale]) => {
-            if (otherLocale.ticketUID !== thisLocale.ticketUID) {
-              return [
-                ...acc,
-                { ...thisLocale, ticketUID: otherLocale.ticketUID },
-              ];
-            }
-            return [...acc, thisLocale];
-          },
-          []
-        );
-        data.tickets.Tickets = syncedTickets;
-        //throw strapi.errors.badRequest("lol");
-      } else {
-        data.tickets.Tickets = data.tickets.Tickets.map((ticket) => ({
-          ...ticket,
-          ticketUID: uuidv4(),
-        }));
-      }
-      data.fullfillmentUID = uuidv4();
+      console.log(await strapi.plugins["i18n"]);
+      throw strapi.errors.badRequest("lol");
     },
     async afterCreate(result, data) {
-      const model = strapi.query("event").model;
-      console.log(model.query("where", "id", "=", result.id));
-    },
-
-    async beforeUpdate(params, data) {},
-    async afterUpdate(result, params, data) {
-      console.log("UPDATING!");
+      if (result.localizations.length === 0) {
+        // create locale
+        if (result.locale.includes("sv")) {
+          console.log();
+        }
+      }
     },
   },
 };
