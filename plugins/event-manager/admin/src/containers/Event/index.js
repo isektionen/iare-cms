@@ -214,7 +214,7 @@ const Event = () => {
             icon: "pencil",
             onClick: () =>
               history.push(
-                `/plugins/content-manager/collectionType/application::event.event/${event?.id}?plugins[i18n][locale]=sv-SE`
+                `/plugins/content-manager/collectionType/application::event.event/${event?.id}`
               ),
           },
           {
