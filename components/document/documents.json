@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_document_documents",
+  "info": {
+    "name": "documents",
+    "icon": "balance-scale"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "category": {
+      "model": "document-category"
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "current": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
