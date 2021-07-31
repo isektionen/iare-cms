@@ -5,18 +5,119 @@
  * to customize this model
  */
 const { v4: uuidv4 } = require("uuid");
-
+const { sanitizeEntity } = require("strapi-utils");
 const _ = require("lodash");
+const { ticket } = require("../../order/controllers/order");
 
-const getCommitteesByID = async (id) => {
-  const adminUsers = await strapi.services.committee.deepRelation({
-    "adminUsers.id": id,
+const createForAllLocales = async (data) => {
+  const _locale = data.locale || "sv";
+  const locales = (await strapi.plugins.i18n.services.locales.find())
+    .map((l) => l.code)
+    .filter((l) => l !== _locale);
+  const { createLocalization } = strapi.controllers.event;
+  await createLocalization({
+    params: { id: data.id },
+    is: () => false,
+    request: {
+      body: { ...data, locale: "en", slug: data.slug + "-en" },
+    },
   });
+};
 
-  const users = await strapi.services.committee.deepRelation({
-    "users.id": id,
-  });
-  return [...adminUsers, ...users];
+const createUIDs = (result) => {
+  return {
+    tickets: {
+      ...result.tickets,
+      Tickets: result.tickets.Tickets.map((ticket) => ({
+        ...ticket,
+        ticketUID: uuidv4(),
+      })),
+    },
+    fullfillmentUID: uuidv4(),
+  };
+};
+
+var state = [];
+var persistedIDs = [];
+
+const syncLocales = async ({ data, result, id }) => {
+  if (
+    persistedIDs.includes(id) ||
+    (result && persistedIDs.includes(result.id))
+  ) {
+    const _id = result ? result.id : id;
+    persistedIDs = persistedIDs.filter((record) => record !== _id);
+    return;
+  }
+  if (
+    data &&
+    result &&
+    !state.some((obj) => obj.id === result.id) &&
+    result.localizations
+  ) {
+    persistedIDs = [result.id];
+    state = [
+      ...state,
+      {
+        id: result.id,
+        tickets: data.tickets.Tickets,
+        locales: result.localizations.map((l) => l.id),
+      },
+    ];
+    return;
+  }
+  if (id) {
+    persistedIDs.push(id);
+    const _state = state.find((obj) => obj.locales.includes(id));
+    if (!_state) return;
+    const { id: _id, tickets, locales = [] } = _state;
+
+    state = state.filter((obj) => obj !== _state);
+    const syncUIDs = (tickets, key) => {
+      if (key === "null" || key === "undefined") {
+        const uuid = uuidv4();
+        const ticket = { ..._.first(tickets), ticketUID: uuid };
+        const amount = tickets.length;
+        const others = _.fill(Array(amount), {
+          ..._.omit(ticket, "id", "belongsTo"),
+          belongsTo: id,
+        });
+        return [ticket, ...others];
+      }
+      return tickets;
+    };
+
+    if (locales.includes(id)) {
+      // match existing tickets
+      console.log(tickets);
+      const payload = _.chain([
+        ...tickets.map((t) => ({ ...t, belongsTo: _id })),
+        ...result.tickets.Tickets.map((t) => ({ ...t, belongsTo: id })),
+      ])
+        .groupBy("ticketUID")
+        .mapValues(syncUIDs)
+        .values()
+        .filter((v) => v.length === locales.length + 1)
+        .flatten()
+        .groupBy("belongsTo")
+        .toPairs()
+        .value();
+
+      const update = strapi.query("event").update;
+
+      payload.forEach(
+        async ([id, tickets]) =>
+          await update(
+            { id },
+            {
+              tickets: {
+                Tickets: tickets.map((ticket) => _.omit(ticket, "belongsTo")),
+              },
+            }
+          )
+      );
+    }
+  }
 };
 
 module.exports = {
@@ -27,33 +128,30 @@ module.exports = {
         // Strapi doesn't allow you to push multiple errors
         throw strapi.errors.badRequest(errors[0].message);
       }
-      if (data.localizations.length > 0) {
-        const id = data.localizations[0];
-        const localeTickets = (await strapi.query("event").findOne({ id }))
-          .tickets.Tickets;
-        const tickets = data.tickets.Tickets;
-        if (tickets.length !== localeTickets.length) {
-          throw strapi.errors.badRequest(
-            "Cannot have two different locales with different amount of tickets. Try 'fill in from another locale' instead"
-          );
-        }
-        if (
-          tickets.some((t, i) => t.ticketUID !== localeTickets[i].ticketUID)
-        ) {
-          throw strapi.errors.badRequest(
-            "Some of the ticketUIDs are not equal between the locales. Try 'fill in from another locale' instead"
-          );
-        }
-      }
-      console.log(await strapi.plugins["i18n"]);
-      throw strapi.errors.badRequest("lol");
+
+      //throw strapi.errors.badRequest("debug");
     },
     async afterCreate(result, data) {
       if (result.localizations.length === 0) {
-        // create locale
-        if (result.locale.includes("sv")) {
-          console.log();
-        }
+        const uids = createUIDs(result);
+        await createForAllLocales({ ...result, ...uids });
+        await strapi
+          .query("event")
+          .update(
+            { id: result.id },
+            { fullfillmentUID: uids.fullfillmentUID, tickets: uids.tickets }
+          );
+      }
+    },
+    async afterUpdate(result, params, data) {
+      if (_.has(data, "tickets.Tickets")) {
+        await syncLocales({ data, result });
+        result.tickets.Tickets = result.tickets.Tickets.map((ticket) => ({
+          ...ticket,
+          ticketUID: ticket.ticketUID ? ticket.ticketUID : uuidv4(),
+        }));
+      } else {
+        await syncLocales({ result, id: params.id });
       }
     },
   },
