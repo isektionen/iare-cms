@@ -130,7 +130,7 @@ const HomePage = () => {
             icon: "plus",
             onClick: () =>
               history.push(
-                "/plugins/content-manager/collectionType/application::event.event/create?plugins[i18n][locale]=sv-SE"
+                "/plugins/content-manager/collectionType/application::event.event/create"
               ),
             color: "primary",
           },
