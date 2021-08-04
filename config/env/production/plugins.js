@@ -20,4 +20,16 @@ module.exports = ({ env }) => ({
       tracing: false,
     },
   },
+  email: {
+    provider: "gmail-2lo",
+    providerOptions: {
+      username: "no-reply@iare.nu",
+      clientId: env("EMAIL_CLIENT_ID"),
+      privateKey: env("EMAIL_PRIVATE_KEY").replace(/\\n/g, "\n"),
+    },
+    settings: {
+      defaultFrom: "no-reply@iare.nu",
+      defaultReplyTo: "no-reply@iare.nu",
+    },
+  },
 });
