@@ -5,7 +5,7 @@
       "path": "/me",
       "handler": "event-manager.me",
       "config": {
-        "policies": [["admin::hasPermissions", ["plugins::documentation.read"]]]
+        "policies": ["plugins::users-permissions.isAuthenticated"]
       }
     },
     {
@@ -13,7 +13,7 @@
       "path": "/orders/:slug",
       "handler": "event-manager.orders",
       "config": {
-        "policies": [["admin::hasPermissions", ["plugins::documentation.read"]]]
+        "policies": ["plugins::users-permissions.isAuthenticated"]
       }
     }
   ]

@@ -85,7 +85,7 @@ const customRow = ({ onClick, withBulkAction, rowLinks }) => {
             </td>
           );
         })}
-        {rowLinks.length > 0 && (
+        {/* TODO rowLinks.length > 0 && (
           <td>
             <div style={{ width: "fit-content", float: "right" }}>
               <StyledLinks>
@@ -106,7 +106,7 @@ const customRow = ({ onClick, withBulkAction, rowLinks }) => {
               </StyledLinks>
             </div>
           </td>
-        )}
+                  )*/}
       </tr>
     );
   };

@@ -11,6 +11,7 @@ import Search from "../../components/Search";
 import Table from "../../components/Table";
 import pluginId from "../../pluginId";
 import { useManager } from "../hooks/use-manager";
+import styled from "styled-components";
 
 const HeaderSelect = () => {
   const { setId, committees, committee } = useManager();
@@ -27,6 +28,21 @@ const HeaderSelect = () => {
       onChange={handleChange}
       value={committee?.name ?? ""}
     />
+  );
+};
+
+const ButtonWrapper = styled.div`
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  right: 120px;
+`;
+
+const HeaderButton = (props) => {
+  return (
+    <ButtonWrapper>
+      <Button color="primary" {...props} />
+    </ButtonWrapper>
   );
 };
 
@@ -126,13 +142,20 @@ const HomePage = () => {
         }`}
         actions={[
           {
-            label: "Add New Event",
-            icon: "plus",
-            onClick: () =>
-              history.push(
-                "/plugins/content-manager/collectionType/application::event.event/create"
-              ),
-            color: "primary",
+            Component: () => (
+              <HeaderButton
+                label="Add new Event"
+                icon="plus"
+                onClick={() =>
+                  history.push(
+                    "/plugins/content-manager/collectionType/application::event.event/create"
+                  )
+                }
+              />
+            ),
+            name: "add-event",
+            key: "ADDEVENT",
+            placeholder: "",
           },
           {
             Component: HeaderSelect,
