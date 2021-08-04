@@ -31,7 +31,10 @@ export const allCommittees = selector({
   key: "SELECTOR/ALL",
   get: ({ get }) => {
     const committees = get(root);
-    return committees.map((c) => ({ id: c.id, name: c.name }));
+    console.log("comm", committees);
+    return committees
+      .filter((c) => c.locale !== "en")
+      .map((c) => ({ id: c.id, name: c.name }));
   },
 });
 

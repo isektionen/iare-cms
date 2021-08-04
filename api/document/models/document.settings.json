@@ -16,55 +16,15 @@
     }
   },
   "attributes": {
-    "allDocuments": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "document.control-document",
-        "document.protocol-document",
-        "document.action-document",
-        "document.contract-document",
-        "document.form-document",
-        "document.financial-report-document"
-      ],
-      "required": true
-    },
-    "currentStatute": {
+    "document": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "document.document",
-      "required": true
-    },
-    "currentFinancialReport": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "document.document",
-      "required": true
-    },
-    "currentRegulations": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "document.document",
-      "required": true
+      "component": "document.documents"
     }
   }
 }
