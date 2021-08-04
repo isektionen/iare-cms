@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "swedishName": {
       "type": "string"
     },
     "price": {
@@ -15,6 +15,9 @@
       "default": 0
     },
     "ticketUID": {
+      "type": "string"
+    },
+    "englishName": {
       "type": "string"
     }
   }

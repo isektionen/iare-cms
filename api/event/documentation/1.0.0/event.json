@@ -720,7 +720,7 @@
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "swedishName": {
                       "type": "string"
                     },
                     "price": {
@@ -728,6 +728,9 @@
                       "default": 0
                     },
                     "ticketUID": {
+                      "type": "string"
+                    },
+                    "englishName": {
                       "type": "string"
                     }
                   }
@@ -1055,7 +1058,7 @@
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "swedishName": {
                       "type": "string"
                     },
                     "price": {
@@ -1063,6 +1066,9 @@
                       "default": 0
                     },
                     "ticketUID": {
+                      "type": "string"
+                    },
+                    "englishName": {
                       "type": "string"
                     }
                   }

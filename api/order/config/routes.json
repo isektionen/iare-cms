@@ -26,6 +26,14 @@
     },
     {
       "method": "GET",
+      "path": "/orders/validation/:intentionId",
+      "handler": "order.validateTicket",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/orders/:id/details",
       "handler": "order.details",
       "config": {

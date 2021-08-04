@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/29/2021 4:47:36 PM"
+    "x-generation-date": "08/02/2021 1:57:36 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6686,6 +6686,74 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/orders/validation/{intentionId}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "intentionId",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -13647,7 +13715,7 @@
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "swedishName": {
                       "type": "string"
                     },
                     "price": {
@@ -13655,6 +13723,9 @@
                       "default": 0
                     },
                     "ticketUID": {
+                      "type": "string"
+                    },
+                    "englishName": {
                       "type": "string"
                     }
                   }
@@ -13982,7 +14053,7 @@
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "swedishName": {
                       "type": "string"
                     },
                     "price": {
@@ -13990,6 +14061,9 @@
                       "default": 0
                     },
                     "ticketUID": {
+                      "type": "string"
+                    },
+                    "englishName": {
                       "type": "string"
                     }
                   }
@@ -15669,6 +15743,10 @@
           },
           "fullfillmentUID": {
             "type": "string"
+          },
+          "checkedInAt": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"

@@ -64,6 +64,10 @@
     },
     "fullfillmentUID": {
       "type": "string"
+    },
+    "checkedInAt": {
+      "type": "datetime",
+      "private": true
     }
   }
 }

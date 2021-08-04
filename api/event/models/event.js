@@ -30,7 +30,7 @@ const createUIDs = (result) => {
       ...result.tickets,
       Tickets: result.tickets.Tickets.map((ticket) => ({
         ...ticket,
-        ticketUID: uuidv4(),
+        ticketUID: ticket.ticketUID ? ticket.ticketUID : uuidv4(),
       })),
     },
     fullfillmentUID: uuidv4(),
@@ -38,110 +38,6 @@ const createUIDs = (result) => {
 };
 
 var state = [];
-var persistedIDs = [];
-/*
-const syncLocales = async ({ data, result, id }) => {
-  if (
-    persistedIDs.includes(id) ||
-    (result && persistedIDs.includes(result.id))
-  ) {
-    const _id = result ? result.id : id;
-    persistedIDs = persistedIDs.filter((record) => record !== _id);
-    return;
-  }
-  if (
-    data &&
-    result &&
-    !state.some((obj) => obj.id === result.id) &&
-    result.localizations
-  ) {
-    persistedIDs = [result.id];
-    state = [
-      ...state,
-      {
-        id: result.id,
-        tickets: data.tickets,
-        ticketContainerId: data.id,
-        locales: result.localizations.map((l) => l.id),
-      },
-    ];
-    return;
-  }
-  if (id) {
-    persistedIDs.push(id);
-    const _state = state.find((obj) => obj.locales.includes(id));
-    if (!_state) return;
-    const {
-      id: _id,
-      tickets,
-      ticketContainerId,
-      locales = [],
-    } = _.cloneDeep(_state);
-
-    _.remove(state, (obj) => (obj.id = _state.id));
-
-    const syncUIDs = (tickets, key) => {
-      if (key === "null" || key === "undefined" || tickets.length === 1) {
-        const _ticket = _.first(tickets);
-        const uuid = _ticket.ticketUID ? _ticket.ticketUID : uuidv4();
-        const ticket = { ..._ticket, ticketUID: uuid };
-        const amount = tickets.length;
-        const others = _.fill(Array(amount), {
-          ..._.omit(ticket, "id"),
-          belongsTo: id,
-          container: result.tickets.id,
-        });
-        return [ticket, ...others];
-      }
-      return tickets;
-    };
-
-    if (locales.includes(id)) {
-      // match existing tickets
-      let payload = _.chain([
-        ...tickets.map((t) => ({
-          ...t,
-          belongsTo: _id,
-          container: ticketContainerId,
-        })),
-        ...result.tickets.Tickets.map((t) => ({
-          ...t,
-          belongsTo: id,
-          container: result.tickets.id,
-        })),
-      ])
-        .groupBy("ticketUID")
-        .mapValues(syncUIDs)
-        .values()
-        .filter((v) => v.length === locales.length + 1)
-        .flatten()
-        .groupBy("belongsTo")
-        .toPairs()
-        .value();
-
-      if (_.isEmpty(payload)) {
-        payload = [_id, ...locales].map((i) => [i, []]);
-      }
-      const update = strapi.query("event").update;
-      const res = await Promise.all(
-        payload.map(
-          async ([id, tickets]) =>
-            await update(
-              { id },
-              {
-                tickets: {
-                  Tickets: tickets.map((ticket) =>
-                    _.omit(ticket, "belongsTo", "container")
-                  ),
-                },
-              }
-            )
-        )
-      );
-    }
-  }
-};
-*/
 
 const insertUID = (r) => ({
   ...r,
@@ -255,7 +151,7 @@ module.exports = {
     async afterCreate(result, data) {
       if (result.localizations.length === 0) {
         const uids = createUIDs(result);
-        await createForAllLocales({ ...result, ...uids });
+        //await createForAllLocales({ ...result, ...uids });
         await strapi
           .query("event")
           .update(
@@ -264,32 +160,18 @@ module.exports = {
           );
       }
     },
+
     async afterUpdate(result, params, data) {
-      if (
-        _.chain(data).keys().isEqual(["fullfillmentUID", "tickets"]).value()
-      ) {
+      if (data.nosync) {
+        delete data.nosync;
+        delete result.nosync;
         return;
       }
-      if (_.has(data, "tickets.Tickets")) {
-        /*const tickets = _.cloneDeep(
-          data.tickets.Tickets.map((ticket) => ({
-            ...ticket,
-            ticketUID: ticket.ticketUID ? ticket.ticketUID : uuidv4(),
-          }))
-        );
-
-        await syncLocales({
-          data: { id: data.tickets.id, tickets },
-          result,
-        });
-        result.tickets.Tickets = result.tickets.Tickets.map((t, i) => ({
-          ...t,
-          ticketUID: tickets[i].ticketUID,
-        }));*/
-        await syncLocales({ data, result });
-      } else {
-        await syncLocales({ result, id: params.id });
-      }
+      const uids = createUIDs(result);
+      await strapi
+        .query("event")
+        .update({ id: result.id }, { tickets: uids.tickets, nosync: true });
+      result.tickets = uids.tickets;
     },
   },
 };

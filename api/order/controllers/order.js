@@ -4,6 +4,9 @@
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
+
+const _ = require("lodash");
+
 const sanitizeId = (value) => {
   if (isNumeric(value)) return { id: value };
   return { intentionId: value };
@@ -96,8 +99,9 @@ module.exports = {
     const body = { consumer: {} };
 
     // Check if new diets have been added
-
-    body.consumer = parseDiets(ctx.request.body);
+    if (ctx.request.body.consumer) {
+      body.consumer = parseDiets(ctx.request.body);
+    }
 
     const entity = await strapi.services.order.update(
       { intentionId: id },
@@ -109,8 +113,33 @@ module.exports = {
   async ticket(ctx) {
     return {};
   },
+  async validateTicket(ctx) {
+    const { intentionId } = ctx.params;
+
+    let entity = await strapi.services.order.findOne({
+      intentionId,
+      checkedInAt: null,
+    });
+    let alreadyUsed = false;
+    if (entity) {
+      entity = await strapi.services.order.update(
+        { intentionId },
+        { checkedInAt: new Date() }
+      );
+    } else {
+      alreadyUsed = true;
+    }
+    ctx.response.body = {
+      valid: alreadyUsed,
+      checkedInAt: entity.checkedInAt,
+      consumer: entity.consumer,
+      tickets: entity.ticketReference.map((t) => _.omit(t, "uid")),
+      status: entity.status,
+    };
+  },
   async webhook(ctx) {
     const { paymentId } = ctx.params;
+    console.log("weebhook", ctx.request.body);
     const entity = await strapi.services.order.update(
       { paymentId },
       ctx.request.body
