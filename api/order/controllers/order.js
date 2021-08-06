@@ -182,7 +182,7 @@ module.exports = {
             )}`,
             orderSummaryHeader: "Order summary",
             dateLabel: "Date",
-            date: format(new Date(timestamp), "dd MMM yyyy"),
+            date: format(new Date(), "dd MMM yyyy"),
             orderIdLabel: "Order ID",
             orderId: paymentId,
             paymentMethodLabel: "Payment Method",
