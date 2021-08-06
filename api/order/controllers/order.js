@@ -7,7 +7,7 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
  */
 
 const _ = require("lodash");
-const emailClient = require("../services/email");
+const emailClient = require("../services/email/");
 
 function isNumeric(value) {
   return /^-?\d+$/.test(value);
@@ -77,7 +77,7 @@ module.exports = {
       const eventStartTime = entity.event.startTime;
       const firstName = body.consumer.firstName;
       const lastName = body.consumer.lastName;
-      const email = entity.email;
+      const email = entity.consumer.email;
       const amount = "Free of charge";
       await emailClient.send({
         orderId,
