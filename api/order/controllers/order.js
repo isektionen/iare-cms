@@ -78,7 +78,7 @@ module.exports = {
       const firstName = body.consumer.firstName;
       const lastName = body.consumer.lastName;
       const email = entity.consumer.email;
-      const amount = "Free of charge";
+      const amount = 0;
       await emailClient.send({
         orderId,
         intentionId,
