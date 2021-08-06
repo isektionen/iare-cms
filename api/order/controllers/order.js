@@ -1,6 +1,5 @@
 "use strict";
 
-const { getDate, format } = require("date-fns");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
@@ -8,6 +7,7 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
  */
 
 const _ = require("lodash");
+const emailClient = require("../services/email");
 
 function isNumeric(value) {
   return /^-?\d+$/.test(value);
@@ -62,7 +62,6 @@ module.exports = {
   async update(ctx) {
     const { id } = ctx.params;
     const body = { ...ctx.request.body };
-    console.log("body", body);
     const parsedDiets = await parseDiets(ctx.request.body);
     body.consumer = {
       ...body.consumer,
@@ -70,6 +69,27 @@ module.exports = {
     };
     let entity;
     entity = await strapi.services.order.update(sanitizeId(id), body);
+
+    if (body.status === "success" && body.paymentMethod === "FREE") {
+      const orderId = entity.reference;
+      const intentionId = entity.intentionId;
+      const eventName = entity.event.title;
+      const eventStartTime = entity.event.startTime;
+      const firstName = body.consumer.firstName;
+      const lastName = body.consumer.lastName;
+      const email = entity.email;
+      const amount = "Free of charge";
+      await emailClient.send({
+        orderId,
+        intentionId,
+        eventName,
+        eventStartTime,
+        firstName,
+        lastName,
+        email,
+        amount,
+      });
+    }
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
   async delete(ctx) {
@@ -112,7 +132,7 @@ module.exports = {
   },
 
   async ticket(ctx) {
-    return await strapi.services.order.createQRCode("TICKET INFO");
+    return;
   },
   async validateTicket(ctx) {
     const { intentionId } = ctx.params;
@@ -146,49 +166,27 @@ module.exports = {
     try {
       if (event === "payment.checkout.completed") {
         const { consumer, amount } = ctx.request.body;
-
         const order = await strapi.query("order").findOne({ paymentId });
         if (!order) throw new Error("no order found");
-
         const eventName = order.event.title;
         const eventStartTime = order.event.startTime;
-        //const amount = order.event.amount;
         const intentionId = order.intentionId;
 
         const firstName = consumer.firstName;
+        const lastName = consumer.lastName;
+
         const email = consumer.email;
 
-        const baseUrl = "https://cms.iare.se";
-        await strapi.plugins[
-          "email-designer"
-        ].services.email.sendTemplatedEmail(
-          {
-            to: email,
-          },
-          {
-            templateId: 1,
-            subject: `Iare: order receipt`,
-          },
-          {
-            QRCode: await strapi.services.order.createQRCode(
-              baseUrl + "/orders/validation/" + intentionId
-            ),
-            header: `We hope you will have fun at ${eventName}, ${firstName}!`,
-            startTimeDescription: `${eventName} will start at ${format(
-              new Date(eventStartTime),
-              "HH, EEEE dd mm"
-            )}`,
-            orderSummaryHeader: "Order summary",
-            dateLabel: "Date",
-            date: format(new Date(), "dd MMM yyyy"),
-            orderIdLabel: "Order ID",
-            orderId: paymentId,
-            paymentMethodLabel: "Payment Method",
-            paymentMethod: "---", //`${paymentMethod} [${paymentType}]`,
-            totalLabel: "Total",
-            total: amount + " kr",
-          }
-        );
+        await emailClient.send({
+          orderId: paymentId,
+          intentionId,
+          eventName,
+          eventStartTime,
+          firstName,
+          lastName,
+          email,
+          amount,
+        });
       }
     } catch (err) {
       strapi.log.debug(err);
