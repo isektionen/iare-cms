@@ -104,7 +104,8 @@ module.exports = (typeNumber, errorCorrectionLevel) => {
         }
       }
     }
-    const t = (size - 70) / 2;
+    const orginalLogoSize = 40;
+    const t = (size - orginalLogoSize) / 2;
     const transform = `transform="translate(${t},${t})"`;
     qrSvg += '" stroke="transparent" fill="black"/>';
     qrSvg += `<circle ${transform} cx="20" cy="20" r="20" fill="white"/>
