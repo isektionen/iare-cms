@@ -144,21 +144,18 @@ module.exports = {
 
     try {
       if (event === "payment.charge.created.v2") {
-        const paymentMethod = _.pick(ctx, "ctx.request.body.paymentMethod");
-        const paymentType = _.pick(ctx, "ctx.request.body.paymentType");
-        const timestamp = _.pick(ctx, "ctx.request.body.timestamp");
+        const { paymentMethod, paymentType, timestamp } = ctx.request.body;
 
         const order = await strapi.query("order").findOne({ paymentId });
         if (!order) throw new Error("no order found");
 
-        const eventName = _.pick(order, "event.title");
-        const eventStartTime = _.pick(order, "event.startTime");
-        const amount = _.pick(order, "event.amount");
-        const intentionId = _.pick(order, "event.intentionId");
+        const eventName = order.event.title; //_.pick(order, "event.title");
+        const eventStartTime = order.event.startTime; // _.pick(order, "event.startTime");
+        const amount = order.event.amount; //_.pick(order, "event.amount");
+        const intentionId = order.event.intentionId; // _.pick(order, "event.intentionId");
 
-        const consumer = _.pick(order, "consumer");
-        const firstName = consumer.firstName;
-        const email = consumer.email;
+        const firstName = order.consumer.firstName;
+        const email = order.consumer.email;
         console.log("START: ", eventStartTime);
         await strapi.plugins[
           "email-designer"
