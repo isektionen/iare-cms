@@ -150,7 +150,7 @@ module.exports = {
         const paymentType = _.pick(ctx, "request.body.paymentType");
         const timestamp = _.pick(ctx, "request.body.timestamp");
 
-        const order = await strapi.services.findOne({ paymentId });
+        const order = await strapi.query("event").findOne({ paymentId });
         if (!order) throw new Error("no order found");
 
         const eventName = _.pick(order, "event.title");
