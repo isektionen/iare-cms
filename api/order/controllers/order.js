@@ -1,6 +1,7 @@
 "use strict";
 
 const { getDate, format } = require("date-fns");
+const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -55,8 +56,6 @@ const parseDiets = async (body) => {
   addAttribute(returnBody, "allergens", allergens);
   return returnBody;
 };
-
-const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   async update(ctx) {
@@ -160,7 +159,7 @@ module.exports = {
         const consumer = _.pick(order, "consumer");
         const firstName = consumer.firstName;
         const email = consumer.email;
-
+        console.log("START: ", eventStartTime);
         await strapi.plugins[
           "email-designer"
         ].services.email.sendTemplatedEmail(
@@ -178,7 +177,7 @@ module.exports = {
             header: `We hope you will have fun at ${eventName}, ${firstName}!`,
             startTimeDescription: `${eventName} will start at ${format(
               new Date(eventStartTime),
-              "hha..aa, EEEE dd mm"
+              "HH, EEEE dd mm"
             )}`,
             orderSummaryHeader: "Order summary",
             dateLabel: "Date",
