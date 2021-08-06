@@ -145,10 +145,9 @@ module.exports = {
 
     try {
       if (event === "payment.charge.created.v2") {
-        const paymentId = _.pick(ctx, "request.body.paymentId");
-        const paymentMethod = _.pick(ctx, "request.body.paymentMethod");
-        const paymentType = _.pick(ctx, "request.body.paymentType");
-        const timestamp = _.pick(ctx, "request.body.timestamp");
+        const paymentMethod = _.pick(ctx, "ctx.request.body.paymentMethod");
+        const paymentType = _.pick(ctx, "ctx.request.body.paymentType");
+        const timestamp = _.pick(ctx, "ctx.request.body.timestamp");
 
         const order = await strapi.query("event").findOne({ paymentId });
         if (!order) throw new Error("no order found");
