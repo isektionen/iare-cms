@@ -157,6 +157,8 @@ module.exports = {
 
         const firstName = consumer.firstName;
         const email = consumer.email;
+
+        const baseUrl = "https://cms.iare.se";
         await strapi.plugins[
           "email-designer"
         ].services.email.sendTemplatedEmail(
@@ -169,7 +171,7 @@ module.exports = {
           },
           {
             QRCode: await strapi.services.order.createQRCode(
-              strapi.backendURL + "orders/validation/" + intentionId
+              baseUrl + "/orders/validation/" + intentionId
             ),
             header: `We hope you will have fun at ${eventName}, ${firstName}!`,
             startTimeDescription: `${eventName} will start at ${format(
