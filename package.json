@@ -22,6 +22,7 @@
     "net": "^1.0.2",
     "pg": "^8.6.0",
     "pg-connection-string": "^2.5.0",
+    "qrcode-generator": "^1.4.4",
     "react-icons": "^4.2.0",
     "recoil": "^0.3.1",
     "sqlite3": "5.0.0",
@@ -32,6 +33,7 @@
     "strapi-plugin-content-type-builder": "3.6.2",
     "strapi-plugin-documentation": "^3.6.2",
     "strapi-plugin-email": "3.6.2",
+    "strapi-plugin-email-designer": "^1.1.4",
     "strapi-plugin-graphql": "3.6.2",
     "strapi-plugin-i18n": "3.6.2",
     "strapi-plugin-upload": "3.6.2",
@@ -39,6 +41,7 @@
     "strapi-provider-email-gmail-2lo": "^3.5.1",
     "strapi-provider-upload-aws-s3": "^3.6.5",
     "strapi-utils": "3.6.2",
+    "svg64": "^1.1.0",
     "tls": "0.0.1",
     "uuid": "^8.3.2"
   },

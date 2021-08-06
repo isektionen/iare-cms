@@ -648,9 +648,9 @@
       }
     },
     "/orders/{id}/ticket": {
-      "post": {
+      "get": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "",
         "responses": {
           "200": {
             "description": "response",
@@ -701,21 +701,18 @@
         "tags": [
           "Order"
         ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
+        ]
       }
     },
     "/orders/{id}/valid": {

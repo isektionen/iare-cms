@@ -1,5 +1,6 @@
 "use strict";
 
+const { getDate, format } = require("date-fns");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -111,7 +112,7 @@ module.exports = {
   },
 
   async ticket(ctx) {
-    return {};
+    return await strapi.services.order.createQRCode("TICKET INFO");
   },
   async validateTicket(ctx) {
     const { intentionId } = ctx.params;
@@ -139,7 +140,63 @@ module.exports = {
   },
   async webhook(ctx) {
     const { paymentId } = ctx.params;
-    console.log("weebhook", ctx.request.body);
+    const event = _.cloneDeep(ctx.request.body.event);
+    delete ctx.request.body.event;
+
+    try {
+      if (event === "payment.charge.created.v2") {
+        const paymentId = _.pick(ctx, "request.body.paymentId");
+        const paymentMethod = _.pick(ctx, "request.body.paymentMethod");
+        const paymentType = _.pick(ctx, "request.body.paymentType");
+        const timestamp = _.pick(ctx, "request.body.timestamp");
+
+        const order = await strapi.services.findOne({ paymentId });
+        if (!order) throw new Error("no order found");
+
+        const eventName = _.pick(order, "event.title");
+        const eventStartTime = _.pick(order, "event.startTime");
+        const amount = _.pick(order, "event.amount");
+        const intentionId = _.pick(order, "event.intentionId");
+
+        const consumer = _.pick(order, "consumer");
+        const firstName = consumer.firstName;
+        const email = consumer.email;
+
+        await strapi.plugins[
+          "email-designer"
+        ].services.email.sendTemplatedEmail(
+          {
+            to: email,
+          },
+          {
+            templateId: 1,
+            subject: `Iare: order receipt`,
+          },
+          {
+            QRCode: await strapi.services.order.createQRCode(
+              strapi.backendUrl + "orders/validation/" + intentionId
+            ),
+            header: `We hope you will have fun at ${eventName}, ${firstName}!`,
+            startTimeDescription: `${eventName} will start at ${format(
+              new Date(eventStartTime),
+              "hha..aa, EEEE dd mm"
+            )}`,
+            orderSummaryHeader: "Order summary",
+            dateLabel: "Date",
+            date: format(new Date(timestamp), "dd MMM yyyy"),
+            orderIdLabel: "Order ID",
+            orderId: paymentId,
+            paymentMethodLabel: "Payment Method",
+            paymentMethod: `${paymentMethod} [${paymentType}]`,
+            totalLabel: "Total",
+            total: amount + " kr",
+          }
+        );
+      }
+    } catch (err) {
+      strapi.log.debug(err);
+    }
+
     const entity = await strapi.services.order.update(
       { paymentId },
       ctx.request.body

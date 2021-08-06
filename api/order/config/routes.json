@@ -41,7 +41,7 @@
       }
     },
     {
-      "method": "POST",
+      "method": "GET",
       "path": "/orders/:id/ticket",
       "handler": "order.ticket",
       "config": {
