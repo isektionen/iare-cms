@@ -13,6 +13,6 @@ module.exports = {
 
     qr.make();
 
-    return qr.createWithLogo(70);
+    return qr.createWithLogo(50);
   },
 };
