@@ -173,7 +173,7 @@ module.exports = {
           },
           {
             QRCode: await strapi.services.order.createQRCode(
-              strapi.backendUrl + "orders/validation/" + intentionId
+              /*strapi.backendUrl + "orders/validation/" + */ intentionId
             ),
             header: `We hope you will have fun at ${eventName}, ${firstName}!`,
             startTimeDescription: `${eventName} will start at ${format(
