@@ -5,9 +5,14 @@
  * to customize this model
  */
 const { v4: uuidv4 } = require("uuid");
+
+const { nanoid } = require("nanoid");
+
 const { sanitizeEntity } = require("strapi-utils");
 const _ = require("lodash");
 const { ticket } = require("../../order/controllers/order");
+
+const createId = () => nanoid(8);
 
 const createForAllLocales = async (data) => {
   const _locale = data.locale || "sv";
@@ -30,10 +35,10 @@ const createUIDs = (result) => {
       ...result.tickets,
       Tickets: result.tickets.Tickets.map((ticket) => ({
         ...ticket,
-        ticketUID: ticket.ticketUID ? ticket.ticketUID : uuidv4(),
+        ticketUID: ticket.ticketUID ? ticket.ticketUID : createId(),
       })),
     },
-    fullfillmentUID: uuidv4(),
+    fullfillmentUID: createId(),
   };
 };
 
@@ -41,7 +46,7 @@ var state = [];
 
 const insertUID = (r) => ({
   ...r,
-  ticketUID: r.ticketUID ? r.ticketUID : uuidv4(),
+  ticketUID: r.ticketUID ? r.ticketUID : createId(),
 });
 
 const getLocales = (records) => records.localizations.map((r) => r.id);
@@ -84,7 +89,7 @@ const syncLocales = async ({ data, result, id }) => {
 
         const _ticket = _.first(tickets);
 
-        const uuid = _ticket.ticketUID ? _ticket.ticketUID : uuidv4();
+        const uuid = _ticket.ticketUID ? _ticket.ticketUID : createId();
         const ticket = { ..._ticket, ticketUID: uuid };
         const others = _.fill(Array(locales.length), {
           ...ticket,

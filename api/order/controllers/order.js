@@ -9,13 +9,14 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 const _ = require("lodash");
 
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
+}
+
 const sanitizeId = (value) => {
   if (isNumeric(value)) return { id: value };
   return { intentionId: value };
 };
-function isNumeric(value) {
-  return /^-?\d+$/.test(value);
-}
 
 const groupDiet = (dietList) =>
   dietList.reduce(

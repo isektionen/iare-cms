@@ -19,6 +19,7 @@
     "echarts": "^5.1.1",
     "fs": "0.0.1-security",
     "knex": "0.21.18",
+    "nanoid": "^3.1.23",
     "net": "^1.0.2",
     "pg": "^8.6.0",
     "pg-connection-string": "^2.5.0",

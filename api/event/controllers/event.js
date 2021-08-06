@@ -8,10 +8,9 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 
 const sanitizeId = (value) => {
   if (/^-?\d+$/.test(value)) return { id: value };
-  const v4 = new RegExp(
-    /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-  );
-  if (v4.test(value)) return { fullfillmentUID: value };
+
+  const nano = new RegExp(/^[A-Za-z0-9_-]{8}$/i);
+  if (nano.test(value)) return { fullfillmentUID: value };
   return { slug: value };
 };
 
