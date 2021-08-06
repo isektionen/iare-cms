@@ -143,19 +143,19 @@ module.exports = {
     delete ctx.request.body.event;
 
     try {
-      if (event === "payment.charge.created.v2") {
-        const { paymentMethod, paymentType, timestamp } = ctx.request.body;
+      if (event === "payment.checkout.completed") {
+        const { consumer, amount } = ctx.request.body;
 
         const order = await strapi.query("order").findOne({ paymentId });
         if (!order) throw new Error("no order found");
 
         const eventName = order.event.title;
         const eventStartTime = order.event.startTime;
-        const amount = order.event.amount;
+        //const amount = order.event.amount;
         const intentionId = order.intentionId;
 
-        const firstName = order.consumer.firstName;
-        const email = order.consumer.email;
+        const firstName = consumer.firstName;
+        const email = consumer.email;
         await strapi.plugins[
           "email-designer"
         ].services.email.sendTemplatedEmail(
@@ -168,7 +168,7 @@ module.exports = {
           },
           {
             QRCode: await strapi.services.order.createQRCode(
-              /*strapi.backendUrl + "orders/validation/" + */ intentionId
+              strapi.backendUrl + "orders/validation/" + intentionId
             ),
             header: `We hope you will have fun at ${eventName}, ${firstName}!`,
             startTimeDescription: `${eventName} will start at ${format(
@@ -181,7 +181,7 @@ module.exports = {
             orderIdLabel: "Order ID",
             orderId: paymentId,
             paymentMethodLabel: "Payment Method",
-            paymentMethod: `${paymentMethod} [${paymentType}]`,
+            paymentMethod: "---", //`${paymentMethod} [${paymentType}]`,
             totalLabel: "Total",
             total: amount + " kr",
           }
