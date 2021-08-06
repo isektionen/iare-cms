@@ -7,7 +7,7 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
  */
 
 const _ = require("lodash");
-const emailClient = require("../services/email/");
+const emailClient = require("../services/email");
 
 function isNumeric(value) {
   return /^-?\d+$/.test(value);
