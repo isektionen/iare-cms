@@ -147,17 +147,15 @@ module.exports = {
         const { paymentMethod, paymentType, timestamp } = ctx.request.body;
 
         const order = await strapi.query("order").findOne({ paymentId });
-        console.log("ORDER:", order);
         if (!order) throw new Error("no order found");
 
         const eventName = order.event.title;
         const eventStartTime = order.event.startTime;
         const amount = order.event.amount;
-        const intentionId = order.event.intentionId;
+        const intentionId = order.intentionId;
 
         const firstName = order.consumer.firstName;
         const email = order.consumer.email;
-        console.log("START: ", eventStartTime);
         await strapi.plugins[
           "email-designer"
         ].services.email.sendTemplatedEmail(
