@@ -112,7 +112,12 @@ module.exports = {
     const { id } = ctx.params;
 
     const entity = await strapi.services.order.findOne({ intentionId: id });
-    return entity ? { valid: true } : { valid: false };
+    //return entity ? { valid: true } : { valid: false };
+    return {
+      intentionId: entity?.intentionId ?? null,
+      paymentId: entity?.paymentId ?? null,
+      ticketId: entity?.ticketReference?.uid ?? null,
+    };
   },
 
   async updateDiets(ctx) {
