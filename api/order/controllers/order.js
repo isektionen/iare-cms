@@ -118,7 +118,7 @@ module.exports = {
       intentionId: entity?.intentionId ?? null,
       paymentId: entity?.paymentId ?? null,
       ticketId:
-        entity?.ticketReference?.uid ??
+        entity?.ticketReference[0]?.uid ??
         entity?.event?.tickets?.Tickets[0].ticketUID ??
         null,
     };
