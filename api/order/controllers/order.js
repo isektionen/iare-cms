@@ -112,11 +112,15 @@ module.exports = {
     const { id } = ctx.params;
 
     const entity = await strapi.services.order.findOne({ intentionId: id });
+    //const eventEntity = await strapi.query("event").findOne({id: entity.event.id})
     //return entity ? { valid: true } : { valid: false };
     return {
       intentionId: entity?.intentionId ?? null,
       paymentId: entity?.paymentId ?? null,
-      ticketId: entity?.ticketReference?.uid ?? null,
+      ticketId:
+        entity?.ticketReference?.uid ??
+        entity?.event?.tickets?.Tickets[0].ticketUID ??
+        null,
     };
   },
 
