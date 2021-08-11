@@ -131,6 +131,8 @@ module.exports = {
     // Check if new diets have been added
     body.consumer = parseDiets(ctx.request.body);
 
+    console.log(body);
+
     const entity = await strapi.services.order.update(
       { intentionId: id },
       body
