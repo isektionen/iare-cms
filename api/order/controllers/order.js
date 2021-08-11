@@ -29,11 +29,11 @@ const groupDiet = (dietList) =>
     { new: [], old: [] }
   );
 
-const createDiets = async (dietType, { consumer }) => {
-  if (!consumer || (consumer && !consumer.hasOwnProperty(dietType))) return [];
+const createDiets = async (dietType, body) => {
+  if (!body || (body && !body.hasOwnProperty(dietType))) return [];
 
   const singularType = dietType === "allergens" ? "allergy" : "diet";
-  const diets = groupDiet(consumer[dietType]);
+  const diets = groupDiet(body[dietType]);
   const newDiets = await strapi.services[singularType].bulkCreate({
     [dietType]: diets.new.map((diet) => ({ name: diet.name })),
   });
@@ -129,7 +129,7 @@ module.exports = {
     const body = { consumer: {} };
 
     // Check if new diets have been added
-    if (ctx.request.body.consumer) {
+    if (ctx.request.body) {
       body.consumer = parseDiets(ctx.request.body);
     }
 
