@@ -129,7 +129,7 @@ module.exports = {
     const body = { consumer: {} };
 
     // Check if new diets have been added
-    body.consumer = parseDiets(ctx.request.body);
+    body.consumer = await parseDiets(ctx.request.body);
 
     console.log(body);
 
