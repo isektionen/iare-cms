@@ -141,7 +141,15 @@ module.exports = {
   },
 
   async ticket(ctx) {
-    return;
+    const { intentionId } = ctx.params;
+    const entity = await strapi.services.order.findOne({ intentionId });
+    const baseUrl = "https://cms.iare.se";
+    if (entity) {
+      return await strapi.services.order.createQRCode(
+        baseUrl + "/orders/validation/" + intentionId
+      );
+    }
+    ctx.response = 400;
   },
   async validateTicket(ctx) {
     const { intentionId } = ctx.params;

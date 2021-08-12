@@ -42,7 +42,7 @@
     },
     {
       "method": "GET",
-      "path": "/orders/:id/ticket",
+      "path": "/orders/:intentionId/ticket",
       "handler": "order.ticket",
       "config": {
         "policies": []
