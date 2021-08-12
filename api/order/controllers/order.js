@@ -129,6 +129,7 @@ module.exports = {
         entity?.event?.tickets?.Tickets[0].ticketUID ??
         null,
       consumer: entity?.consumer ?? null,
+      status: entity?.status ?? null,
     };
   },
 
