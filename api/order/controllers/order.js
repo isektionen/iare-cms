@@ -111,9 +111,16 @@ module.exports = {
   async validIntention(ctx) {
     const { id } = ctx.params;
 
-    const entity = await strapi.services.order.findOne({ intentionId: id });
-    //const eventEntity = await strapi.query("event").findOne({id: entity.event.id})
-    //return entity ? { valid: true } : { valid: false };
+    //const entity = await strapi.services.order.findOne({ intentionId: id });
+
+    const entity = await strapi
+      .query("order")
+      .findOne({ intentionId: id }, [
+        "consumer",
+        "consumer.diets",
+        "consumer.allergens",
+      ]);
+
     return {
       intentionId: entity?.intentionId ?? null,
       paymentId: entity?.paymentId ?? null,
@@ -121,6 +128,7 @@ module.exports = {
         entity?.ticketReference[0]?.uid ??
         entity?.event?.tickets?.Tickets[0].ticketUID ??
         null,
+      consumer: entity?.consumer ?? null,
     };
   },
 
@@ -130,8 +138,6 @@ module.exports = {
 
     // Check if new diets have been added
     body.consumer = await parseDiets(ctx.request.body);
-
-    console.log(body);
 
     const entity = await strapi.services.order.update(
       { intentionId: id },
