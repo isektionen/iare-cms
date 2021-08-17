@@ -647,7 +647,7 @@
         ]
       }
     },
-    "/orders/{id}/ticket": {
+    "/orders/{intentionId}/ticket": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -703,7 +703,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "intentionId",
             "in": "path",
             "description": "",
             "deprecated": false,
