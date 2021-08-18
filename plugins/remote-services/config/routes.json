@@ -5,7 +5,7 @@
       "path": "/init",
       "handler": "remote-services.issueBearer",
       "config": {
-        "policies": []
+        "policies": ["plugins::users-permissions.ratelimit"]
       }
     }
   ]
