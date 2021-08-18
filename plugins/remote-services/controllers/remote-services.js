@@ -1,10 +1,22 @@
 "use strict";
+const _ = require("lodash");
+const jwt = require("jsonwebtoken");
 
 /**
  * remote-services.js controller
  *
  * @description: A set of functions called "actions" of the `remote-services` plugin.
  */
+const defaultJwtOptions = { expiresIn: "9999d" };
+
+const getTokenOptions = () => {
+  const { options, secret } = strapi.config.get("server.admin.auth", {});
+
+  return {
+    secret,
+    options: _.merge(defaultJwtOptions, options),
+  };
+};
 
 module.exports = {
   issueBearer: async (ctx) => {
@@ -25,13 +37,9 @@ module.exports = {
     if (!user) {
       return null;
     }
+    const { options, secret } = getTokenOptions();
 
-    const token = await strapi.plugins["users-permissions"].services.jwt.issue(
-      { id: user.id },
-      {
-        expiresIn: "9999d",
-      }
-    );
+    const token = jwt.sign({ id: user.id }, secret, options);
     return token;
   },
 };
