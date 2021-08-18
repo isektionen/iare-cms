@@ -42,4 +42,27 @@ module.exports = {
     const token = jwt.sign({ id: user.id }, secret, options);
     return token;
   },
+  send: async (ctx) => {
+    const { body } = ctx.request;
+    const { to, fullname, message } = body;
+
+    try {
+      await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+        {
+          to,
+        },
+        {
+          templateId: 2,
+          subject: `Iare: message inquiry`,
+        },
+        {
+          fullname,
+          message,
+        }
+      );
+    } catch (err) {
+      strapi.log.debug("EMAIL", err);
+      return ctx.badRequest(null, err);
+    }
+  },
 };
