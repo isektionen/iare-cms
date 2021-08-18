@@ -529,6 +529,10 @@
           "content": {
             "type": "string"
           },
+          "publishable": {
+            "type": "boolean",
+            "default": true
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -545,6 +549,10 @@
           },
           "content": {
             "type": "string"
+          },
+          "publishable": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",

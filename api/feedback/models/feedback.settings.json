@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "feedbacks",
   "info": {
-    "name": "Feedback"
+    "name": "Feedback",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -17,6 +18,10 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "publishable": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
