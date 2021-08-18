@@ -29,7 +29,7 @@
       "path": "/feedbacks",
       "handler": "feedback.create",
       "config": {
-        "policies": []
+        "policies": ["plugins::users-permissions.isAuthenticated"]
       }
     },
     {
@@ -37,7 +37,7 @@
       "path": "/feedbacks/:id",
       "handler": "feedback.update",
       "config": {
-        "policies": []
+        "policies": ["plugins::users-permissions.isAuthenticated"]
       }
     },
     {
