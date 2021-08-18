@@ -25,8 +25,6 @@ module.exports = {
     if (!email || !password) {
       return null;
     }
-    //const user = await strapi.query('user', 'admin').findOne({email, isActive: true})
-    //console.log(user)
 
     const [nan, user, message] =
       await strapi.admin.services.auth.checkCredentials({
@@ -64,5 +62,6 @@ module.exports = {
       strapi.log.debug("EMAIL", err);
       return ctx.badRequest(null, err);
     }
+    ctx.response.status = 200;
   },
 };
