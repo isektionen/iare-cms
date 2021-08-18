@@ -61,6 +61,16 @@
           "localized": false
         }
       }
+    },
+    "feedbackbox": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "header.feedbackbox"
     }
   }
 }

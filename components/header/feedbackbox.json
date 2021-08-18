@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_header_feedbackboxes",
+  "info": {
+    "name": "feedbackbox",
+    "icon": "smile-wink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext",
+      "maxLength": 120
+    }
+  }
+}
