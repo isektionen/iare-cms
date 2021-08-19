@@ -46,7 +46,6 @@ module.exports = {
     const { to, ...rest } = body;
 
     try {
-      console.log("REST", rest);
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
           to,
