@@ -41,8 +41,9 @@ module.exports = {
     return token;
   },
   send: async (ctx) => {
+    const { templateId } = ctx.params;
     const { body } = ctx.request;
-    const { to, fullname, message } = body;
+    const { to, ...rest } = body;
 
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
@@ -50,12 +51,10 @@ module.exports = {
           to,
         },
         {
-          templateId: 2,
-          subject: `Iare: message inquiry`,
+          templateId,
         },
         {
-          fullname,
-          message,
+          ...rest,
         }
       );
     } catch (err) {

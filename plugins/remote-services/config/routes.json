@@ -10,7 +10,7 @@
     },
     {
       "method": "POST",
-      "path": "/send",
+      "path": "/send/:templateId",
       "handler": "remote-services.send",
       "config": {
         "policies": ["plugins::users-permissions.ratelimit"]
