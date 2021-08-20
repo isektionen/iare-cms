@@ -15,6 +15,14 @@
       "config": {
         "policies": ["plugins::users-permissions.ratelimit"]
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/thumbnail",
+      "handler": "remote-services.thumbnail",
+      "config": {
+        "policies": ["plugins::users-permissions.ratelimit"]
+      }
     }
   ]
 }

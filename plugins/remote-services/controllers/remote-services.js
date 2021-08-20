@@ -63,4 +63,21 @@ module.exports = {
     }
     ctx.response.status = 200;
   },
+  thumbnail: async (ctx) => {
+    const values = ctx.request.body;
+    if (!values) {
+      return ctx.badRequest();
+    }
+    let user = {};
+    if (ctx.state.user) {
+      user = ctx.state.user;
+    }
+    const { id, ...rest } = values;
+    const res = await strapi.plugins["upload"].services.update(
+      { id },
+      rest,
+      user
+    );
+    return res;
+  },
 };
