@@ -8,6 +8,12 @@ module.exports = async () => {
       uid: "read",
       pluginName: "remote-services",
     },
+    {
+      section: "plugins",
+      displayName: "Update media",
+      uid: "update",
+      pluginName: "remote-services",
+    },
   ];
 
   const { actionProvider } = strapi.admin.services.permission;
