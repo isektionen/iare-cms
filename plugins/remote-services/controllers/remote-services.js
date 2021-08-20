@@ -73,11 +73,15 @@ module.exports = {
       user = ctx.state.user;
     }
     const { id, ...rest } = values;
-    const res = await strapi.plugins["upload"].services.update(
+    /*const res = await strapi.plugins["upload"].services.update(
       { id },
       rest,
       user
     );
+    console.log(res);
     return res;
+    */
+    const res = await strapi.plugins;
+    console.log(res);
   },
 };
