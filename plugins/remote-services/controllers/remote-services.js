@@ -75,7 +75,7 @@ module.exports = {
     const { id, ...rest } = values;
     const res = await strapi.plugins.upload.services.upload.update(
       { id },
-      { formats: { thumbnail: rest } },
+      { formats: { thumbnail: rest }, related: [] },
       user
     );
     console.log(res);
