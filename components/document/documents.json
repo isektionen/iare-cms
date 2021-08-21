@@ -2,7 +2,8 @@
   "collectionName": "components_document_documents",
   "info": {
     "name": "documents",
-    "icon": "balance-scale"
+    "icon": "balance-scale",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -36,6 +37,9 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "businessYear": {
+      "type": "string"
     }
   }
 }

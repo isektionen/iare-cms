@@ -452,6 +452,9 @@
                 "current": {
                   "type": "boolean",
                   "default": false
+                },
+                "businessYear": {
+                  "type": "string"
                 }
               }
             }
@@ -635,6 +638,9 @@
                 "current": {
                   "type": "boolean",
                   "default": false
+                },
+                "businessYear": {
+                  "type": "string"
                 }
               }
             }
