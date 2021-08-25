@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/25/2021 11:20:09 AM"
+    "x-generation-date": "08/25/2021 11:42:54 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12962,6 +12962,9 @@
           "role": {
             "type": "string"
           },
+          "abbreviation": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -12980,6 +12983,9 @@
                   }
                 },
                 "role": {
+                  "type": "string"
+                },
+                "abbreviation": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13024,6 +13030,9 @@
             }
           },
           "role": {
+            "type": "string"
+          },
+          "abbreviation": {
             "type": "string"
           },
           "localizations": {
@@ -13089,6 +13098,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "abbreviation": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13529,6 +13541,9 @@
               }
             }
           },
+          "abbreviation": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -13563,6 +13578,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "abbreviation": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13622,6 +13640,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "abbreviation": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -14781,6 +14802,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "abbreviation": {
+                "type": "string"
               },
               "localizations": {
                 "type": "array",
@@ -17171,6 +17195,9 @@
                   "type": "string"
                 }
               },
+              "abbreviation": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -17498,6 +17525,9 @@
                 "role": {
                   "type": "string"
                 },
+                "abbreviation": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -17596,6 +17626,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "abbreviation": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",

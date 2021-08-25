@@ -40,6 +40,14 @@
     "representatives": {
       "via": "committees",
       "collection": "representative"
+    },
+    "abbreviation": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

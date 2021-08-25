@@ -29,6 +29,15 @@
       },
       "type": "string",
       "required": true
+    },
+    "abbreviation": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": false
     }
   }
 }

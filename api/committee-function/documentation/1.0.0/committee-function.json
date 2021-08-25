@@ -605,6 +605,9 @@
           "role": {
             "type": "string"
           },
+          "abbreviation": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -623,6 +626,9 @@
                   }
                 },
                 "role": {
+                  "type": "string"
+                },
+                "abbreviation": {
                   "type": "string"
                 },
                 "localizations": {
@@ -667,6 +673,9 @@
             }
           },
           "role": {
+            "type": "string"
+          },
+          "abbreviation": {
             "type": "string"
           },
           "localizations": {

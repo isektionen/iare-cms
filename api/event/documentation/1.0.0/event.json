@@ -639,6 +639,9 @@
                   "type": "string"
                 }
               },
+              "abbreviation": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {

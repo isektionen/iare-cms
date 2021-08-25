@@ -591,6 +591,9 @@
                 "role": {
                   "type": "string"
                 },
+                "abbreviation": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -689,6 +692,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "abbreviation": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
