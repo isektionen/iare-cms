@@ -39,9 +39,10 @@
       "type": "string",
       "required": false
     },
-    "committee_objective": {
-      "via": "committee_role",
-      "model": "committee-objective"
+    "committee_objectives": {
+      "collection": "committee-objective",
+      "via": "committee_roles",
+      "dominant": true
     }
   }
 }

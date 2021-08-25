@@ -616,46 +616,52 @@
           "abbreviation": {
             "type": "string"
           },
-          "committee_objective": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "committees": {
-                "type": "array",
-                "items": {
+          "committee_objectives": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "committees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "representatives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "objective": {
+                  "type": "string"
+                },
+                "committee_roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "representatives": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "objective": {
-                "type": "string"
-              },
-              "committee_role": {
-                "type": "string"
-              },
-              "localizations": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "locale": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -682,8 +688,11 @@
                 "abbreviation": {
                   "type": "string"
                 },
-                "committee_objective": {
-                  "type": "string"
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -732,8 +741,11 @@
           "abbreviation": {
             "type": "string"
           },
-          "committee_objective": {
-            "type": "string"
+          "committee_objectives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "localizations": {
             "type": "array",

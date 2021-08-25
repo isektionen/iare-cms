@@ -33,9 +33,9 @@
       },
       "type": "string"
     },
-    "committee_role": {
-      "model": "committee-function",
-      "via": "committee_objective"
+    "committee_roles": {
+      "via": "committee_objectives",
+      "collection": "committee-function"
     }
   }
 }
