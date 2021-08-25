@@ -32,6 +32,10 @@
         }
       },
       "type": "string"
+    },
+    "committee_role": {
+      "model": "committee-function",
+      "via": "committee_objective"
     }
   }
 }

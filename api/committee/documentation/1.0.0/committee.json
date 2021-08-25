@@ -698,6 +698,9 @@
               "objective": {
                 "type": "string"
               },
+              "committee_role": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
