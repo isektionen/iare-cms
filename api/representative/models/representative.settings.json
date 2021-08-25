@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "representatives",
+  "info": {
+    "name": "Representative",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "user": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "committee_roles": {
+      "via": "representatives",
+      "collection": "committee-function"
+    },
+    "committee_objectives": {
+      "via": "representatives",
+      "collection": "committee-objective"
+    },
+    "committees": {
+      "via": "representatives",
+      "collection": "committee",
+      "dominant": true
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "hidden": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "contact": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "email",
+      "required": true
+    },
+    "chapter_year": {
+      "model": "chapter-year",
+      "via": "representative"
+    }
+  }
+}

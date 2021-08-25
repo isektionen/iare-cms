@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/committee-functions",
+      "handler": "committee-function.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/committee-functions/count",
+      "handler": "committee-function.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/committee-functions/:id",
+      "handler": "committee-function.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/committee-functions",
+      "handler": "committee-function.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/committee-functions/:id",
+      "handler": "committee-function.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/committee-functions/:id",
+      "handler": "committee-function.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

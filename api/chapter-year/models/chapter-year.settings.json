@@ -20,6 +20,10 @@
       "via": "chapter_year",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "representative": {
+      "via": "chapter_year",
+      "model": "representative"
     }
   }
 }

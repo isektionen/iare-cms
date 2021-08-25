@@ -618,18 +618,6 @@
               "name": {
                 "type": "string"
               },
-              "adminUsers": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "users": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "events": {
                 "type": "array",
                 "items": {
@@ -637,6 +625,15 @@
                 }
               },
               "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "committee_objective": {
+                "type": "string"
+              },
+              "representatives": {
                 "type": "array",
                 "items": {
                   "type": "string"

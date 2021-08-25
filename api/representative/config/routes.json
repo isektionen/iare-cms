@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/representatives",
+      "handler": "representative.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/representatives/count",
+      "handler": "representative.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/representatives/:id",
+      "handler": "representative.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/representatives",
+      "handler": "representative.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/representatives/:id",
+      "handler": "representative.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/representatives/:id",
+      "handler": "representative.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

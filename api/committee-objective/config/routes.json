@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/committee-objectives",
+      "handler": "committee-objective.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/committee-objectives/count",
+      "handler": "committee-objective.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/committee-objectives/:id",
+      "handler": "committee-objective.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/committee-objectives",
+      "handler": "committee-objective.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/committee-objectives/:id",
+      "handler": "committee-objective.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/committee-objectives/:id",
+      "handler": "committee-objective.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

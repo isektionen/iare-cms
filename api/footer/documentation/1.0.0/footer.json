@@ -318,49 +318,65 @@
           "id": {
             "type": "string"
           },
-          "responsiblePublisher": {
+          "representative": {
             "required": [
               "id",
-              "email"
+              "hidden",
+              "contact"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "firstname": {
+              "user": {
                 "type": "string"
               },
-              "lastname": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "registrationToken": {
-                "type": "string"
-              },
-              "isActive": {
-                "type": "boolean"
-              },
-              "roles": {
+              "committee_roles": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "blocked": {
+              "committee_objectives": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "committees": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cover": {
+                "type": "string"
+              },
+              "hidden": {
                 "type": "boolean"
               },
-              "preferedLanguage": {
+              "contact": {
+                "type": "string"
+              },
+              "chapter_year": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
                 "type": "string"
               }
             }
@@ -469,7 +485,7 @@
                 "id": {
                   "type": "string"
                 },
-                "responsiblePublisher": {
+                "representative": {
                   "type": "string"
                 },
                 "social": {
@@ -503,7 +519,7 @@
       },
       "NewFooter": {
         "properties": {
-          "responsiblePublisher": {
+          "representative": {
             "type": "string"
           },
           "social": {

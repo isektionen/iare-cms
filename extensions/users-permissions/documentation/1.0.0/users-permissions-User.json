@@ -1251,65 +1251,6 @@
               }
             }
           },
-          "committees": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "adminUsers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "events": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "posts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "nickname": {
             "type": "string"
           },
@@ -1332,6 +1273,9 @@
                 "type": "string"
               },
               "user": {
+                "type": "string"
+              },
+              "representative": {
                 "type": "string"
               },
               "published_at": {
@@ -1385,12 +1329,6 @@
           },
           "role": {
             "type": "string"
-          },
-          "committees": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "nickname": {
             "type": "string"

@@ -16,9 +16,8 @@
     }
   },
   "attributes": {
-    "responsiblePublisher": {
-      "plugin": "admin",
-      "model": "user"
+    "representative": {
+      "model": "representative"
     },
     "social": {
       "type": "component",

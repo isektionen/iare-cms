@@ -59,10 +59,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "committees": {
-      "via": "users",
-      "collection": "committee"
-    },
     "nickname": {
       "type": "string"
     },

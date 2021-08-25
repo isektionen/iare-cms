@@ -526,122 +526,6 @@
           "name": {
             "type": "string"
           },
-          "adminUsers": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "firstname": {
-                  "type": "string"
-                },
-                "lastname": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "registrationToken": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "roles": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "preferedLanguage": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "committees": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "nickname": {
-                  "type": "string"
-                },
-                "firstname": {
-                  "type": "string"
-                },
-                "lastname": {
-                  "type": "string"
-                },
-                "chapter_year": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "events": {
             "type": "array",
             "items": {
@@ -791,6 +675,112 @@
               }
             }
           },
+          "committee_objective": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "committees": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "representatives": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "objective": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "representatives": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "hidden",
+                "contact"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "committee_roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "committees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cover": {
+                  "type": "string"
+                },
+                "hidden": {
+                  "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
+                },
+                "chapter_year": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -805,18 +795,6 @@
                 "name": {
                   "type": "string"
                 },
-                "adminUsers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "events": {
                   "type": "array",
                   "items": {
@@ -824,6 +802,15 @@
                   }
                 },
                 "posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "committee_objective": {
+                  "type": "string"
+                },
+                "representatives": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -867,18 +854,6 @@
           "name": {
             "type": "string"
           },
-          "adminUsers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "events": {
             "type": "array",
             "items": {
@@ -886,6 +861,15 @@
             }
           },
           "posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "committee_objective": {
+            "type": "string"
+          },
+          "representatives": {
             "type": "array",
             "items": {
               "type": "string"
