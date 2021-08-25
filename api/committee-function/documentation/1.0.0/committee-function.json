@@ -542,7 +542,8 @@
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -579,6 +580,9 @@
                   "type": "string"
                 },
                 "chapter_year": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {

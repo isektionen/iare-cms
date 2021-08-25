@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/25/2021 11:42:54 AM"
+    "x-generation-date": "08/25/2021 11:49:14 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12793,7 +12793,8 @@
             "required": [
               "id",
               "hidden",
-              "contact"
+              "contact",
+              "description"
             ],
             "properties": {
               "id": {
@@ -12830,6 +12831,9 @@
                 "type": "string"
               },
               "chapter_year": {
+                "type": "string"
+              },
+              "description": {
                 "type": "string"
               },
               "localizations": {
@@ -12899,7 +12903,8 @@
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -12936,6 +12941,9 @@
                   "type": "string"
                 },
                 "chapter_year": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13129,7 +13137,8 @@
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -13166,6 +13175,9 @@
                   "type": "string"
                 },
                 "chapter_year": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13481,7 +13493,8 @@
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -13518,6 +13531,9 @@
                   "type": "string"
                 },
                 "chapter_year": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -15443,7 +15459,8 @@
             "required": [
               "id",
               "hidden",
-              "contact"
+              "contact",
+              "description"
             ],
             "properties": {
               "id": {
@@ -15480,6 +15497,9 @@
                 "type": "string"
               },
               "chapter_year": {
+                "type": "string"
+              },
+              "description": {
                 "type": "string"
               },
               "localizations": {
@@ -17452,7 +17472,8 @@
         "required": [
           "id",
           "hidden",
-          "contact"
+          "contact",
+          "description"
         ],
         "properties": {
           "id": {
@@ -17754,13 +17775,17 @@
               }
             }
           },
+          "description": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -17799,6 +17824,9 @@
                 "chapter_year": {
                   "type": "string"
                 },
+                "description": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -17832,7 +17860,8 @@
       "NewRepresentative": {
         "required": [
           "hidden",
-          "contact"
+          "contact",
+          "description"
         ],
         "properties": {
           "user": {
@@ -17864,6 +17893,9 @@
             "type": "string"
           },
           "chapter_year": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "localizations": {

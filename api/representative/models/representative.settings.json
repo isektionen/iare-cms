@@ -69,6 +69,15 @@
     "chapter_year": {
       "model": "chapter-year",
       "via": "representative"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
     }
   }
 }

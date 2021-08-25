@@ -518,7 +518,8 @@
         "required": [
           "id",
           "hidden",
-          "contact"
+          "contact",
+          "description"
         ],
         "properties": {
           "id": {
@@ -820,13 +821,17 @@
               }
             }
           },
+          "description": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "hidden",
-                "contact"
+                "contact",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -865,6 +870,9 @@
                 "chapter_year": {
                   "type": "string"
                 },
+                "description": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -898,7 +906,8 @@
       "NewRepresentative": {
         "required": [
           "hidden",
-          "contact"
+          "contact",
+          "description"
         ],
         "properties": {
           "user": {
@@ -930,6 +939,9 @@
             "type": "string"
           },
           "chapter_year": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "localizations": {
