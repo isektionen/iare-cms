@@ -519,7 +519,8 @@
           "id",
           "hidden",
           "contact",
-          "description"
+          "description",
+          "featured_contact"
         ],
         "properties": {
           "id": {
@@ -824,6 +825,10 @@
           "description": {
             "type": "string"
           },
+          "featured_contact": {
+            "type": "boolean",
+            "default": false
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -831,7 +836,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -873,6 +879,9 @@
                 "description": {
                   "type": "string"
                 },
+                "featured_contact": {
+                  "type": "boolean"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -907,7 +916,8 @@
         "required": [
           "hidden",
           "contact",
-          "description"
+          "description",
+          "featured_contact"
         ],
         "properties": {
           "user": {
@@ -943,6 +953,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "featured_contact": {
+            "type": "boolean",
+            "default": false
           },
           "localizations": {
             "type": "array",

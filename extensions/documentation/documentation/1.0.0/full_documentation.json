@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/25/2021 11:49:14 AM"
+    "x-generation-date": "08/25/2021 4:24:50 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12794,7 +12794,8 @@
               "id",
               "hidden",
               "contact",
-              "description"
+              "description",
+              "featured_contact"
             ],
             "properties": {
               "id": {
@@ -12835,6 +12836,9 @@
               },
               "description": {
                 "type": "string"
+              },
+              "featured_contact": {
+                "type": "boolean"
               },
               "localizations": {
                 "type": "array",
@@ -12904,7 +12908,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -12945,6 +12950,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "featured_contact": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -13138,7 +13146,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -13179,6 +13188,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "featured_contact": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -13494,7 +13506,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -13535,6 +13548,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "featured_contact": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -15460,7 +15476,8 @@
               "id",
               "hidden",
               "contact",
-              "description"
+              "description",
+              "featured_contact"
             ],
             "properties": {
               "id": {
@@ -15501,6 +15518,9 @@
               },
               "description": {
                 "type": "string"
+              },
+              "featured_contact": {
+                "type": "boolean"
               },
               "localizations": {
                 "type": "array",
@@ -17473,7 +17493,8 @@
           "id",
           "hidden",
           "contact",
-          "description"
+          "description",
+          "featured_contact"
         ],
         "properties": {
           "id": {
@@ -17778,6 +17799,10 @@
           "description": {
             "type": "string"
           },
+          "featured_contact": {
+            "type": "boolean",
+            "default": false
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -17785,7 +17810,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -17827,6 +17853,9 @@
                 "description": {
                   "type": "string"
                 },
+                "featured_contact": {
+                  "type": "boolean"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -17861,7 +17890,8 @@
         "required": [
           "hidden",
           "contact",
-          "description"
+          "description",
+          "featured_contact"
         ],
         "properties": {
           "user": {
@@ -17897,6 +17927,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "featured_contact": {
+            "type": "boolean",
+            "default": false
           },
           "localizations": {
             "type": "array",

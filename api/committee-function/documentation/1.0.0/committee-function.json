@@ -543,7 +543,8 @@
                 "id",
                 "hidden",
                 "contact",
-                "description"
+                "description",
+                "featured_contact"
               ],
               "properties": {
                 "id": {
@@ -584,6 +585,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "featured_contact": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",

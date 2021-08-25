@@ -78,6 +78,16 @@
       },
       "type": "text",
       "required": true
+    },
+    "featured_contact": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
