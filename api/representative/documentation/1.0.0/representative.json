@@ -596,12 +596,6 @@
                 "abbreviation": {
                   "type": "string"
                 },
-                "committee_objectives": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -647,12 +641,6 @@
                 },
                 "objective": {
                   "type": "string"
-                },
-                "committee_roles": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "localizations": {
                   "type": "array",

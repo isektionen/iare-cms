@@ -38,11 +38,6 @@
       },
       "type": "string",
       "required": false
-    },
-    "committee_objectives": {
-      "collection": "committee-objective",
-      "via": "committee_roles",
-      "dominant": true
     }
   }
 }
