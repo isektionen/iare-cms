@@ -530,7 +530,8 @@
       "Committee-function": {
         "required": [
           "id",
-          "role"
+          "role",
+          "featured_role"
         ],
         "properties": {
           "id": {
@@ -543,8 +544,7 @@
                 "id",
                 "hidden",
                 "contact",
-                "description",
-                "featured_contact"
+                "description"
               ],
               "properties": {
                 "id": {
@@ -585,9 +585,6 @@
                 },
                 "description": {
                   "type": "string"
-                },
-                "featured_contact": {
-                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -665,12 +662,17 @@
               }
             }
           },
+          "featured_role": {
+            "type": "boolean",
+            "default": false
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "role"
+                "role",
+                "featured_role"
               ],
               "properties": {
                 "id": {
@@ -693,6 +695,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "featured_role": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",
@@ -726,7 +731,8 @@
       },
       "NewCommittee-function": {
         "required": [
-          "role"
+          "role",
+          "featured_role"
         ],
         "properties": {
           "representatives": {
@@ -746,6 +752,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "featured_role": {
+            "type": "boolean",
+            "default": false
           },
           "localizations": {
             "type": "array",

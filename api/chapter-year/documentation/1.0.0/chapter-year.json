@@ -601,8 +601,7 @@
               "id",
               "hidden",
               "contact",
-              "description",
-              "featured_contact"
+              "description"
             ],
             "properties": {
               "id": {
@@ -643,9 +642,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "featured_contact": {
-                "type": "boolean"
               },
               "localizations": {
                 "type": "array",

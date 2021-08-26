@@ -601,8 +601,7 @@
                 "id",
                 "hidden",
                 "contact",
-                "description",
-                "featured_contact"
+                "description"
               ],
               "properties": {
                 "id": {
@@ -644,9 +643,6 @@
                 "description": {
                   "type": "string"
                 },
-                "featured_contact": {
-                  "type": "boolean"
-                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -676,7 +672,8 @@
             "items": {
               "required": [
                 "id",
-                "role"
+                "role",
+                "featured_role"
               ],
               "properties": {
                 "id": {
@@ -699,6 +696,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "featured_role": {
+                  "type": "boolean"
                 },
                 "localizations": {
                   "type": "array",

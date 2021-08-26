@@ -43,6 +43,16 @@
       "collection": "committee-objective",
       "via": "committee_roles",
       "dominant": true
+    },
+    "featured_role": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
