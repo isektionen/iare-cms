@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/26/2021 11:06:58 AM"
+    "x-generation-date": "08/26/2021 11:12:33 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12981,49 +12981,52 @@
           "abbreviation": {
             "type": "string"
           },
-          "committee_objective": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "committees": {
-                "type": "array",
-                "items": {
+          "committee_objectives": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "committees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "representatives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "objective": {
+                  "type": "string"
+                },
+                "committee_roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "representatives": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "objective": {
-                "type": "string"
-              },
-              "committee_roles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "localizations": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "locale": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -13050,8 +13053,11 @@
                 "abbreviation": {
                   "type": "string"
                 },
-                "committee_objective": {
-                  "type": "string"
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -13100,8 +13106,11 @@
           "abbreviation": {
             "type": "string"
           },
-          "committee_objective": {
-            "type": "string"
+          "committee_objectives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "localizations": {
             "type": "array",
@@ -13291,8 +13300,11 @@
                 "abbreviation": {
                   "type": "string"
                 },
-                "committee_objective": {
-                  "type": "string"
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -17687,8 +17699,11 @@
                 "abbreviation": {
                   "type": "string"
                 },
-                "committee_objective": {
-                  "type": "string"
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
