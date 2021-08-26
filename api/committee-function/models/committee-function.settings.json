@@ -38,6 +38,10 @@
       },
       "type": "string",
       "required": false
+    },
+    "committee_objective": {
+      "model": "committee-objective",
+      "via": "committee_roles"
     }
   }
 }
