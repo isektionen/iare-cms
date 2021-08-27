@@ -518,7 +518,6 @@
         "required": [
           "id",
           "hidden",
-          "contact",
           "description"
         ],
         "properties": {
@@ -578,7 +577,8 @@
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -604,6 +604,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -805,9 +808,6 @@
             "type": "boolean",
             "default": false
           },
-          "contact": {
-            "type": "string"
-          },
           "chapter_year": {
             "required": [
               "id",
@@ -846,7 +846,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -879,9 +878,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -922,7 +918,6 @@
       "NewRepresentative": {
         "required": [
           "hidden",
-          "contact",
           "description"
         ],
         "properties": {
@@ -950,9 +945,6 @@
           "hidden": {
             "type": "boolean",
             "default": false
-          },
-          "contact": {
-            "type": "string"
           },
           "chapter_year": {
             "type": "string"

@@ -727,7 +727,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -760,9 +759,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"

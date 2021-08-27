@@ -531,7 +531,8 @@
         "required": [
           "id",
           "role",
-          "featured_role"
+          "featured_role",
+          "contact"
         ],
         "properties": {
           "id": {
@@ -543,7 +544,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -576,9 +576,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -666,13 +663,17 @@
             "type": "boolean",
             "default": false
           },
+          "contact": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -698,6 +699,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -732,7 +736,8 @@
       "NewCommittee-function": {
         "required": [
           "role",
-          "featured_role"
+          "featured_role",
+          "contact"
         ],
         "properties": {
           "representatives": {
@@ -756,6 +761,9 @@
           "featured_role": {
             "type": "boolean",
             "default": false
+          },
+          "contact": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",

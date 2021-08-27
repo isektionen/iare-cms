@@ -57,15 +57,6 @@
       "default": false,
       "required": true
     },
-    "contact": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "email",
-      "required": true
-    },
     "chapter_year": {
       "model": "chapter-year",
       "via": "representative"

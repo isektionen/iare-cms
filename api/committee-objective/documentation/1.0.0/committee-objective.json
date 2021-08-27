@@ -600,7 +600,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -633,9 +632,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -673,7 +669,8 @@
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -699,6 +696,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",

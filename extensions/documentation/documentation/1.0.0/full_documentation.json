@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/26/2021 3:31:15 PM"
+    "x-generation-date": "08/27/2021 3:50:55 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12793,7 +12793,6 @@
             "required": [
               "id",
               "hidden",
-              "contact",
               "description"
             ],
             "properties": {
@@ -12826,9 +12825,6 @@
               },
               "hidden": {
                 "type": "boolean"
-              },
-              "contact": {
-                "type": "string"
               },
               "chapter_year": {
                 "type": "string"
@@ -12892,7 +12888,8 @@
         "required": [
           "id",
           "role",
-          "featured_role"
+          "featured_role",
+          "contact"
         ],
         "properties": {
           "id": {
@@ -12904,7 +12901,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -12937,9 +12933,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -13027,13 +13020,17 @@
             "type": "boolean",
             "default": false
           },
+          "contact": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -13059,6 +13056,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13093,7 +13093,8 @@
       "NewCommittee-function": {
         "required": [
           "role",
-          "featured_role"
+          "featured_role",
+          "contact"
         ],
         "properties": {
           "representatives": {
@@ -13117,6 +13118,9 @@
           "featured_role": {
             "type": "boolean",
             "default": false
+          },
+          "contact": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -13212,7 +13216,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -13245,9 +13248,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -13285,7 +13285,8 @@
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -13311,6 +13312,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13640,7 +13644,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -13673,9 +13676,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -15606,7 +15606,6 @@
             "required": [
               "id",
               "hidden",
-              "contact",
               "description"
             ],
             "properties": {
@@ -15639,9 +15638,6 @@
               },
               "hidden": {
                 "type": "boolean"
-              },
-              "contact": {
-                "type": "string"
               },
               "chapter_year": {
                 "type": "string"
@@ -17619,7 +17615,6 @@
         "required": [
           "id",
           "hidden",
-          "contact",
           "description"
         ],
         "properties": {
@@ -17679,7 +17674,8 @@
               "required": [
                 "id",
                 "role",
-                "featured_role"
+                "featured_role",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -17705,6 +17701,9 @@
                 },
                 "featured_role": {
                   "type": "boolean"
+                },
+                "contact": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -17906,9 +17905,6 @@
             "type": "boolean",
             "default": false
           },
-          "contact": {
-            "type": "string"
-          },
           "chapter_year": {
             "required": [
               "id",
@@ -17947,7 +17943,6 @@
               "required": [
                 "id",
                 "hidden",
-                "contact",
                 "description"
               ],
               "properties": {
@@ -17980,9 +17975,6 @@
                 },
                 "hidden": {
                   "type": "boolean"
-                },
-                "contact": {
-                  "type": "string"
                 },
                 "chapter_year": {
                   "type": "string"
@@ -18023,7 +18015,6 @@
       "NewRepresentative": {
         "required": [
           "hidden",
-          "contact",
           "description"
         ],
         "properties": {
@@ -18051,9 +18042,6 @@
           "hidden": {
             "type": "boolean",
             "default": false
-          },
-          "contact": {
-            "type": "string"
           },
           "chapter_year": {
             "type": "string"
