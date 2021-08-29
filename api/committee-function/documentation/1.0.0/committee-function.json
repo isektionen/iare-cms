@@ -532,7 +532,8 @@
           "id",
           "role",
           "featured_role",
-          "contact"
+          "contact",
+          "slug"
         ],
         "properties": {
           "id": {
@@ -666,6 +667,9 @@
           "contact": {
             "type": "string"
           },
+          "slug": {
+            "type": "uid"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -673,7 +677,8 @@
                 "id",
                 "role",
                 "featured_role",
-                "contact"
+                "contact",
+                "slug"
               ],
               "properties": {
                 "id": {
@@ -702,6 +707,9 @@
                 },
                 "contact": {
                   "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "localizations": {
                   "type": "array",
@@ -737,7 +745,8 @@
         "required": [
           "role",
           "featured_role",
-          "contact"
+          "contact",
+          "slug"
         ],
         "properties": {
           "representatives": {
@@ -764,6 +773,9 @@
           },
           "contact": {
             "type": "string"
+          },
+          "slug": {
+            "type": "uid"
           },
           "localizations": {
             "type": "array",

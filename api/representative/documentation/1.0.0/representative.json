@@ -578,7 +578,8 @@
                 "id",
                 "role",
                 "featured_role",
-                "contact"
+                "contact",
+                "slug"
               ],
               "properties": {
                 "id": {
@@ -607,6 +608,9 @@
                 },
                 "contact": {
                   "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "localizations": {
                   "type": "array",

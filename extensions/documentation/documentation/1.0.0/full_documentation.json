@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/27/2021 3:50:55 PM"
+    "x-generation-date": "08/29/2021 3:55:06 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12889,7 +12889,8 @@
           "id",
           "role",
           "featured_role",
-          "contact"
+          "contact",
+          "slug"
         ],
         "properties": {
           "id": {
@@ -13023,6 +13024,9 @@
           "contact": {
             "type": "string"
           },
+          "slug": {
+            "type": "uid"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -13030,7 +13034,8 @@
                 "id",
                 "role",
                 "featured_role",
-                "contact"
+                "contact",
+                "slug"
               ],
               "properties": {
                 "id": {
@@ -13059,6 +13064,9 @@
                 },
                 "contact": {
                   "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "localizations": {
                   "type": "array",
@@ -13094,7 +13102,8 @@
         "required": [
           "role",
           "featured_role",
-          "contact"
+          "contact",
+          "slug"
         ],
         "properties": {
           "representatives": {
@@ -13121,6 +13130,9 @@
           },
           "contact": {
             "type": "string"
+          },
+          "slug": {
+            "type": "uid"
           },
           "localizations": {
             "type": "array",
@@ -13286,7 +13298,8 @@
                 "id",
                 "role",
                 "featured_role",
-                "contact"
+                "contact",
+                "slug"
               ],
               "properties": {
                 "id": {
@@ -13315,6 +13328,9 @@
                 },
                 "contact": {
                   "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "localizations": {
                   "type": "array",
@@ -17675,7 +17691,8 @@
                 "id",
                 "role",
                 "featured_role",
-                "contact"
+                "contact",
+                "slug"
               ],
               "properties": {
                 "id": {
@@ -17704,6 +17721,9 @@
                 },
                 "contact": {
                   "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "localizations": {
                   "type": "array",
