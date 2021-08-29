@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/29/2021 3:55:06 PM"
+    "x-generation-date": "08/29/2021 4:19:56 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12792,8 +12792,7 @@
           "representative": {
             "required": [
               "id",
-              "hidden",
-              "description"
+              "hidden"
             ],
             "properties": {
               "id": {
@@ -12829,7 +12828,7 @@
               "chapter_year": {
                 "type": "string"
               },
-              "description": {
+              "personal_description": {
                 "type": "string"
               },
               "localizations": {
@@ -12901,8 +12900,7 @@
             "items": {
               "required": [
                 "id",
-                "hidden",
-                "description"
+                "hidden"
               ],
               "properties": {
                 "id": {
@@ -12938,7 +12936,7 @@
                 "chapter_year": {
                   "type": "string"
                 },
-                "description": {
+                "personal_description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13027,6 +13025,9 @@
           "slug": {
             "type": "uid"
           },
+          "role_description": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -13067,6 +13068,9 @@
                 },
                 "slug": {
                   "type": "uid"
+                },
+                "role_description": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13133,6 +13137,9 @@
           },
           "slug": {
             "type": "uid"
+          },
+          "role_description": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
@@ -13227,8 +13234,7 @@
             "items": {
               "required": [
                 "id",
-                "hidden",
-                "description"
+                "hidden"
               ],
               "properties": {
                 "id": {
@@ -13264,7 +13270,7 @@
                 "chapter_year": {
                   "type": "string"
                 },
-                "description": {
+                "personal_description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13331,6 +13337,9 @@
                 },
                 "slug": {
                   "type": "uid"
+                },
+                "role_description": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -13659,8 +13668,7 @@
             "items": {
               "required": [
                 "id",
-                "hidden",
-                "description"
+                "hidden"
               ],
               "properties": {
                 "id": {
@@ -13696,7 +13704,7 @@
                 "chapter_year": {
                   "type": "string"
                 },
-                "description": {
+                "personal_description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -15621,8 +15629,7 @@
           "representative": {
             "required": [
               "id",
-              "hidden",
-              "description"
+              "hidden"
             ],
             "properties": {
               "id": {
@@ -15658,7 +15665,7 @@
               "chapter_year": {
                 "type": "string"
               },
-              "description": {
+              "personal_description": {
                 "type": "string"
               },
               "localizations": {
@@ -17630,8 +17637,7 @@
       "Representative": {
         "required": [
           "id",
-          "hidden",
-          "description"
+          "hidden"
         ],
         "properties": {
           "id": {
@@ -17724,6 +17730,9 @@
                 },
                 "slug": {
                   "type": "uid"
+                },
+                "role_description": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",
@@ -17954,7 +17963,7 @@
               }
             }
           },
-          "description": {
+          "personal_description": {
             "type": "string"
           },
           "localizations": {
@@ -17962,8 +17971,7 @@
             "items": {
               "required": [
                 "id",
-                "hidden",
-                "description"
+                "hidden"
               ],
               "properties": {
                 "id": {
@@ -17999,7 +18007,7 @@
                 "chapter_year": {
                   "type": "string"
                 },
-                "description": {
+                "personal_description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -18034,8 +18042,7 @@
       },
       "NewRepresentative": {
         "required": [
-          "hidden",
-          "description"
+          "hidden"
         ],
         "properties": {
           "user": {
@@ -18066,7 +18073,7 @@
           "chapter_year": {
             "type": "string"
           },
-          "description": {
+          "personal_description": {
             "type": "string"
           },
           "localizations": {

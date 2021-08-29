@@ -72,6 +72,14 @@
       "type": "uid",
       "targetField": "role",
       "required": true
+    },
+    "role_description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     }
   }
 }

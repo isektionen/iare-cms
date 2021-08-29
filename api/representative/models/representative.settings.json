@@ -61,14 +61,13 @@
       "model": "chapter-year",
       "via": "representative"
     },
-    "description": {
+    "personal_description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
-      "required": true
+      "type": "richtext"
     }
   }
 }

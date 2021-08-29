@@ -321,8 +321,7 @@
           "representative": {
             "required": [
               "id",
-              "hidden",
-              "description"
+              "hidden"
             ],
             "properties": {
               "id": {
@@ -358,7 +357,7 @@
               "chapter_year": {
                 "type": "string"
               },
-              "description": {
+              "personal_description": {
                 "type": "string"
               },
               "localizations": {
