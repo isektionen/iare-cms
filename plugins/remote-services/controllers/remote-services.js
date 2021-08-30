@@ -47,6 +47,8 @@ module.exports = {
     const entity = await strapi
       .query("committee-function")
       .findOne({ contact: to });
+
+    console.log(entity);
     if (entity && from && subject && body) {
       await strapi.plugins["email"].services.email.send({
         to,
@@ -58,7 +60,7 @@ module.exports = {
       });
       return;
     }
-    return ctx.badRequest(null, {});
+    return ctx.badRequest();
   },
   send: async (ctx) => {
     const { templateId } = ctx.params;
