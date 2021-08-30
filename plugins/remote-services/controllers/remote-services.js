@@ -45,7 +45,7 @@ module.exports = {
     const { to, from, subject, body } = baseBody;
 
     const entity = await strapi
-      .query("committee role")
+      .query("committee-function")
       .findOne({ contact: to });
     if (entity && from && subject && body) {
       await strapi.plugins["email"].services.email.send({
