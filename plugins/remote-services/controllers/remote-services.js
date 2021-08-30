@@ -48,7 +48,6 @@ module.exports = {
       .query("committee-function")
       .findOne({ contact: to });
 
-    console.log(entity);
     if (entity && from && subject && body) {
       try {
         await strapi.plugins["email"].services.email.send({
