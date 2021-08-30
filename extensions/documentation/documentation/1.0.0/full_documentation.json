@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/29/2021 4:19:56 PM"
+    "x-generation-date": "08/30/2021 9:30:07 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13208,6 +13208,15 @@
                 "abbreviation": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "contact": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -13731,6 +13740,15 @@
           "abbreviation": {
             "type": "string"
           },
+          "slug": {
+            "type": "uid"
+          },
+          "content": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -13767,6 +13785,15 @@
                   }
                 },
                 "abbreviation": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "contact": {
                   "type": "string"
                 },
                 "localizations": {
@@ -13829,6 +13856,15 @@
             }
           },
           "abbreviation": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "content": {
+            "type": "string"
+          },
+          "contact": {
             "type": "string"
           },
           "localizations": {
@@ -14991,6 +15027,15 @@
                 }
               },
               "abbreviation": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "content": {
+                "type": "string"
+              },
+              "contact": {
                 "type": "string"
               },
               "localizations": {
@@ -17384,6 +17429,15 @@
               "abbreviation": {
                 "type": "string"
               },
+              "slug": {
+                "type": "uid"
+              },
+              "content": {
+                "type": "string"
+              },
+              "contact": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -17840,6 +17894,15 @@
                   }
                 },
                 "abbreviation": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "contact": {
                   "type": "string"
                 },
                 "localizations": {

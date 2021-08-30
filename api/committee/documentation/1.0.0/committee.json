@@ -789,6 +789,15 @@
           "abbreviation": {
             "type": "string"
           },
+          "slug": {
+            "type": "uid"
+          },
+          "content": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -825,6 +834,15 @@
                   }
                 },
                 "abbreviation": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "contact": {
                   "type": "string"
                 },
                 "localizations": {
@@ -887,6 +905,15 @@
             }
           },
           "abbreviation": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "content": {
+            "type": "string"
+          },
+          "contact": {
             "type": "string"
           },
           "localizations": {

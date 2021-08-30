@@ -616,6 +616,15 @@
               "abbreviation": {
                 "type": "string"
               },
+              "slug": {
+                "type": "uid"
+              },
+              "content": {
+                "type": "string"
+              },
+              "contact": {
+                "type": "string"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
