@@ -731,6 +731,9 @@
                 "contact": {
                   "type": "string"
                 },
+                "icon": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
