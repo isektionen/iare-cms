@@ -40,6 +40,27 @@ module.exports = {
     const token = jwt.sign({ id: user.id }, secret, options);
     return token;
   },
+  post: async (ctx) => {
+    const { body: baseBody } = ctx.request;
+    const { to, from, subject, body } = baseBody;
+
+    const entity = await strapi
+      .query("committee role")
+      .findOne({ contact: to });
+    if (entity && from && subject && body) {
+      await strapi.plugins["email"].services.email.send({
+        to,
+        from: "no-reply@iare.se",
+        cc: from,
+        replyTo: from,
+        subject,
+        text: body,
+      });
+      ctx.response = 202;
+      return;
+    }
+    ctx.response = 400;
+  },
   send: async (ctx) => {
     const { templateId } = ctx.params;
     const { body } = ctx.request;

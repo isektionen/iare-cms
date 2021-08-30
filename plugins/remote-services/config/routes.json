@@ -17,6 +17,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/post",
+      "handler": "remote-services.post",
+      "config": {
+        "policies": ["plugins::users-permissions.ratelimit"]
+      }
+    },
+    {
       "method": "PUT",
       "path": "/thumbnail",
       "handler": "remote-services.thumbnail",
