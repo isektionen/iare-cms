@@ -56,10 +56,9 @@ module.exports = {
         subject,
         text: body,
       });
-      ctx.response = 202;
       return;
     }
-    ctx.response = 400;
+    return ctx.badRequest(null, {});
   },
   send: async (ctx) => {
     const { templateId } = ctx.params;
