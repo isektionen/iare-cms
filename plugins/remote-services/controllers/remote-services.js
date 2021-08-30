@@ -40,7 +40,7 @@ module.exports = {
     const token = jwt.sign({ id: user.id }, secret, options);
     return token;
   },
-  post: async (ctx) => {
+  relay: async (ctx) => {
     const { body: baseBody } = ctx.request;
     const { to, from, subject, body } = baseBody;
 
@@ -58,7 +58,7 @@ module.exports = {
           subject,
           text: body,
         });
-        return;
+        return ctx.send("ok");
       } catch (err) {
         console.log(err);
       }
