@@ -50,15 +50,19 @@ module.exports = {
 
     console.log(entity);
     if (entity && from && subject && body) {
-      await strapi.plugins["email"].services.email.send({
-        to,
-        from: "no-reply@iare.se",
-        cc: from,
-        replyTo: from,
-        subject,
-        text: body,
-      });
-      return;
+      try {
+        await strapi.plugins["email"].services.email.send({
+          to,
+          from: "no-reply@iare.se",
+          cc: from,
+          replyTo: from,
+          subject,
+          text: body,
+        });
+        return;
+      } catch (err) {
+        console.log(err);
+      }
     }
     return ctx.badRequest();
   },
