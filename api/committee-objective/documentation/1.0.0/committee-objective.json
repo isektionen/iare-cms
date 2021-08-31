@@ -579,11 +579,14 @@
                 "content": {
                   "type": "string"
                 },
-                "contact": {
-                  "type": "string"
-                },
                 "icon": {
                   "type": "string"
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",

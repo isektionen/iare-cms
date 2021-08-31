@@ -67,14 +67,6 @@
       "type": "richtext",
       "required": false
     },
-    "contact": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
     "icon": {
       "model": "file",
       "via": "related",
@@ -88,6 +80,9 @@
           "localized": false
         }
       }
+    },
+    "contacts": {
+      "collection": "representative"
     }
   }
 }

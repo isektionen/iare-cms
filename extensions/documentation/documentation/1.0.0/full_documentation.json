@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/30/2021 10:09:08 PM"
+    "x-generation-date": "08/31/2021 3:22:38 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13214,11 +13214,14 @@
                 "content": {
                   "type": "string"
                 },
-                "contact": {
-                  "type": "string"
-                },
                 "icon": {
                   "type": "string"
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -13749,9 +13752,6 @@
           "content": {
             "type": "string"
           },
-          "contact": {
-            "type": "string"
-          },
           "icon": {
             "required": [
               "id",
@@ -13819,6 +13819,71 @@
               }
             }
           },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "hidden"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "committee_roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "committee_objectives": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "committees": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cover": {
+                  "type": "string"
+                },
+                "hidden": {
+                  "type": "boolean"
+                },
+                "chapter_year": {
+                  "type": "string"
+                },
+                "personal_description": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -13863,11 +13928,14 @@
                 "content": {
                   "type": "string"
                 },
-                "contact": {
-                  "type": "string"
-                },
                 "icon": {
                   "type": "string"
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -13937,8 +14005,11 @@
           "content": {
             "type": "string"
           },
-          "contact": {
-            "type": "string"
+          "contacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "localizations": {
             "type": "array",
@@ -15108,11 +15179,14 @@
               "content": {
                 "type": "string"
               },
-              "contact": {
-                "type": "string"
-              },
               "icon": {
                 "type": "string"
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "localizations": {
                 "type": "array",
@@ -17511,11 +17585,14 @@
               "content": {
                 "type": "string"
               },
-              "contact": {
-                "type": "string"
-              },
               "icon": {
                 "type": "string"
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "localizations": {
                 "type": "array",
@@ -17981,11 +18058,14 @@
                 "content": {
                   "type": "string"
                 },
-                "contact": {
-                  "type": "string"
-                },
                 "icon": {
                   "type": "string"
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "localizations": {
                   "type": "array",
