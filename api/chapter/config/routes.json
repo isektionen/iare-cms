@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/chapter",
+      "handler": "chapter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/chapter",
+      "handler": "chapter.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/chapter",
+      "handler": "chapter.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

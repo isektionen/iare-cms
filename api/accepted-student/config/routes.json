@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/accepted-student",
+      "handler": "accepted-student.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/accepted-student",
+      "handler": "accepted-student.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/accepted-student",
+      "handler": "accepted-student.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
