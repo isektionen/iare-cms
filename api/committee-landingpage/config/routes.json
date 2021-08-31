@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/committee-landingpage",
+      "handler": "committee-landingpage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/committee-landingpage",
+      "handler": "committee-landingpage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/committee-landingpage",
+      "handler": "committee-landingpage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
