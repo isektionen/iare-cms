@@ -583,6 +583,12 @@
                 "location": {
                   "type": "string"
                 },
+                "description": {
+                  "type": "string"
+                },
+                "banner": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
