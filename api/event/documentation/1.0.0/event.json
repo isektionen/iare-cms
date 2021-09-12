@@ -593,7 +593,7 @@
           "startTime",
           "endTime",
           "deadline",
-          "description",
+          "body",
           "place"
         ],
         "properties": {
@@ -807,7 +807,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "description": {
+          "body": {
             "type": "string"
           },
           "place": {
@@ -932,6 +932,9 @@
           "fullfillmentUID": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -942,7 +945,7 @@
                 "startTime",
                 "endTime",
                 "deadline",
-                "description",
+                "body",
                 "place"
               ],
               "properties": {
@@ -979,7 +982,7 @@
                 "deadline": {
                   "type": "string"
                 },
-                "description": {
+                "body": {
                   "type": "string"
                 },
                 "place": {
@@ -998,6 +1001,9 @@
                   "type": "string"
                 },
                 "fullfillmentUID": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -1037,7 +1043,7 @@
           "startTime",
           "endTime",
           "deadline",
-          "description",
+          "body",
           "place"
         ],
         "properties": {
@@ -1145,7 +1151,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "description": {
+          "body": {
             "type": "string"
           },
           "place": {
@@ -1207,6 +1213,9 @@
             }
           },
           "fullfillmentUID": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "localizations": {

@@ -549,7 +549,7 @@
                 "startTime",
                 "endTime",
                 "deadline",
-                "description",
+                "body",
                 "place"
               ],
               "properties": {
@@ -586,7 +586,7 @@
                 "deadline": {
                   "type": "string"
                 },
-                "description": {
+                "body": {
                   "type": "string"
                 },
                 "place": {
@@ -605,6 +605,9 @@
                   "type": "string"
                 },
                 "fullfillmentUID": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {

@@ -101,7 +101,7 @@
       "type": "datetime",
       "required": true
     },
-    "description": {
+    "body": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -132,8 +132,8 @@
       "component": "event.password-protect"
     },
     "orders": {
-      "via": "event",
       "private": true,
+      "via": "event",
       "collection": "order"
     },
     "banner": {
@@ -158,6 +158,14 @@
       },
       "type": "string",
       "required": false
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }

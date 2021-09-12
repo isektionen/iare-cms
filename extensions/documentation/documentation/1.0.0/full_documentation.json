@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/06/2021 2:29:15 PM"
+    "x-generation-date": "09/12/2021 2:04:35 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15397,7 +15397,7 @@
                 "startTime",
                 "endTime",
                 "deadline",
-                "description",
+                "body",
                 "place"
               ],
               "properties": {
@@ -15434,7 +15434,7 @@
                 "deadline": {
                   "type": "string"
                 },
-                "description": {
+                "body": {
                   "type": "string"
                 },
                 "place": {
@@ -15453,6 +15453,9 @@
                   "type": "string"
                 },
                 "fullfillmentUID": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -16862,7 +16865,7 @@
                 "startTime",
                 "endTime",
                 "deadline",
-                "description",
+                "body",
                 "place"
               ],
               "properties": {
@@ -16899,7 +16902,7 @@
                 "deadline": {
                   "type": "string"
                 },
-                "description": {
+                "body": {
                   "type": "string"
                 },
                 "place": {
@@ -16918,6 +16921,9 @@
                   "type": "string"
                 },
                 "fullfillmentUID": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -17034,7 +17040,7 @@
           "startTime",
           "endTime",
           "deadline",
-          "description",
+          "body",
           "place"
         ],
         "properties": {
@@ -17248,7 +17254,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "description": {
+          "body": {
             "type": "string"
           },
           "place": {
@@ -17373,6 +17379,9 @@
           "fullfillmentUID": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -17383,7 +17392,7 @@
                 "startTime",
                 "endTime",
                 "deadline",
-                "description",
+                "body",
                 "place"
               ],
               "properties": {
@@ -17420,7 +17429,7 @@
                 "deadline": {
                   "type": "string"
                 },
-                "description": {
+                "body": {
                   "type": "string"
                 },
                 "place": {
@@ -17439,6 +17448,9 @@
                   "type": "string"
                 },
                 "fullfillmentUID": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
@@ -17478,7 +17490,7 @@
           "startTime",
           "endTime",
           "deadline",
-          "description",
+          "body",
           "place"
         ],
         "properties": {
@@ -17586,7 +17598,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "description": {
+          "body": {
             "type": "string"
           },
           "place": {
@@ -17648,6 +17660,9 @@
             }
           },
           "fullfillmentUID": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "localizations": {
@@ -19168,7 +19183,7 @@
               "startTime",
               "endTime",
               "deadline",
-              "description",
+              "body",
               "place"
             ],
             "properties": {
@@ -19205,7 +19220,7 @@
               "deadline": {
                 "type": "string"
               },
-              "description": {
+              "body": {
                 "type": "string"
               },
               "place": {
@@ -19224,6 +19239,9 @@
                 "type": "string"
               },
               "fullfillmentUID": {
+                "type": "string"
+              },
+              "description": {
                 "type": "string"
               },
               "localizations": {
