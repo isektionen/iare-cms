@@ -179,7 +179,10 @@ const Event = () => {
         );
       });
     }
-    return [];
+    return Array.from([...Array(15)]).map((i, ii) => ({
+      id: ii,
+      status: "success",
+    }));
   }, [orders]);
 
   const paginatedWindow = useMemo(() => {
@@ -328,8 +331,9 @@ const Event = () => {
             setQuery({ page: value, pageSize: 10 });
           }}
           params={{
-            _page: query?.page ?? 1,
-            _limit: query?.pageSize ?? 10,
+            currentPage: parseInt(query?.page ?? 1),
+            _page: parseInt(query?.page ?? 1),
+            _limit: parseInt(query?.pageSize ?? 10),
           }}
         />
       </Padded>
