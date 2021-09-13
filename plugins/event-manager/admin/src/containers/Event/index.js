@@ -169,23 +169,22 @@ const Event = () => {
       return str;
     }
   }, []);
-  const filteredOrders = useMemo(
-    () => {
-      if (orders && orders.length > 0) {
-        return orders.filter(order => {
-          const {firstName, lastName, allergens, diets, email, tickets} = order
-          return [firstName, lastName, allergens, diets, email, tickets].some(item => {
+  const filteredOrders = useMemo(() => {
+    if (orders && orders.length > 0) {
+      return orders.filter((order) => {
+        const { firstName, lastName, allergens, diets, email, tickets } = order;
+        return [firstName, lastName, allergens, diets, email, tickets].some(
+          (item) => {
             if (item) {
-              return item.includes(_q)
+              return item.includes(_q);
             }
-            return false
-          })
-        })
-      }
-      return orders
+            return false;
+          }
+        );
+      });
     }
-    [orders]
-  );
+    return orders;
+  }, [orders]);
 
   useEffect(() => {
     if (loaded && !eventExists) {
