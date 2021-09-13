@@ -1,4 +1,4 @@
-import { Button, Select } from "@buffetjs/core";
+import { Button, Select, Picker, Text } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,20 +16,66 @@ import styled from "styled-components";
 const HeaderSelect = () => {
   const { setId, committees, committee } = useManager();
 
-  const handleChange = ({ target: { value } }) => {
+  const handleChange = (value) => {
     const { id } = committees.find((c) => c.name === value);
     setId(id);
   };
 
-  return (
+  /*return (
     <Select
       name="select"
       options={committees?.map((c) => c.name) ?? []}
       onChange={handleChange}
       value={committee?.name ?? ""}
     />
+  );*/
+  return (
+    <Picker
+      position="right"
+      renderButtonContent={(isOpen) => (
+        <Text>
+          {committee && committee.name
+            ? committee.name.slice(0, Math.min(10, committee.name.length)) +
+              (committee.name.length > 10 ? "..." : "")
+            : "Pick Committee"}
+        </Text>
+      )}
+      renderSectionContent={(onToggle) => (
+        <PickerContent>
+          {committees.map((c) => (
+            <PickerItem
+              key={c.id}
+              onClick={() => {
+                setId(c.id);
+                onToggle();
+              }}
+            >
+              {c.name}
+            </PickerItem>
+          ))}
+        </PickerContent>
+      )}
+    />
   );
 };
+
+const PickerItem = styled.button`
+  display: inline-block;
+  color: #18202e;
+  font-size: 0.75em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 1px solid #18202e;
+  border-radius: 3px;
+`;
+
+const PickerContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5em 1em;
+`;
 
 const ButtonWrapper = styled.div`
   width: 150px;
@@ -95,20 +141,6 @@ const HomePage = () => {
   const history = useHistory();
   const _q = query?._q ?? "";
 
-  // TODO: reimplement this into useManager
-  useEffect(() => {
-    /*
-    if (!committee || !committee.events) return;
-
-    // Global filtration on all attributes for a row. Even hidden ones.
-    const filteredEvents = committee.events.filter((event) =>
-      Object.values(event).some((e) => String(e).includes(_q))
-    );
-    setEvents(filteredEvents);
-    console.log(_q);
-    */
-  }, [_q, committee]);
-
   useEffect(() => {
     const { state } = history.location;
     const previousErrors = state?.previousErrors ?? false;
@@ -170,7 +202,7 @@ const HomePage = () => {
         onClickRow={(e, { slug }) =>
           history.push(`/plugins/${pluginId}/${slug}?cid=${id}`)
         }
-        onConfirm={() => console.log("DELETED")}
+        onConfirm={() => {}}
         rows={rows}
       />
     </>
