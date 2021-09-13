@@ -128,6 +128,7 @@ const HomePage = () => {
 
   const history = useHistory();
   const _q = query?._q ?? "";
+  const [cursor, setCursor] = useState(1);
 
   const toLowerCase = useCallback((str) => {
     return str ? str.toLowerCase() : str;
@@ -203,12 +204,12 @@ const HomePage = () => {
           history.push(`/plugins/${pluginId}/${slug}?cid=${id}`)
         }
         onConfirm={() => {}}
-        rows={filteredRows}
+        rows={filteredRows.slice(15 * (cursor - 1), 15 * cursor)}
       />
       <Padded top>
         <GlobalPagination
           count={filteredRows.length}
-          onChangeParams={(e) => console.log(e)}
+          onChangeParams={({ value }) => setCursor(value)}
           params={{
             _page: 1,
             _limit: 15,

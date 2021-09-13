@@ -149,6 +149,7 @@ const Event = () => {
     entries,
   } = useEvent();
 
+  const [cursor, setCursor] = useState(1);
   const history = useHistory();
   const _q = query?._q ?? "";
 
@@ -310,12 +311,12 @@ const Event = () => {
         ]}
         onClickRow={(e, d) => {}}
         onConfirm={() => {}}
-        rows={filteredOrders}
+        rows={filteredOrders.slice(15 * (cursor - 1), 15 * cursor)}
       />
       <Padded top>
         <GlobalPagination
           count={filteredOrders.length}
-          onChangeParams={(e) => console.log(e)}
+          onChangeParams={({ value }) => setCursor(value)}
           params={{
             _page: 1,
             _limit: 15,
