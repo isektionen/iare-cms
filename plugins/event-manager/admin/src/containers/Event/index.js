@@ -170,18 +170,20 @@ const Event = () => {
     }
   }, []);
   const filteredOrders = useMemo(
-    () =>
-      orders && orders.length > 0
-        ? orders.filter((order) => {
-            const { firstName, lastName, email, diets, allergens } = order;
-            console.log(order);
-            return order
-              ? [firstName, lastName, email, diets, allergens].some((item) =>
-                  item ? toLowerCase(item).includes(toLowerCase(item)) : item
-                )
-              : false;
+    () => {
+      if (orders && orders.length > 0) {
+        return orders.filter(order => {
+          const {firstName, lastName, allergens, diets, email, tickets} = order
+          return [firstName, lastName, allergens, diets, email, tickets].some(item => {
+            if (item) {
+              return item.includes(_q)
+            }
+            return false
           })
-        : orders,
+        })
+      }
+      return orders
+    }
     [orders]
   );
 
