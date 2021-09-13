@@ -271,6 +271,11 @@ const Event = () => {
             isSortEnabled: true,
           },
           {
+            name: "Ticket",
+            value: "ticket",
+            isSortEnabled: true,
+          },
+          {
             name: "Diets",
             value: "diets",
             isSortEnabled: true,
@@ -286,8 +291,8 @@ const Event = () => {
             isSortEnabled: true,
           },
         ]}
-        onClickRow={(e, d) => console.debug(e, d)}
-        onConfirm={() => console.log("DELETED")}
+        onClickRow={(e, d) => {}}
+        onConfirm={() => {}}
         rows={orders}
       />
     </>
