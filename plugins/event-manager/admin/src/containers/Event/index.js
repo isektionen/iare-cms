@@ -3,7 +3,14 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import * as echarts from "echarts";
-import React, { memo, useEffect, useRef, useState, useMemo } from "react";
+import React, {
+  memo,
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useQueryParams } from "strapi-helper-plugin";

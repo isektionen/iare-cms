@@ -2,7 +2,7 @@ import { Button, Select, Picker, Text } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { memo, useEffect, useState, useMemo } from "react";
+import React, { memo, useEffect, useState, useMemo, useCallback } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useQueryParams } from "strapi-helper-plugin";
@@ -129,11 +129,7 @@ const HomePage = () => {
   const _q = query?._q ?? "";
 
   const toLowerCase = useCallback((str) => {
-    try {
-      return str.toLowerCase();
-    } catch (e) {
-      return str;
-    }
+    return str ? str.toLowerCase() : str;
   }, []);
   const filteredRows = useMemo(
     () =>
