@@ -173,9 +173,11 @@ const Event = () => {
     () =>
       orders && orders.length > 0
         ? orders.filter(({ firstName, lastName, email, diets, allergens }) =>
-            [firstName, lastName, email, diets, allergens].some((item) =>
-              toLowerCase(item).includes(toLowerCase(item))
-            )
+            item
+              ? [firstName, lastName, email, diets, allergens].some((item) =>
+                  toLowerCase(item).includes(toLowerCase(item))
+                )
+              : false
           )
         : orders,
     [orders]
