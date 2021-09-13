@@ -141,10 +141,10 @@ const HomePage = () => {
   const paginatedWindow = useMemo(() => {
     const pageSize = query?.pageSize ?? 10;
     const page = query?.page ?? 1;
-    return filteredOrders
-      ? filteredOrders.slice((page - 1) * pageSize, page * pageSize)
+    return filteredRows
+      ? filteredRows.slice((page - 1) * pageSize, page * pageSize)
       : [];
-  }, [query, filteredOrders]);
+  }, [query, filteredRows]);
 
   useEffect(() => {
     const { state } = history.location;
