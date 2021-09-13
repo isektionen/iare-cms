@@ -1,3 +1,4 @@
+import { Padded } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +14,7 @@ import React, {
 } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { useQueryParams } from "strapi-helper-plugin";
+import { useQueryParams, GlobalPagination } from "strapi-helper-plugin";
 import styled from "styled-components";
 import Search from "../../components/Search";
 import Table from "../../components/Table";
@@ -311,6 +312,16 @@ const Event = () => {
         onConfirm={() => {}}
         rows={filteredOrders}
       />
+      <Padded top>
+        <GlobalPagination
+          count={filteredRows.length}
+          onChangeParams={(e) => console.log(e)}
+          params={{
+            _page: 1,
+            _limit: 15,
+          }}
+        />
+      </Padded>
     </>
   );
 };
