@@ -162,13 +162,6 @@ const Event = () => {
     updateData((b) => !b);
   };
 
-  const toLowerCase = useCallback((str) => {
-    try {
-      return str.toLowerCase();
-    } catch (e) {
-      return str;
-    }
-  }, []);
   const filteredOrders = useMemo(() => {
     if (orders && orders.length > 0) {
       return orders.filter((order) => {
@@ -185,6 +178,8 @@ const Event = () => {
     }
     return orders;
   }, [orders]);
+
+  console.log(filteredOrders);
 
   useEffect(() => {
     if (loaded && !eventExists) {
