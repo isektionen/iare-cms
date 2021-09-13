@@ -318,7 +318,7 @@ const Event = () => {
           count={filteredOrders.length}
           onChangeParams={({ value }) => setCursor(value)}
           params={{
-            _page: 1,
+            _page: cursor,
             _limit: 15,
           }}
         />
