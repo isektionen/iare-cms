@@ -162,6 +162,7 @@ const Event = () => {
     updateData((b) => !b);
   };
 
+  // Poor mans search :(
   const filteredOrders = useMemo(() => {
     if (orders && orders.length > 0) {
       return orders.filter((order) => {
@@ -178,8 +179,6 @@ const Event = () => {
     }
     return orders;
   }, [orders]);
-
-  console.log(filteredOrders);
 
   useEffect(() => {
     if (loaded && !eventExists) {
@@ -278,6 +277,11 @@ const Event = () => {
             isSortEnabled: true,
           },
           {
+            name: "Email",
+            value: "email",
+            isSortEnabled: true,
+          },
+          {
             name: "Ticket",
             value: "ticket",
             isSortEnabled: true,
@@ -290,6 +294,11 @@ const Event = () => {
           {
             name: "Allergens",
             value: "allergens",
+            isSortEnabled: true,
+          },
+          {
+            name: "Amount",
+            value: "amount",
             isSortEnabled: true,
           },
           {
