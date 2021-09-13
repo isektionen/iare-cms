@@ -3,7 +3,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import * as echarts from "echarts";
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useQueryParams } from "strapi-helper-plugin";
@@ -155,17 +155,15 @@ const Event = () => {
     updateData((b) => !b);
   };
 
-  useEffect(() => {
-    /*
-    if (!event || !event.orders) return;
-
-    // Global filtration on all attributes for a row. Even hidden ones.
-    const filteredOrders = event.orders.filter((order) =>
-      Object.values(order).some((e) => String(e).includes(_q))
-    );
-    setOrders(filteredOrders);
-    */
-  }, [_q, event]);
+  const filteredOrders = useMemo(
+    () =>
+      orders && orders.length > 0
+        ? orders.filter(({ firstName, lastName, email }) =>
+            [firstName, lastName, email].some((item) => item.includes(_q))
+          )
+        : orders,
+    [orders]
+  );
 
   useEffect(() => {
     if (loaded && !eventExists) {
@@ -244,13 +242,6 @@ const Event = () => {
             <StatNumber>{daysTillClosing}</StatNumber>
           </StatContent>
         </StatCard>
-        {/*<StatCard>
-          <StatContent>
-            <StatLabel>Diet Analysis</StatLabel>
-            <DietChart />
-          </StatContent>
-        </StatCard>
-        */}
       </Statistics>
 
       <Table
@@ -293,7 +284,7 @@ const Event = () => {
         ]}
         onClickRow={(e, d) => {}}
         onConfirm={() => {}}
-        rows={orders}
+        rows={filteredOrders}
       />
     </>
   );
