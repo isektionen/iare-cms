@@ -1,5 +1,6 @@
-import { Button, Select, Picker, Text } from "@buffetjs/core";
+import { Button, Select, Picker, Text, Padded } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
+import { GlobalPagination } from "strapi-helper-plugin";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { memo, useEffect, useState, useMemo, useCallback } from "react";
@@ -204,6 +205,16 @@ const HomePage = () => {
         onConfirm={() => {}}
         rows={filteredRows}
       />
+      <Padded top>
+        <GlobalPagination
+          count={filteredRows.length}
+          onChangeParams={(e) => console.log(e)}
+          params={{
+            _page: 1,
+            _limit: 15,
+          }}
+        />
+      </Padded>
     </>
   );
 };
