@@ -130,9 +130,6 @@ const HomePage = () => {
   const _q = query?._q ?? "";
   const [cursor, setCursor] = useState(1);
 
-  const toLowerCase = useCallback((str) => {
-    return str ? str.toLowerCase() : str;
-  }, []);
   const filteredRows = useMemo(
     () =>
       rows && rows.length > 0
@@ -140,6 +137,14 @@ const HomePage = () => {
         : rows,
     [rows]
   );
+
+  const paginatedWindow = useMemo(() => {
+    const pageSize = query?.pageSize ?? 10;
+    const page = query?.page ?? 1;
+    return filteredOrders
+      ? filteredOrders.slice((page - 1) * pageSize, page * pageSize)
+      : [];
+  }, [query, filteredOrders]);
 
   useEffect(() => {
     const { state } = history.location;
@@ -204,15 +209,17 @@ const HomePage = () => {
           history.push(`/plugins/${pluginId}/${slug}?cid=${id}`)
         }
         onConfirm={() => {}}
-        rows={filteredRows.slice(15 * (cursor - 1), 15 * cursor)}
+        rows={paginatedWindow}
       />
       <Padded top>
         <GlobalPagination
           count={filteredRows.length}
-          onChangeParams={({ value }) => setCursor(value)}
+          onChangeParams={({ target: { value } }) => {
+            setQuery({ page: value, pageSize: 10 });
+          }}
           params={{
-            _page: cursor,
-            _limit: 15,
+            _page: query?.page ?? 1,
+            _limit: query?.pageSize ?? 10,
           }}
         />
       </Padded>
