@@ -158,8 +158,10 @@ const Event = () => {
   const filteredOrders = useMemo(
     () =>
       orders && orders.length > 0
-        ? orders.filter(({ firstName, lastName, email }) =>
-            [firstName, lastName, email].some((item) => item.includes(_q))
+        ? orders.filter(({ firstName, lastName, email, diets, allergens }) =>
+            [firstName, lastName, email, diets, allergens].some((item) =>
+              item.toLowerCase().includes(_q.toLowerCase())
+            )
           )
         : orders,
     [orders]

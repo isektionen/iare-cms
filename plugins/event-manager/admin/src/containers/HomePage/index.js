@@ -130,7 +130,9 @@ const HomePage = () => {
 
   const filteredRows = useMemo(
     () =>
-      rows && rows.length > 0 ? rows.filter((r) => r.event.includes(_q)) : rows,
+      rows && rows.length > 0
+        ? rows.filter((r) => r.event.toLowerCase().includes(_q.toLowerCase()))
+        : rows,
     [rows]
   );
 
