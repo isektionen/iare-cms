@@ -314,7 +314,7 @@ const Event = () => {
       />
       <Padded top>
         <GlobalPagination
-          count={filteredRows.length}
+          count={filteredOrders.length}
           onChangeParams={(e) => console.log(e)}
           params={{
             _page: 1,
