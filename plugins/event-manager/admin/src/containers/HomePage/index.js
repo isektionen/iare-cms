@@ -2,7 +2,7 @@ import { Button, Select, Picker, Text } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useQueryParams } from "strapi-helper-plugin";
@@ -16,19 +16,6 @@ import styled from "styled-components";
 const HeaderSelect = () => {
   const { setId, committees, committee } = useManager();
 
-  const handleChange = (value) => {
-    const { id } = committees.find((c) => c.name === value);
-    setId(id);
-  };
-
-  /*return (
-    <Select
-      name="select"
-      options={committees?.map((c) => c.name) ?? []}
-      onChange={handleChange}
-      value={committee?.name ?? ""}
-    />
-  );*/
   return (
     <Picker
       position="right"
@@ -141,6 +128,12 @@ const HomePage = () => {
   const history = useHistory();
   const _q = query?._q ?? "";
 
+  const filteredRows = useMemo(
+    () =>
+      rows && rows.length > 0 ? rows.filter((r) => r.event.includes(_q)) : rows,
+    [rows]
+  );
+
   useEffect(() => {
     const { state } = history.location;
     const previousErrors = state?.previousErrors ?? false;
@@ -156,6 +149,7 @@ const HomePage = () => {
       });
     }
   }, [committeeExists, loaded]);
+
   return (
     <>
       <Search
@@ -203,7 +197,7 @@ const HomePage = () => {
           history.push(`/plugins/${pluginId}/${slug}?cid=${id}`)
         }
         onConfirm={() => {}}
-        rows={rows}
+        rows={filteredRows}
       />
     </>
   );
