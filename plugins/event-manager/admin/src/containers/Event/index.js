@@ -172,13 +172,15 @@ const Event = () => {
   const filteredOrders = useMemo(
     () =>
       orders && orders.length > 0
-        ? orders.filter(({ firstName, lastName, email, diets, allergens }) =>
-            item
+        ? orders.filter((order) => {
+            const { firstName, lastName, email, diets, allergens } = order;
+
+            return order
               ? [firstName, lastName, email, diets, allergens].some((item) =>
                   toLowerCase(item).includes(toLowerCase(item))
                 )
-              : false
-          )
+              : false;
+          })
         : orders,
     [orders]
   );
