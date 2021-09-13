@@ -177,7 +177,7 @@ const Event = () => {
 
             return order
               ? [firstName, lastName, email, diets, allergens].some((item) =>
-                  toLowerCase(item).includes(toLowerCase(item))
+                  item ? toLowerCase(item).includes(toLowerCase(item)) : item
                 )
               : false;
           })
