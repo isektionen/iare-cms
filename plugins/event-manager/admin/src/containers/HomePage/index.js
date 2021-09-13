@@ -128,10 +128,17 @@ const HomePage = () => {
   const history = useHistory();
   const _q = query?._q ?? "";
 
+  const toLowerCase = useCallback((str) => {
+    try {
+      return str.toLowerCase();
+    } catch (e) {
+      return str;
+    }
+  }, []);
   const filteredRows = useMemo(
     () =>
       rows && rows.length > 0
-        ? rows.filter((r) => r.event.toLowerCase().includes(_q.toLowerCase()))
+        ? rows.filter((r) => toLowerCase(r.event).includes(toLowerCase(_q)))
         : rows,
     [rows]
   );

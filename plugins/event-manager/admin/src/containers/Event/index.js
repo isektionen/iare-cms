@@ -155,12 +155,19 @@ const Event = () => {
     updateData((b) => !b);
   };
 
+  const toLowerCase = useCallback((str) => {
+    try {
+      return str.toLowerCase();
+    } catch (e) {
+      return str;
+    }
+  }, []);
   const filteredOrders = useMemo(
     () =>
       orders && orders.length > 0
         ? orders.filter(({ firstName, lastName, email, diets, allergens }) =>
             [firstName, lastName, email, diets, allergens].some((item) =>
-              item.toLowerCase().includes(_q.toLowerCase())
+              toLowerCase(item).includes(toLowerCase(item))
             )
           )
         : orders,
