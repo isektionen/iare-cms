@@ -103,6 +103,5 @@ module.exports = {
       { formats: { thumbnail: rest }, related: [] },
       user
     );
-    console.log(res);
   },
 };

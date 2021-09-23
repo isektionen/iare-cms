@@ -31,6 +31,14 @@
       "config": {
         "policies": ["plugins::users-permissions.ratelimit"]
       }
+    },
+    {
+      "method": "GET",
+      "path": "/purge",
+      "handler": "remote-services.order.purge",
+      "config": {
+        "policies": ["plugins::users-permissions.ratelimit"]
+      }
     }
   ]
 }
