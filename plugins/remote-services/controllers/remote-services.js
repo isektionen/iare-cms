@@ -1,6 +1,7 @@
 "use strict";
 const _ = require("lodash");
 const jwt = require("jsonwebtoken");
+const { subDays, formatISO } = require("date-fns");
 
 /**
  * remote-services.js controller
@@ -103,5 +104,15 @@ module.exports = {
       { formats: { thumbnail: rest }, related: [] },
       user
     );
+  },
+  purge: async (ctx) => {
+    // find all orders that are not success and 1 day old.
+    const today = new Date();
+    const yesterday = subDays(today, 1);
+    const dateFormatted = formatISO(yesterday);
+    const idArray = await strapi
+      .query("order")
+      .find({ date_lt: dateFormatted, status_nin: ["success"] });
+    console.log(idArray);
   },
 };
