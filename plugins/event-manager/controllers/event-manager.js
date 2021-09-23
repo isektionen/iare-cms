@@ -21,6 +21,7 @@ const getCommittees = async (ctx) => {
     const { id } = user;
     const adminUsers = await strapi.services.committee.deepRelation({
       "representatives.id": id,
+      roles: user.roles,
     });
     const entity = [...adminUsers];
     return entity;

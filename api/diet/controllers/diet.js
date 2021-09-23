@@ -11,9 +11,7 @@ module.exports = {
   async create(ctx) {
     let entity;
     entity = await strapi.services.diet.create(ctx.request.body);
-    console.log(entity);
     const se = sanitizeEntity(entity, { model: strapi.models.diet });
-    console.log(se);
     return se;
   },
 };

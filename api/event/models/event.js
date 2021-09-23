@@ -55,7 +55,6 @@ const syncLocales = async ({ data, result, id }) => {
   const update = strapi.query("event").update;
   // when state is empty, populate ticketUID for all recieved tickets
   if (result && data && !state.some((obj) => obj.eventId === result.id)) {
-    console.log("add to state", result.locale);
     result.tickets.Tickets = _.map(result.tickets.Tickets, insertUID);
     state.push({
       eventId: result.id,
@@ -77,7 +76,6 @@ const syncLocales = async ({ data, result, id }) => {
     }
   }
   if (id) {
-    console.log("find state", result.locale);
     const _state = state.find((obj) => obj.locales.includes(id));
     // sync tickets from previous state
     _.remove(state, (obj) => obj.eventId === _state.eventId);
@@ -102,7 +100,6 @@ const syncLocales = async ({ data, result, id }) => {
 
     const { tickets = [], locales = [] } = _state;
     if (locales.includes(id)) {
-      console.log("sync state", result.locale);
       const otherLocaleTickets = tickets.Tickets.map((ticket) =>
         _.omit(ticket, "id")
       );

@@ -132,7 +132,15 @@ const HomePage = () => {
 
   const filteredRows = useMemo(
     () =>
-      rows && rows.length > 0 ? rows.filter((r) => r.event.includes(_q)) : rows,
+      rows && rows.length > 0
+        ? rows.filter((r) => {
+            const { event } = r;
+            if (event) {
+              return event.includes(_q);
+            }
+            return r;
+          })
+        : rows,
     [rows]
   );
 

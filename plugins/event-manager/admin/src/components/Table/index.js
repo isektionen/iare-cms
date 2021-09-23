@@ -141,15 +141,11 @@ const Table = ({ headers, rows, onClickRow, onConfirm }) => {
   const rowLinks = [
     {
       icon: <FontAwesomeIcon icon={faPencilAlt} />,
-      onClick: (data) => {
-        console.log(data);
-      },
+      onClick: (data) => {},
     },
     {
       icon: <FontAwesomeIcon icon={faTrashAlt} />,
-      onClick: (data) => {
-        console.log(data);
-      },
+      onClick: (data) => {},
     },
   ];
 

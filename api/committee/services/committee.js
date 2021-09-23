@@ -7,9 +7,17 @@
 
 module.exports = {
   deepRelation(params) {
+    const { id, roles } = params;
+    const isSuperAdmin = roles.some((ent) => ent.code === "strapi-super-admin");
+
+    if (isSuperAdmin) {
+      return strapi
+        .query("committee")
+        .find({}, ["events", "events.orders", "events.orders.ticketReference"]);
+    }
     return strapi
       .query("committee")
-      .find(params, [
+      .find({ id }, [
         "events",
         "events.orders",
         "events.orders.ticketReference",
