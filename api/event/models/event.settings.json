@@ -64,16 +64,6 @@
       },
       "component": "event.serving"
     },
-    "studentOptions": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.student"
-    },
     "startTime": {
       "pluginOptions": {
         "i18n": {
@@ -166,6 +156,14 @@
         }
       },
       "type": "text"
+    },
+    "maxTickets": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
     }
   }
 }

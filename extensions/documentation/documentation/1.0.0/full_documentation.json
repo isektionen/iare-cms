@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/12/2021 2:04:35 PM"
+    "x-generation-date": "09/23/2021 1:47:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15422,9 +15422,6 @@
                 "servingOptions": {
                   "type": "component"
                 },
-                "studentOptions": {
-                  "type": "component"
-                },
                 "startTime": {
                   "type": "string"
                 },
@@ -15457,6 +15454,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxTickets": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -16890,9 +16890,6 @@
                 "servingOptions": {
                   "type": "component"
                 },
-                "studentOptions": {
-                  "type": "component"
-                },
                 "startTime": {
                   "type": "string"
                 },
@@ -16925,6 +16922,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxTickets": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -17223,25 +17223,6 @@
               }
             }
           },
-          "studentOptions": {
-            "type": "object",
-            "required": [
-              "id",
-              "checkStudentYear",
-              "checkProgramOrientation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "checkStudentYear": {
-                "type": "boolean"
-              },
-              "checkProgramOrientation": {
-                "type": "boolean"
-              }
-            }
-          },
           "startTime": {
             "type": "string",
             "format": "date-time"
@@ -17261,8 +17242,7 @@
             "type": "object",
             "required": [
               "id",
-              "name",
-              "showMap"
+              "name"
             ],
             "properties": {
               "id": {
@@ -17270,28 +17250,6 @@
               },
               "name": {
                 "type": "string"
-              },
-              "detailedStreetInfo": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "streetName"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "streetName": {
-                    "type": "string"
-                  },
-                  "streetPostalCode": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "showMap": {
-                "type": "boolean",
-                "default": false
               }
             }
           },
@@ -17382,6 +17340,9 @@
           "description": {
             "type": "string"
           },
+          "maxTickets": {
+            "type": "integer"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -17417,9 +17378,6 @@
                 "servingOptions": {
                   "type": "component"
                 },
-                "studentOptions": {
-                  "type": "component"
-                },
                 "startTime": {
                   "type": "string"
                 },
@@ -17452,6 +17410,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxTickets": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -17567,25 +17528,6 @@
               }
             }
           },
-          "studentOptions": {
-            "type": "object",
-            "required": [
-              "id",
-              "checkStudentYear",
-              "checkProgramOrientation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "checkStudentYear": {
-                "type": "boolean"
-              },
-              "checkProgramOrientation": {
-                "type": "boolean"
-              }
-            }
-          },
           "startTime": {
             "type": "string",
             "format": "date-time"
@@ -17605,8 +17547,7 @@
             "type": "object",
             "required": [
               "id",
-              "name",
-              "showMap"
+              "name"
             ],
             "properties": {
               "id": {
@@ -17614,28 +17555,6 @@
               },
               "name": {
                 "type": "string"
-              },
-              "detailedStreetInfo": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "streetName"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "streetName": {
-                    "type": "string"
-                  },
-                  "streetPostalCode": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "showMap": {
-                "type": "boolean",
-                "default": false
               }
             }
           },
@@ -17664,6 +17583,9 @@
           },
           "description": {
             "type": "string"
+          },
+          "maxTickets": {
+            "type": "integer"
           },
           "localizations": {
             "type": "array",
@@ -19208,9 +19130,6 @@
               "servingOptions": {
                 "type": "component"
               },
-              "studentOptions": {
-                "type": "component"
-              },
               "startTime": {
                 "type": "string"
               },
@@ -19243,6 +19162,9 @@
               },
               "description": {
                 "type": "string"
+              },
+              "maxTickets": {
+                "type": "integer"
               },
               "localizations": {
                 "type": "array",

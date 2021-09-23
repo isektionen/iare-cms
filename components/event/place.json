@@ -10,16 +10,6 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "detailedStreetInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "event-internal.street"
-    },
-    "showMap": {
-      "type": "boolean",
-      "required": true,
-      "default": false
     }
   }
 }

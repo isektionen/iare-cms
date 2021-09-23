@@ -113,6 +113,5 @@ module.exports = {
     const orders = await strapi
       .query("order")
       .delete({ created_at_lt: dateFormatted, status_nin: ["success"] });
-    console.log(orders);
   },
 };

@@ -561,9 +561,6 @@
                 "servingOptions": {
                   "type": "component"
                 },
-                "studentOptions": {
-                  "type": "component"
-                },
                 "startTime": {
                   "type": "string"
                 },
@@ -596,6 +593,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxTickets": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
