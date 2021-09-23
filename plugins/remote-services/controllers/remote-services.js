@@ -112,7 +112,7 @@ module.exports = {
     const dateFormatted = formatISO(yesterday);
     const idArray = await strapi
       .query("order")
-      .find({ date_lt: dateFormatted, status_nin: ["success"] });
+      .find({ created_at_lt: dateFormatted, status_nin: ["success"] });
     console.log(idArray);
   },
 };
