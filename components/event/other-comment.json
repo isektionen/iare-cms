@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_event_other_comments",
+  "info": {
+    "name": "otherComment",
+    "icon": "comment-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "commentLabel": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

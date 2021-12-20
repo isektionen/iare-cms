@@ -257,7 +257,7 @@
     "/jobs/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of jobs documents",
+        "description": "Retrieve the number of jobs documents",
         "responses": {
           "200": {
             "description": "Retrieve jobs document(s)",

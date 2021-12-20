@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/23/2021 1:47:40 PM"
+    "x-generation-date": "12/20/2021 8:26:52 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9258,7 +9258,7 @@
     "/jobs/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of jobs documents",
+        "description": "Retrieve the number of jobs documents",
         "responses": {
           "200": {
             "description": "Retrieve jobs document(s)",
@@ -15458,6 +15458,9 @@
                 "maxTickets": {
                   "type": "integer"
                 },
+                "otherComment": {
+                  "type": "component"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -16926,6 +16929,9 @@
                 "maxTickets": {
                   "type": "integer"
                 },
+                "otherComment": {
+                  "type": "component"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -17343,6 +17349,20 @@
           "maxTickets": {
             "type": "integer"
           },
+          "otherComment": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "commentLabel": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -17413,6 +17433,9 @@
                 },
                 "maxTickets": {
                   "type": "integer"
+                },
+                "otherComment": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -17586,6 +17609,20 @@
           },
           "maxTickets": {
             "type": "integer"
+          },
+          "otherComment": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "commentLabel": {
+                "type": "string"
+              }
+            }
           },
           "localizations": {
             "type": "array",
@@ -19165,6 +19202,9 @@
               },
               "maxTickets": {
                 "type": "integer"
+              },
+              "otherComment": {
+                "type": "component"
               },
               "localizations": {
                 "type": "array",

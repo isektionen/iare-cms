@@ -610,6 +610,9 @@
                 "maxTickets": {
                   "type": "integer"
                 },
+                "otherComment": {
+                  "type": "component"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {

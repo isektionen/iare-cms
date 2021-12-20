@@ -164,6 +164,16 @@
         }
       },
       "type": "integer"
+    },
+    "otherComment": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "event.other-comment"
     }
   }
 }

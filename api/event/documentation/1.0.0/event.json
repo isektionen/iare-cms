@@ -896,6 +896,20 @@
           "maxTickets": {
             "type": "integer"
           },
+          "otherComment": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "commentLabel": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -966,6 +980,9 @@
                 },
                 "maxTickets": {
                   "type": "integer"
+                },
+                "otherComment": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -1139,6 +1156,20 @@
           },
           "maxTickets": {
             "type": "integer"
+          },
+          "otherComment": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "commentLabel": {
+                "type": "string"
+              }
+            }
           },
           "localizations": {
             "type": "array",
