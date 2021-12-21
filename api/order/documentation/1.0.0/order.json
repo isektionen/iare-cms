@@ -1071,7 +1071,7 @@
                   }
                 }
               },
-              "otherComment": {
+              "otherCommentResponse": {
                 "type": "string"
               }
             }
@@ -1330,7 +1330,7 @@
                   }
                 }
               },
-              "otherComment": {
+              "otherCommentResponse": {
                 "type": "string"
               }
             }
