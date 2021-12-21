@@ -170,7 +170,7 @@
       "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "component": "event.other-comment"
