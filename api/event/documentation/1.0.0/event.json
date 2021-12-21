@@ -896,7 +896,7 @@
           "maxTickets": {
             "type": "integer"
           },
-          "otherComment": {
+          "otherCommentLabel": {
             "type": "object",
             "required": [
               "id"
@@ -984,7 +984,7 @@
                 "maxTickets": {
                   "type": "integer"
                 },
-                "otherComment": {
+                "otherCommentLabel": {
                   "type": "component"
                 },
                 "localizations": {
@@ -1160,7 +1160,7 @@
           "maxTickets": {
             "type": "integer"
           },
-          "otherComment": {
+          "otherCommentLabel": {
             "type": "object",
             "required": [
               "id"

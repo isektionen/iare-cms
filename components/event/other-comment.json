@@ -1,7 +1,7 @@
 {
   "collectionName": "components_event_other_comments",
   "info": {
-    "name": "otherComment",
+    "name": "otherCommentLabel",
     "icon": "comment-alt",
     "description": ""
   },

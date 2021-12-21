@@ -1145,7 +1145,7 @@
               "maxTickets": {
                 "type": "integer"
               },
-              "otherComment": {
+              "otherCommentLabel": {
                 "type": "component"
               },
               "localizations": {

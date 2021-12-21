@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/21/2021 11:51:55 AM"
+    "x-generation-date": "12/21/2021 12:50:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15458,7 +15458,7 @@
                 "maxTickets": {
                   "type": "integer"
                 },
-                "otherComment": {
+                "otherCommentLabel": {
                   "type": "component"
                 },
                 "localizations": {
@@ -16929,7 +16929,7 @@
                 "maxTickets": {
                   "type": "integer"
                 },
-                "otherComment": {
+                "otherCommentLabel": {
                   "type": "component"
                 },
                 "localizations": {
@@ -17349,7 +17349,7 @@
           "maxTickets": {
             "type": "integer"
           },
-          "otherComment": {
+          "otherCommentLabel": {
             "type": "object",
             "required": [
               "id"
@@ -17437,7 +17437,7 @@
                 "maxTickets": {
                   "type": "integer"
                 },
-                "otherComment": {
+                "otherCommentLabel": {
                   "type": "component"
                 },
                 "localizations": {
@@ -17613,7 +17613,7 @@
           "maxTickets": {
             "type": "integer"
           },
-          "otherComment": {
+          "otherCommentLabel": {
             "type": "object",
             "required": [
               "id"
@@ -19212,7 +19212,7 @@
               "maxTickets": {
                 "type": "integer"
               },
-              "otherComment": {
+              "otherCommentLabel": {
                 "type": "component"
               },
               "localizations": {
