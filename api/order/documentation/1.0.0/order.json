@@ -1070,6 +1070,9 @@
                     }
                   }
                 }
+              },
+              "otherComment": {
+                "type": "string"
               }
             }
           },
@@ -1326,6 +1329,9 @@
                     }
                   }
                 }
+              },
+              "otherComment": {
+                "type": "string"
               }
             }
           },

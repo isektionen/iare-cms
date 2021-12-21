@@ -7,9 +7,12 @@
   },
   "options": {},
   "attributes": {
-    "commentLabel": {
+    "commentLabelSwedish": {
       "type": "string",
       "required": false
+    },
+    "commentLabelEnglish": {
+      "type": "string"
     }
   }
 }

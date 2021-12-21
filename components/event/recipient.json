@@ -24,6 +24,9 @@
     },
     "diets": {
       "collection": "diet"
+    },
+    "otherComment": {
+      "type": "text"
     }
   }
 }

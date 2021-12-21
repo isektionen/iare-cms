@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/20/2021 8:26:52 PM"
+    "x-generation-date": "12/21/2021 11:51:55 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17358,7 +17358,10 @@
               "id": {
                 "type": "string"
               },
-              "commentLabel": {
+              "commentLabelSwedish": {
+                "type": "string"
+              },
+              "commentLabelEnglish": {
                 "type": "string"
               }
             }
@@ -17619,7 +17622,10 @@
               "id": {
                 "type": "string"
               },
-              "commentLabel": {
+              "commentLabelSwedish": {
+                "type": "string"
+              },
+              "commentLabelEnglish": {
                 "type": "string"
               }
             }
@@ -19131,6 +19137,9 @@
                     }
                   }
                 }
+              },
+              "otherComment": {
+                "type": "string"
               }
             }
           },
@@ -19387,6 +19396,9 @@
                     }
                   }
                 }
+              },
+              "otherComment": {
+                "type": "string"
               }
             }
           },

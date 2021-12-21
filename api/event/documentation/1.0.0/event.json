@@ -905,7 +905,10 @@
               "id": {
                 "type": "string"
               },
-              "commentLabel": {
+              "commentLabelSwedish": {
+                "type": "string"
+              },
+              "commentLabelEnglish": {
                 "type": "string"
               }
             }
@@ -1166,7 +1169,10 @@
               "id": {
                 "type": "string"
               },
-              "commentLabel": {
+              "commentLabelSwedish": {
+                "type": "string"
+              },
+              "commentLabelEnglish": {
                 "type": "string"
               }
             }
