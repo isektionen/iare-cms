@@ -9,10 +9,11 @@
   "attributes": {
     "commentLabelSwedish": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "commentLabelEnglish": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

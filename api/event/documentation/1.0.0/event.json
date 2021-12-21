@@ -899,7 +899,9 @@
           "otherComment": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "commentLabelSwedish",
+              "commentLabelEnglish"
             ],
             "properties": {
               "id": {
@@ -1163,7 +1165,9 @@
           "otherComment": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "commentLabelSwedish",
+              "commentLabelEnglish"
             ],
             "properties": {
               "id": {

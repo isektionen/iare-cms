@@ -122,8 +122,8 @@
       "component": "event.password-protect"
     },
     "orders": {
-      "via": "event",
       "private": true,
+      "via": "event",
       "collection": "order"
     },
     "banner": {
