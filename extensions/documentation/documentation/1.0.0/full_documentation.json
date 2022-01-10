@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/10/2022 10:41:37 AM"
+    "x-generation-date": "01/10/2022 5:42:46 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7352,6 +7352,142 @@
         }
       }
     },
+    "/events/{ref}/products": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/events/{ref}/status": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/feedbacks": {
       "get": {
         "deprecated": false,
@@ -12520,6 +12656,74 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/products/{ref}/reserve": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "ref",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -20992,7 +21196,8 @@
         "required": [
           "id",
           "name",
-          "data"
+          "data",
+          "reference"
         ],
         "properties": {
           "id": {
@@ -21087,13 +21292,18 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "allowMany": {
+                      "type": "boolean",
+                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description"
+                    "description",
+                    "allowMany"
                   ]
                 },
                 {
@@ -21127,14 +21337,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "maxItems": 1
+          },
+          "reference": {
+            "type": "uid"
           }
         }
       },
       "NewProduct-option": {
         "required": [
           "name",
-          "data"
+          "data",
+          "reference"
         ],
         "properties": {
           "name": {
@@ -21226,13 +21441,18 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "allowMany": {
+                      "type": "boolean",
+                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description"
+                    "description",
+                    "allowMany"
                   ]
                 },
                 {
@@ -21266,7 +21486,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "maxItems": 1
+          },
+          "reference": {
+            "type": "uid"
           },
           "created_by": {
             "type": "string"
@@ -21382,7 +21606,8 @@
               "required": [
                 "id",
                 "name",
-                "data"
+                "data",
+                "reference"
               ],
               "properties": {
                 "id": {
@@ -21393,6 +21618,9 @@
                 },
                 "data": {
                   "type": "dynamiczone"
+                },
+                "reference": {
+                  "type": "uid"
                 },
                 "created_by": {
                   "type": "string"

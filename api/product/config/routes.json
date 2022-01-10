@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/products/:ref/reserve",
+      "handler": "product.reserve",
+      "config":{
+        "policies": []
+      }
     }
   ]
 }

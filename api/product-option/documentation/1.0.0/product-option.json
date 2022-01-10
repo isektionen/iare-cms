@@ -531,7 +531,8 @@
         "required": [
           "id",
           "name",
-          "data"
+          "data",
+          "reference"
         ],
         "properties": {
           "id": {
@@ -626,13 +627,18 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "allowMany": {
+                      "type": "boolean",
+                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description"
+                    "description",
+                    "allowMany"
                   ]
                 },
                 {
@@ -666,14 +672,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "maxItems": 1
+          },
+          "reference": {
+            "type": "uid"
           }
         }
       },
       "NewProduct-option": {
         "required": [
           "name",
-          "data"
+          "data",
+          "reference"
         ],
         "properties": {
           "name": {
@@ -765,13 +776,18 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "allowMany": {
+                      "type": "boolean",
+                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description"
+                    "description",
+                    "allowMany"
                   ]
                 },
                 {
@@ -805,7 +821,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "maxItems": 1
+          },
+          "reference": {
+            "type": "uid"
           },
           "created_by": {
             "type": "string"

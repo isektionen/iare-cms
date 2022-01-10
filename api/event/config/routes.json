@@ -55,6 +55,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/events/:ref/products",
+      "handler": "event.products",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/events/:ref/status",
+      "handler": "event.status",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

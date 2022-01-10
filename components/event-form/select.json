@@ -2,7 +2,8 @@
   "collectionName": "components_event_form_selects",
   "info": {
     "name": "select",
-    "icon": "arrows-alt"
+    "icon": "arrows-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -21,6 +22,11 @@
     },
     "meta_option": {
       "model": "meta-option"
+    },
+    "allowMany": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

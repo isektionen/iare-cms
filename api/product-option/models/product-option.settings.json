@@ -23,6 +23,12 @@
         "event-form.select",
         "event-form.switch"
       ],
+      "required": true,
+      "max": 1
+    },
+    "reference": {
+      "type": "uid",
+      "targetField": "name",
       "required": true
     }
   }
