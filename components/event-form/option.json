@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_form_options",
+  "info": {
+    "name": "option",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_event_schedules",
+  "info": {
+    "name": "schedule",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "start": {
+      "type": "datetime",
+      "required": true
+    },
+    "end": {
+      "type": "datetime",
+      "required": true
+    },
+    "deadline": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/meta-options",
+      "handler": "meta-option.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/meta-options/count",
+      "handler": "meta-option.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/meta-options/:id",
+      "handler": "meta-option.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/meta-options",
+      "handler": "meta-option.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/meta-options/:id",
+      "handler": "meta-option.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/meta-options/:id",
+      "handler": "meta-option.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

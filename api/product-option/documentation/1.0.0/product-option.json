@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/event-categories": {
+    "/product-options": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEvent-category"
+                "$ref": "#/components/schemas/NewProduct-option"
               }
             }
           }
         }
       }
     },
-    "/event-categories/count": {
+    "/product-options/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "parameters": []
       }
     },
-    "/event-categories/{id}": {
+    "/product-options/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEvent-category"
+                "$ref": "#/components/schemas/NewProduct-option"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Event-category"
+          "Product-option"
         ],
         "parameters": [
           {
@@ -527,10 +527,11 @@
   },
   "components": {
     "schemas": {
-      "Event-category": {
+      "Product-option": {
         "required": [
           "id",
-          "name"
+          "name",
+          "data"
         ],
         "properties": {
           "id": {
@@ -539,153 +540,272 @@
           "name": {
             "type": "string"
           },
-          "events": {
+          "data": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "title",
-                "body",
-                "media",
-                "public"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "placeholder": {
+                      "type": "string"
+                    },
+                    "regex": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required",
+                    "description"
+                  ]
                 },
-                "title": {
-                  "type": "string"
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "meta_option": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "option": {
+                          "type": "component"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required",
+                    "description"
+                  ]
                 },
-                "slug": {
-                  "type": "uid"
-                },
-                "committee": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "media": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "products": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "schedule": {
-                  "type": "component"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required"
+                  ]
                 }
-              }
+              ]
             }
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "events": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
-      "NewEvent-category": {
+      "NewProduct-option": {
         "required": [
-          "name"
+          "name",
+          "data"
         ],
         "properties": {
           "name": {
             "type": "string"
           },
-          "events": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "placeholder": {
+                      "type": "string"
+                    },
+                    "regex": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required",
+                    "description"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "meta_option": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "option": {
+                          "type": "component"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required",
+                    "description"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "event-form.input",
+                        "event-form.select",
+                        "event-form.switch"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "required"
+                  ]
+                }
+              ]
             }
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "locale": {
-            "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           },
           "created_by": {
             "type": "string"

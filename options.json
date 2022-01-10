@@ -1,0 +1,24 @@
+{
+    "select": {
+    "type": "select",
+    "options": {
+        "label": "banan",
+        "value": "banan"
+    }
+}
+,
+"multiselect": {
+    "type": "multiselect",
+    "options": [{
+        "label": "banan",
+        "value": "banan"
+    }]
+},
+"text":{
+    "type": "text",
+    "options": "julia, john, aggust, vilgot"
+},
+"boolean":{
+    "type": "boolean",
+    "options": false
+}}

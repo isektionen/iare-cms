@@ -532,12 +532,9 @@
               "required": [
                 "id",
                 "title",
-                "tickets",
-                "startTime",
-                "endTime",
-                "deadline",
                 "body",
-                "place"
+                "media",
+                "public"
               ],
               "properties": {
                 "id": {
@@ -555,47 +552,29 @@
                 "category": {
                   "type": "string"
                 },
-                "tickets": {
-                  "type": "component"
-                },
-                "servingOptions": {
-                  "type": "component"
-                },
-                "startTime": {
-                  "type": "string"
-                },
-                "endTime": {
-                  "type": "string"
-                },
-                "deadline": {
-                  "type": "string"
-                },
                 "body": {
                   "type": "string"
                 },
-                "place": {
-                  "type": "component"
-                },
-                "passwordProtected": {
-                  "type": "component"
-                },
-                "orders": {
+                "media": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "banner": {
+                "public": {
+                  "type": "boolean"
+                },
+                "password": {
                   "type": "string"
                 },
-                "fullfillmentUID": {
-                  "type": "string"
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "description": {
-                  "type": "string"
-                },
-                "maxTickets": {
-                  "type": "integer"
+                "schedule": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",

@@ -42,55 +42,6 @@
       "model": "event-category",
       "via": "events"
     },
-    "tickets": {
-      "type": "component",
-      "repeatable": false,
-      "private": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.tickets",
-      "required": true
-    },
-    "servingOptions": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.serving"
-    },
-    "startTime": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "endTime": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "deadline": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
     "body": {
       "pluginOptions": {
         "i18n": {
@@ -100,70 +51,50 @@
       "type": "richtext",
       "required": true
     },
-    "place": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "event.place",
-      "required": true
-    },
-    "passwordProtected": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.password-protect"
-    },
-    "orders": {
-      "private": true,
-      "via": "event",
-      "collection": "order"
-    },
-    "banner": {
-      "model": "file",
+    "media": {
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
     },
-    "fullfillmentUID": {
+    "public": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "string",
-      "required": false
+      "type": "boolean",
+      "default": true,
+      "required": true
     },
-    "description": {
+    "password": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "password"
+    },
+    "products": {
+      "collection": "product"
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text"
-    },
-    "maxTickets": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer"
+      "component": "event.schedule"
     }
   }
 }

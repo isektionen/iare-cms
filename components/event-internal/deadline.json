@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_event_internal_deadlines",
+  "info": {
+    "name": "deadline",
+    "icon": "arrow-circle-down"
+  },
+  "options": {},
+  "attributes": {
+    "datetime": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

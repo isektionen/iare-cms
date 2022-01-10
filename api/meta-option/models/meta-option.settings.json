@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "orders",
+  "collectionName": "meta_options",
   "info": {
-    "name": "Order",
-    "description": ""
+    "name": "metaOption"
   },
   "options": {
     "increments": true,
@@ -12,15 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "data": {
-      "type": "json",
+    "name": {
+      "type": "string",
       "required": true
     },
-    "event": {
-      "model": "event"
-    },
-    "products": {
-      "collection": "product"
+    "option": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event-form.option"
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_event_internal_start_times",
+  "info": {
+    "name": "startTime",
+    "icon": "arrow-alt-circle-left"
+  },
+  "options": {},
+  "attributes": {
+    "datetime": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}
