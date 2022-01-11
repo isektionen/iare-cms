@@ -23,6 +23,8 @@ const getIdentifier = ({ params }) => {
 
 module.exports = {
 	async create(ctx) {
+		// must be guarded
+
 		const { body } = ctx.request;
 
 		if (!body || !body?.order?.reference || !body?.order?.items) {
@@ -44,6 +46,13 @@ module.exports = {
 			.find({ reference_in: _.map(body.order.items, "reference") });
 		const productIds = _.map(products, "id");
 
+		// should maybe check options (?)
+		/*
+		const options = await strapi
+			.query("product-option")
+			.find({ reference_in: _.keys(body.options) });
+		*/
+
 		return await strapi.query("order").create({
 			reference: body.order.reference,
 			data: body,
@@ -53,22 +62,13 @@ module.exports = {
 	},
 
 	async update(ctx) {
+		// must be guarded
+
 		const { reference } = getIdentifier(ctx);
 		if (reference) {
 			const { body } = ctx.request;
 			const order = await strapi.query("order").findOne({ reference });
 			if (order && body) {
-				/**
-				 * when status is charged or completed,
-				 * control that body.paymentData.amount.amount is
-				 * equivalent to body.order.amount
-				 * if not: add error to body.errors
-				 *
-				 * body.payment.type: 'WALLET' | 'CARD' | 'A2A'
-				 * where A2A represents swish
-				 *
-				 */
-
 				const entity = _.merge(order.data, body);
 				if (entity) {
 					await strapi
