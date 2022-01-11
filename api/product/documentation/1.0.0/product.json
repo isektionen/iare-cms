@@ -689,7 +689,8 @@
                 "id",
                 "name",
                 "data",
-                "reference"
+                "reference",
+                "allowMany"
               ],
               "properties": {
                 "id": {
@@ -703,6 +704,9 @@
                 },
                 "reference": {
                   "type": "uid"
+                },
+                "allowMany": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"

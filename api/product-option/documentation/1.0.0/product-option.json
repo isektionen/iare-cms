@@ -532,7 +532,8 @@
           "id",
           "name",
           "data",
-          "reference"
+          "reference",
+          "allowMany"
         ],
         "properties": {
           "id": {
@@ -677,6 +678,10 @@
           },
           "reference": {
             "type": "uid"
+          },
+          "allowMany": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -684,7 +689,8 @@
         "required": [
           "name",
           "data",
-          "reference"
+          "reference",
+          "allowMany"
         ],
         "properties": {
           "name": {
@@ -826,6 +832,10 @@
           },
           "reference": {
             "type": "uid"
+          },
+          "allowMany": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

@@ -30,6 +30,11 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "allowMany": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
