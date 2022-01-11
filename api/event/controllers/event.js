@@ -79,21 +79,29 @@ module.exports = {
 	// returns a events available products
 	async products(ctx) {
 		const { ref } = ctx.params;
-		const entity = await strapi.services.event.findOne({ slug: ref });
+		const entity = await strapi.query("event").findOne({ slug: ref });
+
 		if (!entity) {
 			return ctx.response.badRequest();
 		}
-		return entity.products.map((obj) =>
-			_.omit(obj, [
+
+		const products = await strapi
+			.query("product")
+			.find({ reference_in: _.map(entity.products, "reference") });
+
+		// reveals the availability of a product
+		return products.map((obj) => ({
+			..._.pick(obj, [
+				"product_options",
 				"media",
 				"description",
-				"created_by",
-				"updated_by",
-				"created_at",
-				"updated_at",
-				"published_at",
-			])
-		);
+				"reference",
+				"name",
+				"price",
+				"consumable",
+			]),
+			available: obj.count < obj.stock,
+		}));
 	},
 
 	// returns whether event is bookable
