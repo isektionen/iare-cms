@@ -21,6 +21,12 @@
     },
     "products": {
       "collection": "product"
+    },
+    "reference": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "private": true
     }
   }
 }
