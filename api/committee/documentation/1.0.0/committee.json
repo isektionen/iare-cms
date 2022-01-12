@@ -534,7 +534,8 @@
                 "title",
                 "body",
                 "media",
-                "public"
+                "public",
+                "location"
               ],
               "properties": {
                 "id": {
@@ -575,6 +576,9 @@
                 },
                 "schedule": {
                   "type": "component"
+                },
+                "location": {
+                  "type": "string"
                 },
                 "localizations": {
                   "type": "array",

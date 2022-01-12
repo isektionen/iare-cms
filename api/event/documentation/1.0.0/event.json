@@ -727,7 +727,8 @@
           "title",
           "body",
           "media",
-          "public"
+          "public",
+          "location"
         ],
         "properties": {
           "id": {
@@ -1018,6 +1019,9 @@
               }
             }
           },
+          "location": {
+            "type": "string"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -1026,7 +1030,8 @@
                 "title",
                 "body",
                 "media",
-                "public"
+                "public",
+                "location"
               ],
               "properties": {
                 "id": {
@@ -1068,6 +1073,9 @@
                 "schedule": {
                   "type": "component"
                 },
+                "location": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -1102,7 +1110,8 @@
         "required": [
           "title",
           "body",
-          "public"
+          "public",
+          "location"
         ],
         "properties": {
           "title": {
@@ -1159,6 +1168,9 @@
                 "format": "date-time"
               }
             }
+          },
+          "location": {
+            "type": "string"
           },
           "localizations": {
             "type": "array",
