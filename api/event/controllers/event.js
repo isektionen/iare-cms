@@ -70,10 +70,19 @@ module.exports = {
 	},
 	async findOne(ctx) {
 		const { id } = ctx.params;
-		//const admin = await isAdmin(ctx);
 		const entity = await strapi.services.event.findOne(sanitizeId(id));
-		//if (!admin) delete entity.tickets;
-		return sanitizeEntity(entity, { model: strapi.models.event });
+		const sentity = sanitizeEntity(entity, { model: strapi.models.event });
+		return sentity;
+	},
+
+	async requiresPassword(ctx) {
+		const { id } = ctx.params;
+		const entity = await strapi.query("event").findOne(sanitizeId(id));
+		if (entity?.password) {
+			ctx.response.status = 200;
+			return;
+		}
+		return ctx.response.badRequest();
 	},
 
 	// returns a events available products

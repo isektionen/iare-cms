@@ -548,7 +548,8 @@
                 "body",
                 "media",
                 "public",
-                "location"
+                "location",
+                "description"
               ],
               "properties": {
                 "id": {
@@ -591,6 +592,9 @@
                   "type": "component"
                 },
                 "location": {
+                  "type": "string"
+                },
+                "description": {
                   "type": "string"
                 },
                 "localizations": {
