@@ -628,18 +628,13 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "allowMany": {
-                      "type": "boolean",
-                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description",
-                    "allowMany"
+                    "description"
                   ]
                 },
                 {
@@ -782,18 +777,13 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "allowMany": {
-                      "type": "boolean",
-                      "default": false
                     }
                   },
                   "required": [
                     "id",
                     "label",
                     "required",
-                    "description",
-                    "allowMany"
+                    "description"
                   ]
                 },
                 {

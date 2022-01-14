@@ -22,11 +22,6 @@
     },
     "meta_option": {
       "model": "meta-option"
-    },
-    "allowMany": {
-      "type": "boolean",
-      "default": false,
-      "required": true
     }
   }
 }
