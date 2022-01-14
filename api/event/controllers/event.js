@@ -99,18 +99,50 @@ module.exports = {
 			.find({ reference_in: _.map(entity.products, "reference") });
 
 		// reveals the availability of a product
-		return products.map((obj) => ({
-			..._.pick(obj, [
-				"product_options",
-				"media",
-				"description",
-				"reference",
-				"name",
-				"price",
-				"consumable",
-			]),
-			available: obj.count < obj.stock,
-		}));
+		const detailedProducts = await Promise.all(
+			products.map(async (obj) => ({
+				..._.pick(obj, [
+					"id",
+					"media",
+					"description",
+					"reference",
+					"name",
+					"price",
+					"consumable",
+				]),
+				product_options: await Promise.all(
+					obj.product_options.map(async (prod) => {
+						return {
+							...prod,
+							data: await Promise.all(
+								prod.data.map(async (d) => {
+									if (d?.meta_option) {
+										const meta_option =
+											await strapi.services[
+												"meta-option"
+											].findOne({
+												id: d.meta_option.id,
+											});
+										return {
+											...d,
+											meta_option: _.pick(meta_option, [
+												"id",
+												"name",
+												"option",
+											]),
+										};
+									}
+									return d;
+								})
+							),
+						};
+					})
+				),
+				available: obj.count < obj.stock,
+			}))
+		);
+
+		return detailedProducts;
 	},
 
 	// returns whether event is bookable

@@ -634,10 +634,7 @@
                   "type": "integer"
                 },
                 "media": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "type": "string"
                 },
                 "reference": {
                   "type": "uid"

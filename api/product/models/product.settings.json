@@ -40,7 +40,7 @@
       "default": 0
     },
     "media": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images"
