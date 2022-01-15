@@ -108,6 +108,8 @@ module.exports = {
 					"reference",
 					"name",
 					"price",
+					"stock",
+					"count",
 					"consumable",
 				]),
 				product_options: await Promise.all(
