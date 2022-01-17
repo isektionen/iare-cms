@@ -21,7 +21,27 @@ const getIdentifier = ({ params }) => {
 	}
 };
 
+async function sendEmail(order, eventTitle) {
+	await strapi.plugins["email"].services.email.send({
+		to: order.data.customerData.email,
+		//from: "no-reply@iare.se",
+		subject: "Iare: Order reserved successfully",
+		text: `This email counts as a confirmation that you have successfully RSVP to ${eventTitle}.\n\n Your reciept can be seen here: ${order.data.recieptUrl}`,
+	});
+}
+
 module.exports = {
+	async findReceipt(ctx) {
+		const { ref } = ctx.params;
+		if (ref) {
+			const entity = await strapi
+				.query("order")
+				.findOne({ reference: ref });
+			return sanitizeEntity(entity, { model: strapi.models.order });
+		}
+		return ctx.response.badRequest();
+	},
+
 	async create(ctx) {
 		// must be guarded
 
@@ -53,12 +73,21 @@ module.exports = {
 			.find({ reference_in: _.keys(body.options) });
 		*/
 
-		return await strapi.query("order").create({
+		const order = {
 			reference: body.order.reference,
 			data: body,
 			event: eventId,
 			products: productIds,
-		});
+		};
+
+		if (
+			!body.sentEmailConfirmation &&
+			body.status.some((p) => p.status === "completed")
+		) {
+			sendEmail(order, eventEntity.title);
+		}
+
+		return await strapi.query("order").create(order);
 	},
 
 	async update(ctx) {
@@ -69,12 +98,38 @@ module.exports = {
 			const { body } = ctx.request;
 			const order = await strapi.query("order").findOne({ reference });
 			if (order && body) {
-				const entity = _.merge(order.data, body);
+				// appending statuses
+
+				const status = _.uniqBy(
+					[...order.data.status, ...body.status],
+					"status"
+				);
+				let sentEmailConfirmation = false;
+				if (
+					body.status.some(
+						(p) =>
+							p.status === "completed" || p.status === "charged"
+					) &&
+					!order.data.sentEmailConfirmation
+				) {
+					sentEmailConfirmation = true;
+				}
+				const enrichedBody = { ...body, status, sentEmailConfirmation };
+
+				let entity = _.merge(order.data, enrichedBody);
+
 				if (entity) {
+					if (
+						sentEmailConfirmation &&
+						order.data.customerData.email &&
+						order.event
+					) {
+						sendEmail(order, order.event.title);
+					}
+
 					await strapi
 						.query("order")
 						.update({ reference }, { data: entity });
-					ctx.response.status = 200;
 				}
 
 				ctx.response.status = 200;

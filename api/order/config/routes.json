@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/orders/:ref/receipt",
+      "handler": "order.findReceipt",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/orders",
       "handler": "order.create",
