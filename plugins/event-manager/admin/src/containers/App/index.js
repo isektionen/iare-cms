@@ -14,57 +14,60 @@ import { NotFound, CheckPagePermissions } from "strapi-helper-plugin";
 import styled from "styled-components";
 // Utils
 import pluginId from "../../pluginId";
-import Event from "../Event";
 // Containers
-import HomePage from "../HomePage";
+import Events from "../Events";
 import pluginPermissions from "../../permissions";
 
-import { currentCommittee, tokenState } from "../state/user";
+import Orders from "../Orders/index";
 
 const Flex = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
 `;
 
 const Container = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 3rem;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 3rem;
 `;
 
 const AppContent = () => {
-  return (
-    <CheckPagePermissions permissions={pluginPermissions.main}>
-      <Flex>
-        <Container>
-          <Switch>
-            <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
-            <Route
-              path={`/plugins/${pluginId}/:slug`}
-              component={Event}
-              exact
-            />
+	return (
+		<CheckPagePermissions permissions={pluginPermissions.main}>
+			<Flex>
+				<Container>
+					<Switch>
+						<Route
+							path={`/plugins/${pluginId}`}
+							component={Events}
+							exact
+						/>
+						<Route
+							path={`/plugins/${pluginId}/:slug/orders`}
+							component={Orders}
+							exact
+						/>
 
-            <Route component={NotFound} />
-          </Switch>
-        </Container>
-      </Flex>
-    </CheckPagePermissions>
-  );
+						<Route component={NotFound} />
+					</Switch>
+				</Container>
+			</Flex>
+		</CheckPagePermissions>
+	);
 };
 
 const App = () => {
-  return (
-    <RecoilRoot>
-      <React.Suspense fallback={<div>loading, lol...</div>}>
-        <AppContent />
-      </React.Suspense>
-    </RecoilRoot>
-  );
+	return (
+		<RecoilRoot>
+			<React.Suspense fallback={<div></div>}>
+				<AppContent />
+			</React.Suspense>
+		</RecoilRoot>
+	);
 };
 
 export default App;
