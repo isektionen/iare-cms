@@ -35,7 +35,7 @@
       "pluginOptions": {},
       "type": "integer",
       "required": true,
-      "private": true,
+      "private": false,
       "min": 0,
       "default": 0
     },

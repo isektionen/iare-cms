@@ -609,6 +609,10 @@
             "type": "integer",
             "default": 0
           },
+          "count": {
+            "type": "integer",
+            "default": 0
+          },
           "media": {
             "required": [
               "id",

@@ -19,6 +19,7 @@ import Events from "../Events";
 import pluginPermissions from "../../permissions";
 
 import Orders from "../Orders/index";
+import { useStrapi } from "../hooks/use-strapi";
 
 const Flex = styled.div`
 	position: relative;
