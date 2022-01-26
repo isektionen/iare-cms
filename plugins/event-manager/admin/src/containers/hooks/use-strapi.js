@@ -319,13 +319,14 @@ export const useStrapi = () => {
 								const orders = await snapshot.getPromise(
 									orderSelector(it)
 								);
-								if (orders) {
+								if (orders && orders.length > 0) {
 									return [
-										...acc,
+										...(await acc),
 										...orders.map(conformedOrderMapper),
 									];
 								}
-								return [...acc];
+
+								return [...(await acc)];
 							},
 							[]
 						);
