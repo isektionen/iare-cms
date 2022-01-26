@@ -26,7 +26,7 @@ async function sendEmail(order, eventTitle) {
 		to: order.data.customerData.email,
 		//from: "no-reply@iare.se",
 		subject: "Iare: Order reserved successfully",
-		text: `This email counts as a confirmation that you have successfully RSVP to ${eventTitle}.\n\n Your reciept can be seen here: ${order.data.recieptUrl}`,
+		text: `This email counts as a confirmation that you have successfully RSVP to ${eventTitle}.\n\nYour reciept can be seen here: ${order.data.recieptUrl}\n\norder-reference: ${order.data.order.reference}`,
 	});
 }
 
