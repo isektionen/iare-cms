@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_event_form_switches",
+  "info": {
+    "name": "switch",
+    "icon": "border-style"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

@@ -12,61 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "paymentId": {
-      "type": "string",
-      "required": false,
-      "unique": true
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "pending",
-        "failed",
-        "success",
-        "visited"
-      ]
-    },
-    "consumer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "event.recipient"
+    "data": {
+      "type": "json",
+      "required": true
     },
     "event": {
-      "via": "orders",
       "model": "event"
     },
-    "ticketReference": {
-      "type": "component",
-      "repeatable": true,
-      "component": "event.ticket-reference"
-    },
-    "ip": {
-      "type": "string"
+    "products": {
+      "collection": "product"
     },
     "reference": {
-      "type": "string"
-    },
-    "amount": {
-      "type": "decimal"
-    },
-    "timestamp": {
-      "type": "string"
-    },
-    "paymentType": {
-      "type": "string"
-    },
-    "paymentMethod": {
-      "type": "string"
-    },
-    "intentionId": {
       "type": "string",
-      "unique": true
-    },
-    "fullfillmentUID": {
-      "type": "string"
-    },
-    "checkedInAt": {
-      "type": "datetime",
+      "unique": true,
+      "required": true,
       "private": true
     }
   }

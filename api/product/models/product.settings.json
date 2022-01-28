@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "pluginOptions": {},
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "stock": {
+      "pluginOptions": {},
+      "required": true,
+      "default": 0,
+      "min": 0,
+      "type": "integer"
+    },
+    "count": {
+      "pluginOptions": {},
+      "type": "integer",
+      "required": true,
+      "private": false,
+      "min": 0,
+      "default": 0
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "reference": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "product_options": {
+      "collection": "product-option"
+    },
+    "consumable": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "sideProduct": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

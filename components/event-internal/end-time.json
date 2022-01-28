@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_event_internal_end_times",
+  "info": {
+    "name": "endTime",
+    "icon": "arrow-circle-left"
+  },
+  "options": {},
+  "attributes": {
+    "datetime": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

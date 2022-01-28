@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_event_internal_order_options",
+  "info": {
+    "name": "order-option",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "data": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

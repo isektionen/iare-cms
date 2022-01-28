@@ -511,7 +511,7 @@
         ]
       }
     },
-    "/orders/validation/{intentionId}": {
+    "/orders/{ref}/receipt": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -567,377 +567,7 @@
         ],
         "parameters": [
           {
-            "name": "intentionId",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/orders/{id}/details": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/orders/{intentionId}/ticket": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "parameters": [
-          {
-            "name": "intentionId",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/orders/{id}/valid": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/orders/{id}/diets": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/orders/{paymentId}/webhook": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "paymentId",
+            "name": "ref",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -954,138 +584,28 @@
     "schemas": {
       "Order": {
         "required": [
-          "id"
+          "id",
+          "data",
+          "reference"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "paymentId": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "pending",
-              "failed",
-              "success",
-              "visited"
-            ]
-          },
-          "consumer": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "phoneNumber": {
-                "type": "string"
-              },
-              "allergens": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "id",
-                    "name",
-                    "count"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "localizations": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "locale": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "diets": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "id",
-                    "name",
-                    "count"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "localizations": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "locale": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "otherCommentResponse": {
-                "type": "string"
-              }
-            }
+          "data": {
+            "type": "object"
           },
           "event": {
             "required": [
               "id",
               "title",
-              "tickets",
-              "startTime",
-              "endTime",
-              "deadline",
               "body",
-              "place"
+              "media",
+              "public",
+              "location",
+              "description",
+              "maxCapacity",
+              "accumulator"
             ],
             "properties": {
               "id": {
@@ -1103,46 +623,40 @@
               "category": {
                 "type": "string"
               },
-              "tickets": {
-                "type": "component"
-              },
-              "servingOptions": {
-                "type": "component"
-              },
-              "startTime": {
-                "type": "string"
-              },
-              "endTime": {
-                "type": "string"
-              },
-              "deadline": {
-                "type": "string"
-              },
               "body": {
                 "type": "string"
               },
-              "place": {
-                "type": "component"
-              },
-              "passwordProtected": {
-                "type": "component"
-              },
-              "orders": {
+              "media": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "banner": {
+              "public": {
+                "type": "boolean"
+              },
+              "password": {
                 "type": "string"
               },
-              "fullfillmentUID": {
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "schedule": {
+                "type": "component"
+              },
+              "location": {
                 "type": "string"
               },
               "description": {
                 "type": "string"
               },
-              "maxTickets": {
+              "maxCapacity": {
+                "type": "integer"
+              },
+              "accumulator": {
                 "type": "integer"
               },
               "otherCommentLabel": {
@@ -1168,226 +682,92 @@
               }
             }
           },
-          "ticketReference": {
+          "products": {
             "type": "array",
             "items": {
-              "type": "object",
               "required": [
-                "id"
+                "id",
+                "name",
+                "price",
+                "stock",
+                "count",
+                "media",
+                "reference",
+                "consumable",
+                "description",
+                "sideProduct"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "reference": {
+                "name": {
                   "type": "string"
                 },
                 "price": {
                   "type": "number"
                 },
-                "uid": {
+                "stock": {
+                  "type": "integer"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "media": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "uid"
+                },
+                "product_options": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "consumable": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
               }
             }
-          },
-          "ip": {
-            "type": "string"
-          },
-          "reference": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          },
-          "timestamp": {
-            "type": "string"
-          },
-          "paymentType": {
-            "type": "string"
-          },
-          "paymentMethod": {
-            "type": "string"
-          },
-          "intentionId": {
-            "type": "string"
-          },
-          "fullfillmentUID": {
-            "type": "string"
           }
         }
       },
       "NewOrder": {
+        "required": [
+          "data",
+          "reference"
+        ],
         "properties": {
-          "paymentId": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "pending",
-              "failed",
-              "success",
-              "visited"
-            ]
-          },
-          "consumer": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "phoneNumber": {
-                "type": "string"
-              },
-              "allergens": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "id",
-                    "name",
-                    "count"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "localizations": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "locale": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "diets": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "id",
-                    "name",
-                    "count"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "count": {
-                      "type": "integer"
-                    },
-                    "localizations": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "locale": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "otherCommentResponse": {
-                "type": "string"
-              }
-            }
+          "data": {
+            "type": "object"
           },
           "event": {
             "type": "string"
           },
-          "ticketReference": {
+          "products": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "uid": {
-                  "type": "string"
-                }
-              }
+              "type": "string"
             }
-          },
-          "ip": {
-            "type": "string"
           },
           "reference": {
             "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          },
-          "timestamp": {
-            "type": "string"
-          },
-          "paymentType": {
-            "type": "string"
-          },
-          "paymentMethod": {
-            "type": "string"
-          },
-          "intentionId": {
-            "type": "string"
-          },
-          "fullfillmentUID": {
-            "type": "string"
-          },
-          "checkedInAt": {
-            "type": "string",
-            "format": "date-time"
           },
           "created_by": {
             "type": "string"

@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meta_options",
+  "info": {
+    "name": "metaOption"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "option": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event-form.option"
+    }
+  }
+}

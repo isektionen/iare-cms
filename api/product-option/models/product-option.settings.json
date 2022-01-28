@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_options",
+  "info": {
+    "name": "ProductOption",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "data": {
+      "type": "dynamiczone",
+      "components": [
+        "event-form.input",
+        "event-form.select",
+        "event-form.switch"
+      ],
+      "required": true,
+      "max": 1
+    },
+    "reference": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "allowMany": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

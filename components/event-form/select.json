@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_event_form_selects",
+  "info": {
+    "name": "select",
+    "icon": "arrows-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "meta_option": {
+      "model": "meta-option"
+    }
+  }
+}

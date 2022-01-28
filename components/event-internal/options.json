@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_event_internal_options",
+  "info": {
+    "name": "options",
+    "icon": "people-carry"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

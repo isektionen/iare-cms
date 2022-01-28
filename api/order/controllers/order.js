@@ -10,216 +10,125 @@ const _ = require("lodash");
 const emailClient = require("../services/email");
 
 function isNumeric(value) {
-  return /^-?\d+$/.test(value);
+	return /^-?\d+$/.test(value);
 }
 
-const sanitizeId = (value) => {
-  if (isNumeric(value)) return { id: value };
-  return { intentionId: value };
+const getIdentifier = ({ params }) => {
+	if (params && params.id) {
+		if (isNumeric(params.id)) return { id: params.id };
+
+		return { reference: params.id };
+	}
 };
 
-const groupDiet = (dietList) =>
-  dietList.reduce(
-    (acc, it) => {
-      if (isNumeric(it.id)) {
-        return { ...acc, old: [...acc.old, { ...it, id: parseInt(it.id) }] };
-      }
-      return { ...acc, new: [...acc.new, it] };
-    },
-    { new: [], old: [] }
-  );
-
-const createDiets = async (dietType, body) => {
-  if (!body || (body && !body.hasOwnProperty(dietType))) return [];
-
-  const singularType = dietType === "allergens" ? "allergy" : "diet";
-  const diets = groupDiet(body[dietType]);
-  const newDiets = await strapi.services[singularType].bulkCreate({
-    [dietType]: diets.new.map((diet) => ({ name: diet.name })),
-  });
-  return [
-    ...diets.old.map((diet) => diet.id),
-    ...newDiets.map((diet) => diet.id),
-  ];
-};
-
-const addAttribute = (body, dietType, dietList) => {
-  if (dietList.length > 0) {
-    body[dietType] = dietList;
-  }
-};
-
-const parseDiets = async (body) => {
-  const diets = await createDiets("diets", body);
-  const allergens = await createDiets("allergens", body);
-  const returnBody = {};
-  addAttribute(returnBody, "diets", diets);
-  addAttribute(returnBody, "allergens", allergens);
-  return returnBody;
-};
+async function sendEmail(order, eventTitle) {
+	await strapi.plugins["email"].services.email.send({
+		to: order.data.customerData.email,
+		//from: "no-reply@iare.se",
+		subject: "Iare: Order reserved successfully",
+		text: `This email counts as a confirmation that you have successfully RSVP to ${eventTitle}.\n\nYour reciept can be seen here: ${order.data.recieptUrl}\n\norder-reference: ${order.data.order.reference}`,
+	});
+}
 
 module.exports = {
-  async update(ctx) {
-    const { id } = ctx.params;
-    const body = { ...ctx.request.body };
-    const parsedDiets = await parseDiets(ctx.request.body);
-    body.consumer = {
-      ...body.consumer,
-      ...parsedDiets,
-    };
-    let entity;
-    entity = await strapi.services.order.update(sanitizeId(id), body);
+	async findReceipt(ctx) {
+		const { ref } = ctx.params;
+		if (ref) {
+			const entity = await strapi
+				.query("order")
+				.findOne({ reference: ref });
+			return sanitizeEntity(entity, { model: strapi.models.order });
+		}
+		return ctx.response.badRequest();
+	},
 
-    if (body.status === "success" && body.paymentMethod === "FREE") {
-      const orderId = entity.reference;
-      const intentionId = entity.intentionId;
-      const eventName = entity.event.title;
-      const eventStartTime = entity.event.startTime;
-      const firstName = body.consumer.firstName;
-      const lastName = body.consumer.lastName;
-      const email = entity.consumer.email;
-      const amount = 0;
-      await emailClient.send({
-        orderId,
-        intentionId,
-        eventName,
-        eventStartTime,
-        firstName,
-        lastName,
-        email,
-        amount,
-      });
-    }
-    return sanitizeEntity(entity, { model: strapi.models.order });
-  },
-  async delete(ctx) {
-    const { id } = ctx.params;
-    const entity = await strapi.services.order.delete(sanitizeId(id));
-    return sanitizeEntity(entity, { model: strapi.models.order });
-  },
+	async create(ctx) {
+		// must be guarded
 
-  async details(ctx) {
-    const { id } = ctx.params;
+		const { body } = ctx.request;
 
-    const entity = await strapi.services.order.findOne({ intentionId: id });
-    return {
-      tickets: entity.ticketReference,
-      paymentId: entity.paymentId,
-    };
-  },
+		if (!body || !body?.order?.reference || !body?.order?.items) {
+			return ctx.response.badRequest();
+		}
+		// find event by its slug
+		const [slug] = body.order.reference.split("::", 1);
+		const eventEntity = await strapi.query("event").findOne({ slug });
 
-  async validIntention(ctx) {
-    const { id } = ctx.params;
+		if (!eventEntity) {
+			return ctx.response.badRequest();
+		}
 
-    //const entity = await strapi.services.order.findOne({ intentionId: id });
+		const eventId = eventEntity.id;
 
-    const entity = await strapi
-      .query("order")
-      .findOne({ intentionId: id }, [
-        "consumer",
-        "consumer.diets",
-        "consumer.allergens",
-      ]);
+		// find products
+		const products = await strapi
+			.query("product")
+			.find({ reference_in: _.map(body.order.items, "reference") });
+		const productIds = _.map(products, "id");
 
-    return {
-      intentionId: entity?.intentionId ?? null,
-      paymentId: entity?.paymentId ?? null,
-      ticketId:
-        entity?.ticketReference[0]?.uid ??
-        entity?.event?.tickets?.Tickets[0].ticketUID ??
-        null,
-      consumer: entity?.consumer ?? null,
-      status: entity?.status ?? null,
-    };
-  },
+		const order = {
+			reference: body.order.reference,
+			data: body,
+			event: eventId,
+			products: productIds,
+		};
 
-  async updateDiets(ctx) {
-    const { id } = ctx.params;
-    const body = { consumer: {} };
+		if (
+			!body.sentEmailConfirmation &&
+			body.status.some((p) => p.status === "completed")
+		) {
+			sendEmail(order, eventEntity.title);
+		}
 
-    // Check if new diets have been added
-    body.consumer = await parseDiets(ctx.request.body);
+		return await strapi.query("order").create(order);
+	},
 
-    const entity = await strapi.services.order.update(
-      { intentionId: id },
-      body
-    );
-    return sanitizeEntity(entity, { model: strapi.models.order });
-  },
+	async update(ctx) {
+		// must be guarded
 
-  async ticket(ctx) {
-    const { intentionId } = ctx.params;
-    const entity = await strapi.services.order.findOne({ intentionId });
-    const baseUrl = "https://cms.iare.se";
-    if (entity) {
-      return await strapi.services.order.createQRCode(
-        baseUrl + "/orders/validation/" + intentionId
-      );
-    }
-    ctx.response = 400;
-  },
-  async validateTicket(ctx) {
-    const { intentionId } = ctx.params;
+		const { reference } = getIdentifier(ctx);
+		if (reference) {
+			const { body } = ctx.request;
+			const order = await strapi.query("order").findOne({ reference });
+			if (order && body) {
+				// appending statuses
 
-    let entity = await strapi.services.order.findOne({
-      intentionId,
-      checkedInAt: null,
-    });
-    let alreadyUsed = false;
-    if (entity) {
-      entity = await strapi.services.order.update(
-        { intentionId },
-        { checkedInAt: new Date() }
-      );
-    } else {
-      alreadyUsed = true;
-    }
-    ctx.response.body = {
-      valid: alreadyUsed,
-      checkedInAt: entity.checkedInAt,
-      consumer: entity.consumer,
-      tickets: entity.ticketReference.map((t) => _.omit(t, "uid")),
-      status: entity.status,
-    };
-  },
-  async webhook(ctx) {
-    const { paymentId } = ctx.params;
-    const event = _.cloneDeep(ctx.request.body.event);
-    delete ctx.request.body.event;
+				const status = _.uniqBy(
+					[...order.data.status, ...body.status],
+					"status"
+				);
+				let sentEmailConfirmation = false;
+				if (
+					body.status.some(
+						(p) =>
+							p.status === "completed" || p.status === "charged"
+					) &&
+					!order.data.sentEmailConfirmation
+				) {
+					sentEmailConfirmation = true;
+				}
+				const enrichedBody = { ...body, status, sentEmailConfirmation };
 
-    try {
-      if (event === "payment.checkout.completed") {
-        const { consumer, amount } = ctx.request.body;
-        const order = await strapi.query("order").findOne({ paymentId });
-        if (!order) throw new Error("no order found");
-        const eventName = order.event.title;
-        const eventStartTime = order.event.startTime;
-        const intentionId = order.intentionId;
+				let entity = _.merge(order.data, enrichedBody);
 
-        const firstName = consumer.firstName;
-        const lastName = consumer.lastName;
+				if (entity) {
+					if (
+						sentEmailConfirmation &&
+						order.data.customerData.email &&
+						order.event
+					) {
+						sendEmail(order, order.event.title);
+					}
 
-        const email = consumer.email;
+					await strapi
+						.query("order")
+						.update({ reference }, { data: entity });
+				}
 
-        await emailClient.send({
-          orderId: paymentId,
-          intentionId,
-          eventName,
-          eventStartTime,
-          firstName,
-          lastName,
-          email,
-          amount,
-        });
-      }
-    } catch (err) {
-      strapi.log.debug(err);
-    }
-
-    const entity = await strapi.services.order.update(
-      { paymentId },
-      ctx.request.body
-    );
-    return sanitizeEntity(entity, { model: strapi.models.order });
-  },
+				ctx.response.status = 200;
+				return;
+			}
+		}
+		return ctx.response.badRequest();
+	},
 };

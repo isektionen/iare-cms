@@ -532,12 +532,13 @@
               "required": [
                 "id",
                 "title",
-                "tickets",
-                "startTime",
-                "endTime",
-                "deadline",
                 "body",
-                "place"
+                "media",
+                "public",
+                "location",
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -555,46 +556,40 @@
                 "category": {
                   "type": "string"
                 },
-                "tickets": {
-                  "type": "component"
-                },
-                "servingOptions": {
-                  "type": "component"
-                },
-                "startTime": {
-                  "type": "string"
-                },
-                "endTime": {
-                  "type": "string"
-                },
-                "deadline": {
-                  "type": "string"
-                },
                 "body": {
                   "type": "string"
                 },
-                "place": {
-                  "type": "component"
-                },
-                "passwordProtected": {
-                  "type": "component"
-                },
-                "orders": {
+                "media": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "banner": {
+                "public": {
+                  "type": "boolean"
+                },
+                "password": {
                   "type": "string"
                 },
-                "fullfillmentUID": {
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "schedule": {
+                  "type": "component"
+                },
+                "location": {
                   "type": "string"
                 },
                 "description": {
                   "type": "string"
                 },
-                "maxTickets": {
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
                   "type": "integer"
                 },
                 "otherCommentLabel": {

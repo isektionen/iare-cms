@@ -42,55 +42,6 @@
       "model": "event-category",
       "via": "events"
     },
-    "tickets": {
-      "type": "component",
-      "repeatable": false,
-      "private": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.tickets",
-      "required": true
-    },
-    "servingOptions": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.serving"
-    },
-    "startTime": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "endTime": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "deadline": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
     "body": {
       "pluginOptions": {
         "i18n": {
@@ -100,7 +51,42 @@
       "type": "richtext",
       "required": true
     },
-    "place": {
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "public": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "password": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "password"
+    },
+    "products": {
+      "collection": "product"
+    },
+    "schedule": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -108,46 +94,16 @@
           "localized": true
         }
       },
-      "component": "event.place",
-      "required": true
+      "component": "event.schedule"
     },
-    "passwordProtected": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "event.password-protect"
-    },
-    "orders": {
-      "via": "event",
-      "private": true,
-      "collection": "order"
-    },
-    "banner": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "fullfillmentUID": {
+    "location": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
       "type": "string",
-      "required": false
+      "required": true
     },
     "description": {
       "pluginOptions": {
@@ -155,25 +111,31 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "required": true
     },
-    "maxTickets": {
+    "maxCapacity": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
+      "required": true,
+      "default": 0,
+      "min": 0,
       "type": "integer"
     },
-    "otherCommentLabel": {
-      "type": "component",
-      "repeatable": false,
+    "accumulator": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "component": "event.other-comment"
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "private": true,
+      "min": 0
     }
   }
 }

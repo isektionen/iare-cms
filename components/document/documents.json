@@ -39,7 +39,8 @@
       "required": true
     },
     "businessYear": {
-      "type": "string"
+      "type": "string",
+      "regex": "^\\d{2}\\/\\d{2}$"
     }
   }
 }

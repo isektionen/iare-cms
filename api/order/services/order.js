@@ -7,12 +7,12 @@
 const qrSvg = require("./svg");
 
 module.exports = {
-  async createQRCode(data) {
-    const qr = qrSvg(4, "M");
-    qr.addData(data);
+	async createQRCode(data) {
+		const qr = qrSvg(4, "M");
+		qr.addData(data);
 
-    qr.make();
+		qr.make();
 
-    return qr.createWithLogo(50);
-  },
+		return qr.createWithLogo(50);
+	},
 };

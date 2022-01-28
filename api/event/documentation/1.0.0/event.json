@@ -580,6 +580,208 @@
             }
           }
         }
+      },
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/events/{ref}/products": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/events/{ref}/status": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     }
   },
@@ -589,12 +791,13 @@
         "required": [
           "id",
           "title",
-          "tickets",
-          "startTime",
-          "endTime",
-          "deadline",
           "body",
-          "place"
+          "media",
+          "public",
+          "location",
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "id": {
@@ -715,186 +918,186 @@
               }
             }
           },
-          "tickets": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Tickets": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "swedishName": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "number",
-                      "default": 0
-                    },
-                    "ticketUID": {
-                      "type": "string"
-                    },
-                    "englishName": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "allowMultiple": {
-                "type": "boolean",
-                "default": false
-              }
-            }
-          },
-          "servingOptions": {
-            "type": "object",
-            "required": [
-              "id",
-              "servingFood",
-              "servingAlcohol"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "servingFood": {
-                "type": "boolean"
-              },
-              "servingAlcohol": {
-                "type": "boolean"
-              }
-            }
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "deadline": {
-            "type": "string",
-            "format": "date-time"
-          },
           "body": {
             "type": "string"
           },
-          "place": {
+          "media": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "public": {
+            "type": "boolean",
+            "default": true
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "price",
+                "stock",
+                "count",
+                "media",
+                "reference",
+                "consumable",
+                "description",
+                "sideProduct"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "stock": {
+                  "type": "integer"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "media": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "uid"
+                },
+                "product_options": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "consumable": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "schedule": {
             "type": "object",
             "required": [
               "id",
-              "name"
+              "start",
+              "end",
+              "deadline"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
-                "type": "string"
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "deadline": {
+                "type": "string",
+                "format": "date-time"
               }
             }
           },
-          "passwordProtected": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              }
-            }
-          },
-          "banner": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "fullfillmentUID": {
+          "location": {
             "type": "string"
           },
           "description": {
             "type": "string"
           },
-          "maxTickets": {
-            "type": "integer"
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
           },
           "otherCommentLabel": {
             "type": "object",
@@ -919,12 +1122,13 @@
               "required": [
                 "id",
                 "title",
-                "tickets",
-                "startTime",
-                "endTime",
-                "deadline",
                 "body",
-                "place"
+                "media",
+                "public",
+                "location",
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -942,46 +1146,40 @@
                 "category": {
                   "type": "string"
                 },
-                "tickets": {
-                  "type": "component"
-                },
-                "servingOptions": {
-                  "type": "component"
-                },
-                "startTime": {
-                  "type": "string"
-                },
-                "endTime": {
-                  "type": "string"
-                },
-                "deadline": {
-                  "type": "string"
-                },
                 "body": {
                   "type": "string"
                 },
-                "place": {
-                  "type": "component"
-                },
-                "passwordProtected": {
-                  "type": "component"
-                },
-                "orders": {
+                "media": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "banner": {
+                "public": {
+                  "type": "boolean"
+                },
+                "password": {
                   "type": "string"
                 },
-                "fullfillmentUID": {
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "schedule": {
+                  "type": "component"
+                },
+                "location": {
                   "type": "string"
                 },
                 "description": {
                   "type": "string"
                 },
-                "maxTickets": {
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
                   "type": "integer"
                 },
                 "otherCommentLabel": {
@@ -1020,12 +1218,12 @@
       "NewEvent": {
         "required": [
           "title",
-          "tickets",
-          "startTime",
-          "endTime",
-          "deadline",
           "body",
-          "place"
+          "public",
+          "location",
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "title": {
@@ -1040,125 +1238,62 @@
           "category": {
             "type": "string"
           },
-          "tickets": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Tickets": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "swedishName": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "number",
-                      "default": 0
-                    },
-                    "ticketUID": {
-                      "type": "string"
-                    },
-                    "englishName": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "allowMultiple": {
-                "type": "boolean",
-                "default": false
-              }
-            }
-          },
-          "servingOptions": {
-            "type": "object",
-            "required": [
-              "id",
-              "servingFood",
-              "servingAlcohol"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "servingFood": {
-                "type": "boolean"
-              },
-              "servingAlcohol": {
-                "type": "boolean"
-              }
-            }
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "deadline": {
-            "type": "string",
-            "format": "date-time"
-          },
           "body": {
             "type": "string"
           },
-          "place": {
-            "type": "object",
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              }
-            }
+          "public": {
+            "type": "boolean",
+            "default": true
           },
-          "passwordProtected": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              }
-            }
+          "password": {
+            "type": "string",
+            "format": "password"
           },
-          "orders": {
+          "products": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "fullfillmentUID": {
+          "schedule": {
+            "type": "object",
+            "required": [
+              "id",
+              "start",
+              "end",
+              "deadline"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "deadline": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "location": {
             "type": "string"
           },
           "description": {
             "type": "string"
           },
-          "maxTickets": {
-            "type": "integer"
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
+          },
+          "accumulator": {
+            "type": "integer",
+            "default": 0
           },
           "otherCommentLabel": {
             "type": "object",

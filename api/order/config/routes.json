@@ -26,32 +26,8 @@
     },
     {
       "method": "GET",
-      "path": "/orders/validation/:intentionId",
-      "handler": "order.validateTicket",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/orders/:id/details",
-      "handler": "order.details",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/orders/:intentionId/ticket",
-      "handler": "order.ticket",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/orders/:id/valid",
-      "handler": "order.validIntention",
+      "path": "/orders/:ref/receipt",
+      "handler": "order.findReceipt",
       "config": {
         "policies": []
       }
@@ -68,22 +44,6 @@
       "method": "PUT",
       "path": "/orders/:id",
       "handler": "order.update",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/orders/:id/diets",
-      "handler": "order.updateDiets",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/orders/:paymentId/webhook",
-      "handler": "order.webhook",
       "config": {
         "policies": []
       }
