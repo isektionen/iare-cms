@@ -536,7 +536,9 @@
                 "media",
                 "public",
                 "location",
-                "description"
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -583,6 +585,12 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",

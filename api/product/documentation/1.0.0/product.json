@@ -511,7 +511,7 @@
         ]
       }
     },
-    "/products/{ref}/reserve": {
+    "/products/{ref}/{slug}/reserve": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -575,6 +575,16 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       }
@@ -592,7 +602,8 @@
           "media",
           "reference",
           "consumable",
-          "description"
+          "description",
+          "sideProduct"
         ],
         "properties": {
           "id": {
@@ -725,6 +736,10 @@
           "description": {
             "type": "string"
           },
+          "sideProduct": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -739,7 +754,8 @@
           "count",
           "reference",
           "consumable",
-          "description"
+          "description",
+          "sideProduct"
         ],
         "properties": {
           "name": {
@@ -772,6 +788,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "sideProduct": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

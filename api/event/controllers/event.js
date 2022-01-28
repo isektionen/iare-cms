@@ -165,6 +165,10 @@ module.exports = {
 			return ctx.response.badRequest();
 		}
 
+		if (entity.maxCapacity <= entity.accumulator) {
+			return ctx.response.badRequest();
+		}
+
 		ctx.response.status = 200;
 	},
 };

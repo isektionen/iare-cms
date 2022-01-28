@@ -50,7 +50,7 @@
     },
     {
       "method": "GET",
-      "path": "/products/:ref/reserve",
+      "path": "/products/:ref/:slug/reserve",
       "handler": "product.reserve",
       "config":{
         "policies": []

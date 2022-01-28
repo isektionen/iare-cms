@@ -603,7 +603,9 @@
               "media",
               "public",
               "location",
-              "description"
+              "description",
+              "maxCapacity",
+              "accumulator"
             ],
             "properties": {
               "id": {
@@ -651,6 +653,12 @@
               "description": {
                 "type": "string"
               },
+              "maxCapacity": {
+                "type": "integer"
+              },
+              "accumulator": {
+                "type": "integer"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -683,7 +691,8 @@
                 "media",
                 "reference",
                 "consumable",
-                "description"
+                "description",
+                "sideProduct"
               ],
               "properties": {
                 "id": {
@@ -718,6 +727,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

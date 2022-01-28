@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/19/2022 1:15:09 PM"
+    "x-generation-date": "01/28/2022 1:26:12 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12363,7 +12363,7 @@
         ]
       }
     },
-    "/products/{ref}/reserve": {
+    "/products/{ref}/{slug}/reserve": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12420,6 +12420,16 @@
         "parameters": [
           {
             "name": "ref",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -16856,7 +16866,9 @@
                 "media",
                 "public",
                 "location",
-                "description"
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -16903,6 +16915,12 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -18311,7 +18329,9 @@
                 "media",
                 "public",
                 "location",
-                "description"
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -18358,6 +18378,12 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
+                  "type": "integer"
                 },
                 "localizations": {
                   "type": "array",
@@ -18473,7 +18499,9 @@
           "media",
           "public",
           "location",
-          "description"
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "id": {
@@ -18687,7 +18715,8 @@
                 "media",
                 "reference",
                 "consumable",
-                "description"
+                "description",
+                "sideProduct"
               ],
               "properties": {
                 "id": {
@@ -18722,6 +18751,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -18767,6 +18799,10 @@
           "description": {
             "type": "string"
           },
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -18777,7 +18813,9 @@
                 "media",
                 "public",
                 "location",
-                "description"
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -18825,6 +18863,12 @@
                 "description": {
                   "type": "string"
                 },
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
+                  "type": "integer"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -18861,7 +18905,9 @@
           "body",
           "public",
           "location",
-          "description"
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "title": {
@@ -18924,6 +18970,14 @@
           },
           "description": {
             "type": "string"
+          },
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
+          },
+          "accumulator": {
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",
@@ -20409,7 +20463,9 @@
               "media",
               "public",
               "location",
-              "description"
+              "description",
+              "maxCapacity",
+              "accumulator"
             ],
             "properties": {
               "id": {
@@ -20457,6 +20513,12 @@
               "description": {
                 "type": "string"
               },
+              "maxCapacity": {
+                "type": "integer"
+              },
+              "accumulator": {
+                "type": "integer"
+              },
               "localizations": {
                 "type": "array",
                 "items": {
@@ -20489,7 +20551,8 @@
                 "media",
                 "reference",
                 "consumable",
-                "description"
+                "description",
+                "sideProduct"
               ],
               "properties": {
                 "id": {
@@ -20524,6 +20587,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -21253,7 +21319,8 @@
           "media",
           "reference",
           "consumable",
-          "description"
+          "description",
+          "sideProduct"
         ],
         "properties": {
           "id": {
@@ -21386,6 +21453,10 @@
           "description": {
             "type": "string"
           },
+          "sideProduct": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -21400,7 +21471,8 @@
           "count",
           "reference",
           "consumable",
-          "description"
+          "description",
+          "sideProduct"
         ],
         "properties": {
           "name": {
@@ -21433,6 +21505,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "sideProduct": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

@@ -65,6 +65,11 @@
     "description": {
       "type": "text",
       "required": true
+    },
+    "sideProduct": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

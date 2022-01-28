@@ -795,7 +795,9 @@
           "media",
           "public",
           "location",
-          "description"
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "id": {
@@ -1009,7 +1011,8 @@
                 "media",
                 "reference",
                 "consumable",
-                "description"
+                "description",
+                "sideProduct"
               ],
               "properties": {
                 "id": {
@@ -1044,6 +1047,9 @@
                 },
                 "description": {
                   "type": "string"
+                },
+                "sideProduct": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -1089,6 +1095,10 @@
           "description": {
             "type": "string"
           },
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -1099,7 +1109,9 @@
                 "media",
                 "public",
                 "location",
-                "description"
+                "description",
+                "maxCapacity",
+                "accumulator"
               ],
               "properties": {
                 "id": {
@@ -1147,6 +1159,12 @@
                 "description": {
                   "type": "string"
                 },
+                "maxCapacity": {
+                  "type": "integer"
+                },
+                "accumulator": {
+                  "type": "integer"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -1183,7 +1201,9 @@
           "body",
           "public",
           "location",
-          "description"
+          "description",
+          "maxCapacity",
+          "accumulator"
         ],
         "properties": {
           "title": {
@@ -1246,6 +1266,14 @@
           },
           "description": {
             "type": "string"
+          },
+          "maxCapacity": {
+            "type": "integer",
+            "default": 0
+          },
+          "accumulator": {
+            "type": "integer",
+            "default": 0
           },
           "localizations": {
             "type": "array",

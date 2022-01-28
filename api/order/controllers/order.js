@@ -66,13 +66,6 @@ module.exports = {
 			.find({ reference_in: _.map(body.order.items, "reference") });
 		const productIds = _.map(products, "id");
 
-		// should maybe check options (?)
-		/*
-		const options = await strapi
-			.query("product-option")
-			.find({ reference_in: _.keys(body.options) });
-		*/
-
 		const order = {
 			reference: body.order.reference,
 			data: body,

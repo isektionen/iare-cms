@@ -113,6 +113,29 @@
       },
       "type": "text",
       "required": true
+    },
+    "maxCapacity": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": 0,
+      "min": 0,
+      "type": "integer"
+    },
+    "accumulator": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "private": true,
+      "min": 0
     }
   }
 }
