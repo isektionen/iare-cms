@@ -25,7 +25,7 @@ async function sendEmail(order, eventTitle) {
 	await strapi.plugins["email"].services.email.send({
 		to: order.data.customerData.email,
 		//from: "no-reply@iare.se",
-		subject: "Iare: Order reserved successfully",
+		subject: "Iare: Your order was successful",
 		text: `This email counts as a confirmation that you have successfully RSVP to ${eventTitle}.\n\nYour reciept can be seen here: ${order.data.recieptUrl}\n\norder-reference: ${order.data.order.reference}`,
 	});
 }
