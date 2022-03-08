@@ -55,6 +55,14 @@
       "config":{
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/products/:ref/:slug/removecountandaccumulator",
+      "handler": "product.removecountandaccumulator",
+      "config":{
+        "policies": []
+      }
     }
   ]
 }
