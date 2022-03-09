@@ -44,7 +44,7 @@ module.exports = {
 
 		if (qty <= itemsLeft && entity.count <= entity.stock) {
 			// accumulate capacity on main products
-			if (!entity.sideProduct) {
+			if (true) {
 				await strapi.query("event").update(
 					{ slug: event.slug },
 					{
