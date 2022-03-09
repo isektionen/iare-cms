@@ -111,6 +111,7 @@ module.exports = {
 					"stock",
 					"count",
 					"consumable",
+					"sideProduct"
 				]),
 				product_options: await Promise.all(
 					obj.product_options.map(async (prod) => {
