@@ -30,13 +30,13 @@ module.exports = {
 		const entity = await getProductEntity(ctx);
 		const event = await getEventEntity(ctx);
 		const qty = parseInt(ctx?.query?.quantity ?? 0);
-		const accumulate = parseInt(ctx?.query?.accumulate ?? 0);
 		const itemsLeft = parseInt(entity.stock - entity.count);
 
 		// when a product is not a side product and the event has reached its max
 		// capacity it cannot reserve more products.
 		if (
-			parseInt(event.accumulator) + accumulate > parseInt(event.maxCapacity)
+			!entity.sideProduct &&
+			parseInt(event.accumulator) + qty > parseInt(event.maxCapacity)
 		) {
 			ctx.response.status = 403;
 			return;
@@ -48,7 +48,7 @@ module.exports = {
 				await strapi.query("event").update(
 					{ slug: event.slug },
 					{
-						accumulator: parseInt(event.accumulator) + accumulate,
+						accumulator: parseInt(event.accumulator) + qty,
 					}
 				);
 			}
