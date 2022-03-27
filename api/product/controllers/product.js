@@ -25,6 +25,8 @@ async function getEventEntity(ctx) {
 	return entity;
 }
 
+// Comment just to rebuild cms
+
 module.exports = {
 	async reserve(ctx) {
 		const entity = await getProductEntity(ctx);
