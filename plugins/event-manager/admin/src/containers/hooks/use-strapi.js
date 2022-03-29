@@ -121,10 +121,10 @@ const eventState = selector({
 		const isSuperAdmin = get(roleSelector("strapi-super-admin"));
 		const isKassor = get(roleSelector("kassor"));
 
-		if (events.length > 0) {
+		if (events && events.length > 0) {
 			return events;
 		}
-
+		
 		if (isSuperAdmin || isKassor) {
 			const client = strapiClient();
 			const events = await client.get(
