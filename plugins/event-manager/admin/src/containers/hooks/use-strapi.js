@@ -71,13 +71,13 @@ const roleSelector = selectorFamily({
 	key: "SELECTOR/USERROLES",
 	get:
 		(code) =>
-		async ({ get }) => {
-			const user = get(userState);
-			if (user) {
-				return user.roles.some((p) => p.code.includes(code));
-			}
-			return false;
-		},
+			async ({ get }) => {
+				const user = get(userState);
+				if (user) {
+					return user.roles.some((p) => p.code.includes(code));
+				}
+				return false;
+			},
 });
 
 const eventsAtom = atom({
@@ -124,7 +124,7 @@ const eventState = selector({
 		if (events && events.length > 0) {
 			return events;
 		}
-		
+
 		if (isSuperAdmin || isKassor) {
 			const client = strapiClient();
 			const events = await client.get(
@@ -140,20 +140,20 @@ const orderSelector = selectorFamily({
 	key: "SELECTOR/ORDER",
 	get:
 		(slug) =>
-		async ({ get }) => {
-			const allEvents = get(eventState);
-			if (allEvents) {
-				const event = allEvents.find((p) => p.slug === slug);
-				if (event) {
-					const client = strapiClient();
-					const result = await client.get(
-						`/orders?event=${event.id}`
-					);
-					return result.data;
+			async ({ get }) => {
+				const allEvents = get(eventState);
+				if (allEvents) {
+					const event = allEvents.find((p) => p.slug === slug);
+					if (event) {
+						const client = strapiClient();
+						const result = await client.get(
+							`/orders?event=${event.id}&_limit=-1`
+						);
+						return result.data;
+					}
 				}
-			}
-			return [];
-		},
+				return [];
+			},
 });
 
 const conformedOrderMapper = (order) => ({
@@ -162,8 +162,8 @@ const conformedOrderMapper = (order) => ({
 	reference: order.data?.order?.reference ?? "N/A",
 	fullName:
 		order.data?.customerData?.firstName +
-			" " +
-			order.data?.customerData?.lastName ?? "N/A",
+		" " +
+		order.data?.customerData?.lastName ?? "N/A",
 	amount:
 		conformAmount(
 			order.data.order.amount,
@@ -176,13 +176,12 @@ const conformedOrderMapper = (order) => ({
 	options: order.data.options
 		.map(
 			(p) =>
-				`${p.label}: ${
-					p.type === "select"
-						? p.data.map((d) => "#" + d.label).join(" ")
-						: p.data
-								.filter((d) => d !== null)
-								.map((d) => "#" + d)
-								.join(" ")
+				`${p.label}: ${p.type === "select"
+					? p.data.map((d) => "#" + d.label).join(" ")
+					: p.data
+						.filter((d) => d !== null)
+						.map((d) => "#" + d)
+						.join(" ")
 				}`
 		)
 		.join(" "),
